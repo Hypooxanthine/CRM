@@ -15,8 +15,6 @@ SOURCES += \
 HEADERS += \
     mainwindow.h
 
-TRANSLATIONS += \
-    Projet_fr_FR.ts
 CONFIG += lrelease
 CONFIG += embed_translations
 
