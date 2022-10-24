@@ -17,11 +17,12 @@ SOURCES += \
     todo.cpp
 
 HEADERS += \
+    contact.h \
     date.h \
     datelib.h \
     interaction.h \
     mainwindow.h \
-    todo.h
+    todo.h \
     contact.h \
     mainwindow.h
 
