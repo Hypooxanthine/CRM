@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     date.cpp \
     interaction.cpp \
+    contact.cpp \
     main.cpp \
     mainwindow.cpp \
     todo.cpp
@@ -21,6 +22,8 @@ HEADERS += \
     interaction.h \
     mainwindow.h \
     todo.h
+    contact.h \
+    mainwindow.h
 
 CONFIG += lrelease
 CONFIG += embed_translations
