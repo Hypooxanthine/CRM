@@ -97,16 +97,17 @@ $(function() {
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../db/d0c/classInteraction.html#a3909fe6e194c02e66add6788b64e9c67">   68</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;Todo&gt;&amp; <a class="code" href="../../db/d0c/classInteraction.html#a3909fe6e194c02e66add6788b64e9c67">getTodos</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> todos; }</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">private</span>: <span class="comment">// Private methods</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> parseTodos(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">private</span>: <span class="comment">// Private members</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::string content;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="../../de/d4a/classDate.html">Date</a> date;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::vector&lt;Todo&gt; todos;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp; interaction);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>: <span class="comment">// Private methods</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> parseTodos(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">private</span>: <span class="comment">// Private members</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    std::string content;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="../../de/d4a/classDate.html">Date</a> date;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::vector&lt;Todo&gt; todos;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;;</div>
 <div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> date.h:7</div></div>
 <div class="ttc" id="aclassInteraction_html"><div class="ttname"><a href="../../db/d0c/classInteraction.html">Interaction</a></div><div class="ttdef"><b>Definition:</b> interaction.h:10</div></div>
 <div class="ttc" id="aclassInteraction_html_a3909fe6e194c02e66add6788b64e9c67"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a3909fe6e194c02e66add6788b64e9c67">Interaction::getTodos</a></div><div class="ttdeci">const std::vector&lt; Todo &gt; &amp; getTodos() const</div><div class="ttdoc">Gets the Todo's list.</div><div class="ttdef"><b>Definition:</b> interaction.h:68</div></div>

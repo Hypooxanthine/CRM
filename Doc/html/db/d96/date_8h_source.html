@@ -92,10 +92,12 @@ $(function() {
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../de/d4a/classDate.html">Date</a> <a class="code" href="../../de/d4a/classDate.html#a49d5657118ed1856d5e03e569214b775">today</a>();</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    uint8_t day, month;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    uint16_t year;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../de/d4a/classDate.html">Date</a>&amp; date);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    uint8_t day, month;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    uint16_t year;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
 <div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> date.h:7</div></div>
 <div class="ttc" id="aclassDate_html_a2f2ddf4951a523a9984161ef41a60473"><div class="ttname"><a href="../../de/d4a/classDate.html#a2f2ddf4951a523a9984161ef41a60473">Date::setMonth</a></div><div class="ttdeci">void setMonth(const uint8_t &amp;m)</div><div class="ttdoc">Sets the month of the Date.</div><div class="ttdef"><b>Definition:</b> date.h:50</div></div>
 <div class="ttc" id="aclassDate_html_a2f4c8a1601d95e8f3e0e1269f5fde82e"><div class="ttname"><a href="../../de/d4a/classDate.html#a2f4c8a1601d95e8f3e0e1269f5fde82e">Date::getDay</a></div><div class="ttdeci">const uint8_t &amp; getDay() const</div><div class="ttdoc">Gets the day value.</div><div class="ttdef"><b>Definition:</b> date.h:26</div></div>

@@ -37,3 +37,23 @@ void Interaction::parseTodos(const std::string& str)
 
     }
 }
+
+std::ostream& operator<<(std::ostream& os, const Interaction& interaction)
+{
+    os << "Content : \"" << interaction.getContent() << "\"" << std::endl;
+    os << "Date : " << interaction.getDate() << std::endl;
+
+    if(interaction.getTodos().empty())
+        os << "No Todo.";
+    else
+    {
+        os << "Todo's :";
+
+        for(const auto& todo : interaction.getTodos())
+        {
+            os << std::endl << "\t" << todo;
+        }
+    }
+
+    return os;
+}

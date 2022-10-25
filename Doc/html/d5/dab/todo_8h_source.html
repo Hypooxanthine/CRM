@@ -93,18 +93,21 @@ $(function() {
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="../../d1/d05/classTodo.html#af6e9fe25204bd718052c51cd131596b8">   54</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="../../de/d4a/classDate.html">Date</a>&amp; <a class="code" href="../../d1/d05/classTodo.html#af6e9fe25204bd718052c51cd131596b8">getDate</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> date; }</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> getContentAndDate(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    std::optional&lt;Date&gt; parseDate(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::optional&lt;uint16_t&gt; parseNumber(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    std::string content;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="../../de/d4a/classDate.html">Date</a> date;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../d1/d05/classTodo.html">Todo</a>&amp; todo);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> getContentAndDate(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::optional&lt;Date&gt; parseDate(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    std::optional&lt;uint16_t&gt; parseNumber(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::string content;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="../../de/d4a/classDate.html">Date</a> date;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;};</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
 <div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> date.h:7</div></div>
 <div class="ttc" id="aclassTodo_html"><div class="ttname"><a href="../../d1/d05/classTodo.html">Todo</a></div><div class="ttdef"><b>Definition:</b> todo.h:9</div></div>
 <div class="ttc" id="aclassTodo_html_a7e69a5a1496e6b601a22c06dc0bb22f0"><div class="ttname"><a href="../../d1/d05/classTodo.html#a7e69a5a1496e6b601a22c06dc0bb22f0">Todo::getContent</a></div><div class="ttdeci">const std::string &amp; getContent() const</div><div class="ttdoc">Gets the content of the Todo. It shouldn't contain any @date tag.</div><div class="ttdef"><b>Definition:</b> todo.h:48</div></div>

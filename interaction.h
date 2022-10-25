@@ -67,6 +67,7 @@ public: // Publics methods
      */
     inline const std::vector<Todo>& getTodos() const { return todos; }
 
+    friend std::ostream& operator<<(std::ostream& os, const Interaction& interaction);
 
 private: // Private methods
     /**
@@ -80,4 +81,4 @@ private: // Private members
     Date date;
     std::vector<Todo> todos;
 };
-
+;

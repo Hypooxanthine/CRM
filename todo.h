@@ -53,6 +53,7 @@ public:
      */
     const Date& getDate() const { return date; }
 
+    friend std::ostream& operator<<(std::ostream& os, const Todo& todo);
 
 private:
     /**
@@ -80,3 +81,5 @@ private:
     std::string content;
     Date date;
 };
+
+

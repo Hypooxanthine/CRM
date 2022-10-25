@@ -1,6 +1,7 @@
 #include "todo.h"
 
 #include <sstream>
+#include <iostream>
 
 Todo::Todo(const std::string& content, const Date& date)
     : content(content), date(date)
@@ -118,9 +119,9 @@ std::optional<uint16_t> Todo::parseNumber(const std::string& str)
     uint8_t tenPower = 0;
     bool error = false;
 
-    for(auto it = str.rbegin(); it < str.rend() && !error && value < 10000; it++) // 10000 is the max value for day, month and year.
+    for(auto it = str.rbegin(); it < str.rend() && !error; it++) // 10000 is the max value for day, month and year.
     {
-        if (*it < '0' || *it > '9') // Only numbers, no '-' : no negative numbers.
+        if (*it < '0' || *it > '9' || value > 10000) // Only numbers, no '-' : no negative numbers.
             error = true;
         else
             value += (*it - '0') * std::pow(10, tenPower++);
@@ -129,4 +130,10 @@ std::optional<uint16_t> Todo::parseNumber(const std::string& str)
     if(!error) out = value;
 
     return out;
+}
+
+std::ostream& operator<<(std::ostream& os, const Todo& todo)
+{
+    os << "(" << todo.getDate() << ") " << todo.getContent();
+    return os;
 }

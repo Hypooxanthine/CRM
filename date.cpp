@@ -14,3 +14,9 @@ Date Date::today()
     // Using explicit conversion operators from date::year_mont_day to retrieve the values of day, month & year.
     return Date((unsigned)asDateLib.day(), (unsigned)asDateLib.month(), std::abs((int)asDateLib.year()));
 }
+
+std::ostream& operator<<(std::ostream& os, const Date& date)
+{
+    os << +date.getDay() << '/' << +date.getMonth() << '/' << +date.getYear();
+    return os;
+}

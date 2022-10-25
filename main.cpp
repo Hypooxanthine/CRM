@@ -4,8 +4,13 @@
 #include <QLocale>
 #include <QTranslator>
 
+#include "unit_tests.h"
+
 int main(int argc, char *argv[])
 {
+    Test_Todo();
+    Test_Interaction();
+
     QApplication a(argc, argv);
 
     QTranslator translator;

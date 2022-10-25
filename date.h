@@ -61,6 +61,8 @@ public:
      */
     static Date today();
 
+    friend std::ostream& operator<<(std::ostream& os, const Date& date);
+
 private:
     uint8_t day, month;
     uint16_t year;
