@@ -13,6 +13,7 @@ Contact::     Contact(const std::string& id, const std::string& name,
     setPhoto(photo);
     setCreationDate(cDate);
     setInteractionList(interactionList);
+
 }
 
 Contact::Contact(const Contact& c){

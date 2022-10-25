@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['date_7',['Date',['../de/d4a/classDate.html',1,'']]]
+  ['date_20',['Date',['../de/d4a/classDate.html',1,'']]]
 ];

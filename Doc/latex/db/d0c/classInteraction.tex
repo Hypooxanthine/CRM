@@ -3,12 +3,147 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classInteraction_a506b94800c3b34e1959efe5a3248ebf5}\label{classInteraction_a506b94800c3b34e1959efe5a3248ebf5}} 
+\mbox{\hyperlink{classInteraction_a506b94800c3b34e1959efe5a3248ebf5}{Interaction}} ()=delete
+\begin{DoxyCompactList}\small\item\em Default constructor is deleted. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInteraction_ad4cef60f821211c9cb1c9aad1bbaa5a5}{Interaction}} (const std\+::string \&content, const \mbox{\hyperlink{classDate}{Date}} \&date)
+\begin{DoxyCompactList}\small\item\em This constructor has to be called for a known \mbox{\hyperlink{classInteraction}{Interaction}}. For example, when retrieving an \mbox{\hyperlink{classInteraction}{Interaction}} from the database, the contact is known, so is the date. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInteraction_af1b7795a91d4a83a2fe1dee19018fbef}{Interaction}} (const std\+::string \&content)
+\begin{DoxyCompactList}\small\item\em This constructor has to be called for a new \mbox{\hyperlink{classInteraction}{Interaction}}. It\textquotesingle{}ll parse all the todos from it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInteraction_ac586b317091b175eae572b53a80f5721}{set\+Content}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Sets the content of the interaction. No @todo should appear in it. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInteraction_a485ba37b2ee05e614266f7ff6a79e074}{set\+Date}} (const \mbox{\hyperlink{classDate}{Date}} d)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classDate}{Date}} of the content. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classInteraction_a77e5439b7a983145b88c37df3832ef4d}{set\+Todos}} (const std\+::vector$<$ \mbox{\hyperlink{classTodo}{Todo}} $>$ \&t)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classInteraction_a93aeda0573ce1c7a5fa951cc08b7fbd7}{get\+Content}} () const
+\begin{DoxyCompactList}\small\item\em Gets the content of the \mbox{\hyperlink{classInteraction}{Interaction}}. It shouldn\textquotesingle{}t contain any @todo. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classInteraction_ac283e62345397dd169a390584d2b7fc3}{get\+Date}} () const
+\begin{DoxyCompactList}\small\item\em Gets the creation \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classInteraction}{Interaction}}. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classTodo}{Todo}} $>$ \& \mbox{\hyperlink{classInteraction_a3909fe6e194c02e66add6788b64e9c67}{get\+Todos}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classInteraction_ad4cef60f821211c9cb1c9aad1bbaa5a5}\label{classInteraction_ad4cef60f821211c9cb1c9aad1bbaa5a5}} 
-{\bfseries Interaction} (const std\+::string \&content, const \mbox{\hyperlink{classDate}{Date}} \&date)
-\item 
+\index{Interaction@{Interaction}!Interaction@{Interaction}}
+\index{Interaction@{Interaction}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{content,  }\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date }\end{DoxyParamCaption})}
+
+
+
+This constructor has to be called for a known \mbox{\hyperlink{classInteraction}{Interaction}}. For example, when retrieving an \mbox{\hyperlink{classInteraction}{Interaction}} from the database, the contact is known, so is the date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & The content of the \mbox{\hyperlink{classInteraction}{Interaction}}. It shouldn\textquotesingle{}t contain any @todo. \\
+\hline
+{\em date} & The date the \mbox{\hyperlink{classInteraction}{Interaction}} was created. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classInteraction_af1b7795a91d4a83a2fe1dee19018fbef}\label{classInteraction_af1b7795a91d4a83a2fe1dee19018fbef}} 
-{\bfseries Interaction} (const std\+::string \&content)
-\end{DoxyCompactItemize}
+\index{Interaction@{Interaction}!Interaction@{Interaction}}
+\index{Interaction@{Interaction}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{Interaction()}{Interaction()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Interaction\+::\+Interaction (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{content }\end{DoxyParamCaption})}
+
+
+
+This constructor has to be called for a new \mbox{\hyperlink{classInteraction}{Interaction}}. It\textquotesingle{}ll parse all the todos from it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & The content of the \mbox{\hyperlink{classInteraction}{Interaction}}. Every @todo\textquotesingle{}s won\textquotesingle{}t appear in the content after parsing \+: they will be part of the \mbox{\hyperlink{classTodo}{Todo}} vector. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classInteraction_a93aeda0573ce1c7a5fa951cc08b7fbd7}\label{classInteraction_a93aeda0573ce1c7a5fa951cc08b7fbd7}} 
+\index{Interaction@{Interaction}!getContent@{getContent}}
+\index{getContent@{getContent}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{getContent()}{getContent()}}
+{\footnotesize\ttfamily const std\+::string\& Interaction\+::get\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the content of the \mbox{\hyperlink{classInteraction}{Interaction}}. It shouldn\textquotesingle{}t contain any @todo. 
+
+\begin{DoxyReturn}{Returns}
+The content of the \mbox{\hyperlink{classInteraction}{Interaction}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInteraction_ac283e62345397dd169a390584d2b7fc3}\label{classInteraction_ac283e62345397dd169a390584d2b7fc3}} 
+\index{Interaction@{Interaction}!getDate@{getDate}}
+\index{getDate@{getDate}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classDate}{Date}}\& Interaction\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the creation \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classInteraction}{Interaction}}. 
+
+\begin{DoxyReturn}{Returns}
+The creation \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classInteraction}{Interaction}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInteraction_a3909fe6e194c02e66add6788b64e9c67}\label{classInteraction_a3909fe6e194c02e66add6788b64e9c67}} 
+\index{Interaction@{Interaction}!getTodos@{getTodos}}
+\index{getTodos@{getTodos}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{getTodos()}{getTodos()}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{classTodo}{Todo}}$>$\& Interaction\+::get\+Todos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInteraction_ac586b317091b175eae572b53a80f5721}\label{classInteraction_ac586b317091b175eae572b53a80f5721}} 
+\index{Interaction@{Interaction}!setContent@{setContent}}
+\index{setContent@{setContent}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{setContent()}{setContent()}}
+{\footnotesize\ttfamily void Interaction\+::set\+Content (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the content of the interaction. No @todo should appear in it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The new content string. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInteraction_a485ba37b2ee05e614266f7ff6a79e074}\label{classInteraction_a485ba37b2ee05e614266f7ff6a79e074}} 
+\index{Interaction@{Interaction}!setDate@{setDate}}
+\index{setDate@{setDate}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily void Interaction\+::set\+Date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}}}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the \mbox{\hyperlink{classDate}{Date}} of the content. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The new \mbox{\hyperlink{classDate}{Date}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classInteraction_a77e5439b7a983145b88c37df3832ef4d}\label{classInteraction_a77e5439b7a983145b88c37df3832ef4d}} 
+\index{Interaction@{Interaction}!setTodos@{setTodos}}
+\index{setTodos@{setTodos}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{setTodos()}{setTodos()}}
+{\footnotesize\ttfamily void Interaction\+::set\+Todos (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classTodo}{Todo}} $>$ \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The new \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

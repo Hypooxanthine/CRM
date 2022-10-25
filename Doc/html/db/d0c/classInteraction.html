@@ -72,13 +72,286 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad4cef60f821211c9cb1c9aad1bbaa5a5"><td class="memItemLeft" align="right" valign="top"><a id="ad4cef60f821211c9cb1c9aad1bbaa5a5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Interaction</b> (const std::string &amp;content, const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;date)</td></tr>
+<tr class="memitem:a506b94800c3b34e1959efe5a3248ebf5"><td class="memItemLeft" align="right" valign="top"><a id="a506b94800c3b34e1959efe5a3248ebf5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#a506b94800c3b34e1959efe5a3248ebf5">Interaction</a> ()=delete</td></tr>
+<tr class="memdesc:a506b94800c3b34e1959efe5a3248ebf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor is deleted. <br /></td></tr>
+<tr class="separator:a506b94800c3b34e1959efe5a3248ebf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4cef60f821211c9cb1c9aad1bbaa5a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#ad4cef60f821211c9cb1c9aad1bbaa5a5">Interaction</a> (const std::string &amp;content, const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;date)</td></tr>
+<tr class="memdesc:ad4cef60f821211c9cb1c9aad1bbaa5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor has to be called for a known <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. For example, when retrieving an <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> from the database, the contact is known, so is the date.  <a href="../../db/d0c/classInteraction.html#ad4cef60f821211c9cb1c9aad1bbaa5a5">More...</a><br /></td></tr>
 <tr class="separator:ad4cef60f821211c9cb1c9aad1bbaa5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1b7795a91d4a83a2fe1dee19018fbef"><td class="memItemLeft" align="right" valign="top"><a id="af1b7795a91d4a83a2fe1dee19018fbef"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Interaction</b> (const std::string &amp;content)</td></tr>
+<tr class="memitem:af1b7795a91d4a83a2fe1dee19018fbef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#af1b7795a91d4a83a2fe1dee19018fbef">Interaction</a> (const std::string &amp;content)</td></tr>
+<tr class="memdesc:af1b7795a91d4a83a2fe1dee19018fbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor has to be called for a new <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It'll parse all the todos from it.  <a href="../../db/d0c/classInteraction.html#af1b7795a91d4a83a2fe1dee19018fbef">More...</a><br /></td></tr>
 <tr class="separator:af1b7795a91d4a83a2fe1dee19018fbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac586b317091b175eae572b53a80f5721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#ac586b317091b175eae572b53a80f5721">setContent</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:ac586b317091b175eae572b53a80f5721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the content of the interaction. No @todo should appear in it.  <a href="../../db/d0c/classInteraction.html#ac586b317091b175eae572b53a80f5721">More...</a><br /></td></tr>
+<tr class="separator:ac586b317091b175eae572b53a80f5721"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a485ba37b2ee05e614266f7ff6a79e074"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#a485ba37b2ee05e614266f7ff6a79e074">setDate</a> (const <a class="el" href="../../de/d4a/classDate.html">Date</a> d)</td></tr>
+<tr class="memdesc:a485ba37b2ee05e614266f7ff6a79e074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="../../de/d4a/classDate.html">Date</a> of the content.  <a href="../../db/d0c/classInteraction.html#a485ba37b2ee05e614266f7ff6a79e074">More...</a><br /></td></tr>
+<tr class="separator:a485ba37b2ee05e614266f7ff6a79e074"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77e5439b7a983145b88c37df3832ef4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#a77e5439b7a983145b88c37df3832ef4d">setTodos</a> (const std::vector&lt; <a class="el" href="../../d1/d05/classTodo.html">Todo</a> &gt; &amp;t)</td></tr>
+<tr class="memdesc:a77e5439b7a983145b88c37df3832ef4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="../../d1/d05/classTodo.html">Todo</a>'s list.  <a href="../../db/d0c/classInteraction.html#a77e5439b7a983145b88c37df3832ef4d">More...</a><br /></td></tr>
+<tr class="separator:a77e5439b7a983145b88c37df3832ef4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93aeda0573ce1c7a5fa951cc08b7fbd7"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#a93aeda0573ce1c7a5fa951cc08b7fbd7">getContent</a> () const</td></tr>
+<tr class="memdesc:a93aeda0573ce1c7a5fa951cc08b7fbd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the content of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It shouldn't contain any @todo.  <a href="../../db/d0c/classInteraction.html#a93aeda0573ce1c7a5fa951cc08b7fbd7">More...</a><br /></td></tr>
+<tr class="separator:a93aeda0573ce1c7a5fa951cc08b7fbd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac283e62345397dd169a390584d2b7fc3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#ac283e62345397dd169a390584d2b7fc3">getDate</a> () const</td></tr>
+<tr class="memdesc:ac283e62345397dd169a390584d2b7fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the creation <a class="el" href="../../de/d4a/classDate.html">Date</a> of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>.  <a href="../../db/d0c/classInteraction.html#ac283e62345397dd169a390584d2b7fc3">More...</a><br /></td></tr>
+<tr class="separator:ac283e62345397dd169a390584d2b7fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3909fe6e194c02e66add6788b64e9c67"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../d1/d05/classTodo.html">Todo</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#a3909fe6e194c02e66add6788b64e9c67">getTodos</a> () const</td></tr>
+<tr class="memdesc:a3909fe6e194c02e66add6788b64e9c67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="../../d1/d05/classTodo.html">Todo</a>'s list.  <a href="../../db/d0c/classInteraction.html#a3909fe6e194c02e66add6788b64e9c67">More...</a><br /></td></tr>
+<tr class="separator:a3909fe6e194c02e66add6788b64e9c67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad4cef60f821211c9cb1c9aad1bbaa5a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4cef60f821211c9cb1c9aad1bbaa5a5">&#9670;&nbsp;</a></span>Interaction() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Interaction::Interaction </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>content</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;&#160;</td>
+          <td class="paramname"><em>date</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This constructor has to be called for a known <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. For example, when retrieving an <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> from the database, the contact is known, so is the date. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">content</td><td>The content of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It shouldn't contain any @todo. </td></tr>
+    <tr><td class="paramname">date</td><td>The date the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> was created. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af1b7795a91d4a83a2fe1dee19018fbef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1b7795a91d4a83a2fe1dee19018fbef">&#9670;&nbsp;</a></span>Interaction() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Interaction::Interaction </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>content</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This constructor has to be called for a new <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It'll parse all the todos from it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">content</td><td>The content of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. Every @todo's won't appear in the content after parsing : they will be part of the <a class="el" href="../../d1/d05/classTodo.html">Todo</a> vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a93aeda0573ce1c7a5fa951cc08b7fbd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93aeda0573ce1c7a5fa951cc08b7fbd7">&#9670;&nbsp;</a></span>getContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string&amp; Interaction::getContent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the content of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It shouldn't contain any @todo. </p>
+<dl class="section return"><dt>Returns</dt><dd>The content of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ac283e62345397dd169a390584d2b7fc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac283e62345397dd169a390584d2b7fc3">&#9670;&nbsp;</a></span>getDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../de/d4a/classDate.html">Date</a>&amp; Interaction::getDate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the creation <a class="el" href="../../de/d4a/classDate.html">Date</a> of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The creation <a class="el" href="../../de/d4a/classDate.html">Date</a> of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a3909fe6e194c02e66add6788b64e9c67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3909fe6e194c02e66add6788b64e9c67">&#9670;&nbsp;</a></span>getTodos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../d1/d05/classTodo.html">Todo</a>&gt;&amp; Interaction::getTodos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the <a class="el" href="../../d1/d05/classTodo.html">Todo</a>'s list. </p>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="../../d1/d05/classTodo.html">Todo</a>'s list. </dd></dl>
+
+</div>
+</div>
+<a id="ac586b317091b175eae572b53a80f5721"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac586b317091b175eae572b53a80f5721">&#9670;&nbsp;</a></span>setContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Interaction::setContent </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the content of the interaction. No @todo should appear in it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The new content string. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a485ba37b2ee05e614266f7ff6a79e074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a485ba37b2ee05e614266f7ff6a79e074">&#9670;&nbsp;</a></span>setDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Interaction::setDate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4a/classDate.html">Date</a>&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the <a class="el" href="../../de/d4a/classDate.html">Date</a> of the content. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>The new <a class="el" href="../../de/d4a/classDate.html">Date</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a77e5439b7a983145b88c37df3832ef4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e5439b7a983145b88c37df3832ef4d">&#9670;&nbsp;</a></span>setTodos()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Interaction::setTodos </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../d1/d05/classTodo.html">Todo</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the <a class="el" href="../../d1/d05/classTodo.html">Todo</a>'s list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>The new <a class="el" href="../../d1/d05/classTodo.html">Todo</a>'s list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="../../da/d85/interaction_8h_source.html">interaction.h</a></li>
 <li>interaction.cpp</li>

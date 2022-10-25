@@ -21,7 +21,7 @@ Date Todo::getDate() const{return this->date;}
 
 void Todo::getContentAndDate(const std::string& str)
 {
-    std::stringstream ss(str);
+    std::istringstream ss(str);
     std::string word;
 
     bool dateFound = false;
@@ -35,7 +35,7 @@ void Todo::getContentAndDate(const std::string& str)
             std::string dateToken;
             ss >> dateToken;
 
-            if(ss.tellg() == std::stringstream::eofbit) break;
+            if(ss.tellg() == std::istringstream::eofbit) break;
 
             const auto result = parseDate(dateToken);
 
@@ -51,7 +51,7 @@ void Todo::getContentAndDate(const std::string& str)
         }
         else
             content += word;
-    } while(ss.tellg() != std::stringstream::eofbit);
+    } while(ss.tellg() != std::istringstream::eofbit);
 
     if(!dateFound)
         date = Date::today();
@@ -61,14 +61,16 @@ std::optional<Date> Todo::parseDate(const std::string& str)
 {
     std::optional<Date> out;
 
-    bool dayFound = false, monthFound = false, yearFound = false, error = false;
+    bool dayFound = false, monthFound = false, yearFound = false;
+    bool error = false;
+
     uint8_t day = 0, month = 0;
     uint16_t year = 0;
 
-    std::stringstream ss(str);
+    std::istringstream ss(str);
     std::string token;
 
-    while(std::getline(ss, token, '/'))
+    while(!error && std::getline(ss, token, '/'))
     {
         if(!dayFound)
         {
@@ -78,7 +80,7 @@ std::optional<Date> Todo::parseDate(const std::string& str)
                 day = number.value();
             }
             else
-                break;
+                error = true;
         }
         else if(!monthFound)
         {
@@ -88,7 +90,7 @@ std::optional<Date> Todo::parseDate(const std::string& str)
                 month = number.value();
             }
             else
-                break;
+                error = true;
         }
         else if(!yearFound)
         {
@@ -98,13 +100,10 @@ std::optional<Date> Todo::parseDate(const std::string& str)
                 year = number.value();
             }
             else
-                break;
+                error = true;
         }
         else // Every number has been found but there is another token : the date is not valid
-        {
             error = true;
-            break;
-        }
 
     }
 

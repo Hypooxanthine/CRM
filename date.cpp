@@ -10,6 +10,7 @@ Date::Date()
 
 Date Date::today()
 {
-    const auto asDateLib = date::year_month_day{date::floor<date::days>(std::chrono::system_clock::now())};
+    const date::year_month_day asDateLib{date::floor<date::days>(std::chrono::system_clock::now())};
+    // Using explicit conversion operators from date::year_mont_day to retrieve the values of day, month & year.
     return Date((unsigned)asDateLib.day(), (unsigned)asDateLib.month(), std::abs((int)asDateLib.year()));
 }
