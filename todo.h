@@ -12,6 +12,15 @@ public:
     Todo(const std::string& content, const Date& date);
     Todo(const std::string& content);
 
+
+    //getters and setters
+    void setContent(const std::string &content);
+    void setDate(const Date date);
+
+    std::string getContent() const;
+    Date getDate() const;
+
+
 private:
     void getContentAndDate(const std::string& str);
     std::optional<Date> parseDate(const std::string& str);

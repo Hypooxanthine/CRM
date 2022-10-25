@@ -14,7 +14,8 @@ SOURCES += \
     contact.cpp \
     main.cpp \
     mainwindow.cpp \
-    todo.cpp
+    todo.cpp \
+    unit_tests.cpp
 
 HEADERS += \
     contact.h \
@@ -24,7 +25,8 @@ HEADERS += \
     mainwindow.h \
     todo.h \
     contact.h \
-    mainwindow.h
+    mainwindow.h \
+    unit_tests.h
 
 CONFIG += lrelease
 CONFIG += embed_translations

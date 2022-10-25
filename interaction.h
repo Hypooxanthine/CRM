@@ -13,6 +13,18 @@ public: // Publics methods
     Interaction(const std::string& content, const Date& date);
     Interaction(const std::string& content);
 
+
+    //getters and setters
+    void setContent(const std::string &content);
+    void setDate(const Date date);
+    void setTodos(const std::vector<Todo> &newTodoList );
+
+
+    std::string getContent() const;
+    Date getDate() const;
+    std::vector<Todo> getTodos() const;
+
+
 private: // Private methods
     void parseTodos(const std::string& str);
 

@@ -11,6 +11,14 @@ Todo::Todo(const std::string& content)
     getContentAndDate(content);
 }
 
+void Todo::setContent(const std::string& content){ this->content = content;}
+void Todo::setDate(const Date date){this->date = date ;}
+
+std::string Todo::getContent() const{return this->content;}
+Date Todo::getDate() const{return this->date;}
+
+
+
 void Todo::getContentAndDate(const std::string& str)
 {
     std::stringstream ss(str);
