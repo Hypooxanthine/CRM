@@ -3,24 +3,115 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classTodo_ae7419f12211644849e6717ee3cae2945}\label{classTodo_ae7419f12211644849e6717ee3cae2945}} 
+\mbox{\hyperlink{classTodo_ae7419f12211644849e6717ee3cae2945}{Todo}} ()=delete
+\begin{DoxyCompactList}\small\item\em Defautl constructor is deleted. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTodo_aa5edea70abab3b2df092ec5328dfd75e}{Todo}} (const std\+::string \&content, const \mbox{\hyperlink{classDate}{Date}} \&date)
+\begin{DoxyCompactList}\small\item\em Has to be called for a known \mbox{\hyperlink{classTodo}{Todo}}. For example, when retrieving a \mbox{\hyperlink{classTodo}{Todo}} from the database, the \mbox{\hyperlink{classTodo}{Todo}} is already known, so is the date. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTodo_a9af0ff3577d3fedecfbce817059198ea}{Todo}} (const std\+::string \&content)
+\begin{DoxyCompactList}\small\item\em Has to be called for a new \mbox{\hyperlink{classTodo}{Todo}}. It\textquotesingle{}ll parse the date from it, if any. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTodo_ae918e4da1cdc9d419d05e24749c82e7e}{set\+Content}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Sets the content of the \mbox{\hyperlink{classTodo}{Todo}}. It shouldn\textquotesingle{}t contain any @date tag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTodo_a83dcecea40d44b6fb43823cd42a11d03}{set\+Date}} (const \mbox{\hyperlink{classDate}{Date}} d)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classDate}{Date}} of the todo, i.\+e the date the todo has to be done. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classTodo_a7e69a5a1496e6b601a22c06dc0bb22f0}{get\+Content}} () const
+\begin{DoxyCompactList}\small\item\em Gets the content of the \mbox{\hyperlink{classTodo}{Todo}}. It shouldn\textquotesingle{}t contain any @date tag. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classTodo_af6e9fe25204bd718052c51cd131596b8}{get\+Date}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classTodo}{Todo}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classTodo_aa5edea70abab3b2df092ec5328dfd75e}\label{classTodo_aa5edea70abab3b2df092ec5328dfd75e}} 
-{\bfseries Todo} (const std\+::string \&content, const \mbox{\hyperlink{classDate}{Date}} \&date)
-\item 
+\index{Todo@{Todo}!Todo@{Todo}}
+\index{Todo@{Todo}!Todo@{Todo}}
+\doxysubsubsection{\texorpdfstring{Todo()}{Todo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Todo\+::\+Todo (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{content,  }\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date }\end{DoxyParamCaption})}
+
+
+
+Has to be called for a known \mbox{\hyperlink{classTodo}{Todo}}. For example, when retrieving a \mbox{\hyperlink{classTodo}{Todo}} from the database, the \mbox{\hyperlink{classTodo}{Todo}} is already known, so is the date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & The content of the \mbox{\hyperlink{classTodo}{Todo}}. It shouldn\textquotesingle{}t contain any @date tag. \\
+\hline
+{\em date} & The date the \mbox{\hyperlink{classTodo}{Todo}} has to be done. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classTodo_a9af0ff3577d3fedecfbce817059198ea}\label{classTodo_a9af0ff3577d3fedecfbce817059198ea}} 
-{\bfseries Todo} (const std\+::string \&content)
-\item 
-\mbox{\Hypertarget{classTodo_aaeace7a03fcd0b854c80ea1b1c4ef98e}\label{classTodo_aaeace7a03fcd0b854c80ea1b1c4ef98e}} 
-void {\bfseries set\+Content} (const std\+::string \&content)
-\item 
-\mbox{\Hypertarget{classTodo_a38359e380496349602974eab0881508f}\label{classTodo_a38359e380496349602974eab0881508f}} 
-void {\bfseries set\+Date} (const \mbox{\hyperlink{classDate}{Date}} date)
-\item 
-\mbox{\Hypertarget{classTodo_a7be5226806dbfb2fe048f3ad6100201a}\label{classTodo_a7be5226806dbfb2fe048f3ad6100201a}} 
-std\+::string {\bfseries get\+Content} () const
-\item 
-\mbox{\Hypertarget{classTodo_ab409a5ab6aaef2674e0f1d153454cf3b}\label{classTodo_ab409a5ab6aaef2674e0f1d153454cf3b}} 
-\mbox{\hyperlink{classDate}{Date}} {\bfseries get\+Date} () const
-\end{DoxyCompactItemize}
+\index{Todo@{Todo}!Todo@{Todo}}
+\index{Todo@{Todo}!Todo@{Todo}}
+\doxysubsubsection{\texorpdfstring{Todo()}{Todo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Todo\+::\+Todo (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{content }\end{DoxyParamCaption})}
+
+
+
+Has to be called for a new \mbox{\hyperlink{classTodo}{Todo}}. It\textquotesingle{}ll parse the date from it, if any. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em content} & The raw content of the \mbox{\hyperlink{classTodo}{Todo}}. A @date won\textquotesingle{}t appear in it after parsing \+: it will be in a separated member variable. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTodo_a7e69a5a1496e6b601a22c06dc0bb22f0}\label{classTodo_a7e69a5a1496e6b601a22c06dc0bb22f0}} 
+\index{Todo@{Todo}!getContent@{getContent}}
+\index{getContent@{getContent}!Todo@{Todo}}
+\doxysubsubsection{\texorpdfstring{getContent()}{getContent()}}
+{\footnotesize\ttfamily const std\+::string\& Todo\+::get\+Content (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the content of the \mbox{\hyperlink{classTodo}{Todo}}. It shouldn\textquotesingle{}t contain any @date tag. 
+
+\begin{DoxyReturn}{Returns}
+The content of the \mbox{\hyperlink{classTodo}{Todo}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTodo_af6e9fe25204bd718052c51cd131596b8}\label{classTodo_af6e9fe25204bd718052c51cd131596b8}} 
+\index{Todo@{Todo}!getDate@{getDate}}
+\index{getDate@{getDate}!Todo@{Todo}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classDate}{Date}}\& Todo\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classTodo}{Todo}}. 
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classTodo}{Todo}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTodo_ae918e4da1cdc9d419d05e24749c82e7e}\label{classTodo_ae918e4da1cdc9d419d05e24749c82e7e}} 
+\index{Todo@{Todo}!setContent@{setContent}}
+\index{setContent@{setContent}!Todo@{Todo}}
+\doxysubsubsection{\texorpdfstring{setContent()}{setContent()}}
+{\footnotesize\ttfamily void Todo\+::set\+Content (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the content of the \mbox{\hyperlink{classTodo}{Todo}}. It shouldn\textquotesingle{}t contain any @date tag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The new content of the \mbox{\hyperlink{classTodo}{Todo}}. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTodo_a83dcecea40d44b6fb43823cd42a11d03}\label{classTodo_a83dcecea40d44b6fb43823cd42a11d03}} 
+\index{Todo@{Todo}!setDate@{setDate}}
+\index{setDate@{setDate}!Todo@{Todo}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily void Todo\+::set\+Date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}}}]{d }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the \mbox{\hyperlink{classDate}{Date}} of the todo, i.\+e the date the todo has to be done. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The new \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classTodo}{Todo}}. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

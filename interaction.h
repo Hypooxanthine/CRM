@@ -15,7 +15,7 @@ public: // Publics methods
     Interaction() = delete;
 
     /**
-     * @brief This constructor has to be called for a known Interaction. For example, when retrieving an Interaction from the database, the contact
+     * @brief Has to be called for a known Interaction. For example, when retrieving an Interaction from the database, the Interaction
      * is known, so is the date.
      * @param content The content of the Interaction. It shouldn't contain any \@todo.
      * @param date The date the Interaction was created.
@@ -23,7 +23,7 @@ public: // Publics methods
     Interaction(const std::string& content, const Date& date);
 
     /**
-     * @brief This constructor has to be called for a new Interaction. It'll parse all the todos from it.
+     * @brief Has to be called for a new Interaction. It'll parse all the todos from it.
      * @param content The content of the Interaction. Every \@todo's won't appear in the content after parsing : they will be part of
      * the Todo vector.
      */

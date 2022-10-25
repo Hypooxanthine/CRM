@@ -77,10 +77,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a506b94800c3b34e1959efe5a3248ebf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor is deleted. <br /></td></tr>
 <tr class="separator:a506b94800c3b34e1959efe5a3248ebf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad4cef60f821211c9cb1c9aad1bbaa5a5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#ad4cef60f821211c9cb1c9aad1bbaa5a5">Interaction</a> (const std::string &amp;content, const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;date)</td></tr>
-<tr class="memdesc:ad4cef60f821211c9cb1c9aad1bbaa5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor has to be called for a known <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. For example, when retrieving an <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> from the database, the contact is known, so is the date.  <a href="../../db/d0c/classInteraction.html#ad4cef60f821211c9cb1c9aad1bbaa5a5">More...</a><br /></td></tr>
+<tr class="memdesc:ad4cef60f821211c9cb1c9aad1bbaa5a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has to be called for a known <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. For example, when retrieving an <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> from the database, the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> is known, so is the date.  <a href="../../db/d0c/classInteraction.html#ad4cef60f821211c9cb1c9aad1bbaa5a5">More...</a><br /></td></tr>
 <tr class="separator:ad4cef60f821211c9cb1c9aad1bbaa5a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1b7795a91d4a83a2fe1dee19018fbef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#af1b7795a91d4a83a2fe1dee19018fbef">Interaction</a> (const std::string &amp;content)</td></tr>
-<tr class="memdesc:af1b7795a91d4a83a2fe1dee19018fbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">This constructor has to be called for a new <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It'll parse all the todos from it.  <a href="../../db/d0c/classInteraction.html#af1b7795a91d4a83a2fe1dee19018fbef">More...</a><br /></td></tr>
+<tr class="memdesc:af1b7795a91d4a83a2fe1dee19018fbef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has to be called for a new <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It'll parse all the todos from it.  <a href="../../db/d0c/classInteraction.html#af1b7795a91d4a83a2fe1dee19018fbef">More...</a><br /></td></tr>
 <tr class="separator:af1b7795a91d4a83a2fe1dee19018fbef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac586b317091b175eae572b53a80f5721"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d0c/classInteraction.html#ac586b317091b175eae572b53a80f5721">setContent</a> (const std::string &amp;str)</td></tr>
 <tr class="memdesc:ac586b317091b175eae572b53a80f5721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the content of the interaction. No @todo should appear in it.  <a href="../../db/d0c/classInteraction.html#ac586b317091b175eae572b53a80f5721">More...</a><br /></td></tr>
@@ -128,7 +128,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This constructor has to be called for a known <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. For example, when retrieving an <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> from the database, the contact is known, so is the date. </p>
+<p>Has to be called for a known <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. For example, when retrieving an <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> from the database, the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> is known, so is the date. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">content</td><td>The content of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It shouldn't contain any @todo. </td></tr>
@@ -155,7 +155,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>This constructor has to be called for a new <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It'll parse all the todos from it. </p>
+<p>Has to be called for a new <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. It'll parse all the todos from it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">content</td><td>The content of the <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>. Every @todo's won't appear in the content after parsing : they will be part of the <a class="el" href="../../d1/d05/classTodo.html">Todo</a> vector. </td></tr>

@@ -11,14 +11,6 @@ Todo::Todo(const std::string& content)
     getContentAndDate(content);
 }
 
-void Todo::setContent(const std::string& content){ this->content = content;}
-void Todo::setDate(const Date date){this->date = date ;}
-
-std::string Todo::getContent() const{return this->content;}
-Date Todo::getDate() const{return this->date;}
-
-
-
 void Todo::getContentAndDate(const std::string& str)
 {
     std::istringstream ss(str);
@@ -26,32 +18,38 @@ void Todo::getContentAndDate(const std::string& str)
 
     bool dateFound = false;
 
-    do
+    while(std::getline(ss, word, ' ')) // For each word
     {
-        ss >> word;
-
         if(!dateFound && word == "@date")
         {
             std::string dateToken;
+            if(ss.eof()) // If there isn't anything after "@date", there isn't any date to parse, so we break.
+            {
+                content += word; // We add the word "@date" to the content so the user can see there was a problem in his typing.
+                break;
+            }
+
             ss >> dateToken;
 
-            if(ss.tellg() == std::istringstream::eofbit) break;
-
-            const auto result = parseDate(dateToken);
-
-            if(result)
+            if(const auto result = parseDate(dateToken); result.has_value())
             {
                 dateFound = true;
                 date = result.value();
             }
             else
             {
+                // Example : user typed @date 11/12/a
+                // We will add "@date 11/12/a" to the content so the user can see there was a
+                // probleme in his typing.
+                // Another @date tag can be considered.
                 content += word;
+                content += ' ';
+                content += dateToken;
             }
         }
         else
             content += word;
-    } while(ss.tellg() != std::istringstream::eofbit);
+    }
 
     if(!dateFound)
         date = Date::today();
@@ -113,7 +111,22 @@ std::optional<Date> Todo::parseDate(const std::string& str)
     return out;
 }
 
-std::optional<int> Todo::parseNumber(const std::string& str)
+std::optional<uint16_t> Todo::parseNumber(const std::string& str)
 {
+    std::optional<uint16_t> out;
+    uint16_t value = 0;
+    uint8_t tenPower = 0;
+    bool error = false;
 
+    for(auto it = str.rbegin(); it < str.rend() && !error && value < 10000; it++) // 10000 is the max value for day, month and year.
+    {
+        if (*it < '0' || *it > '9') // Only numbers, no '-' : no negative numbers.
+            error = true;
+        else
+            value += (*it - '0') * std::pow(10, tenPower++);
+    }
+
+    if(!error) out = value;
+
+    return out;
 }
