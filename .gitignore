@@ -71,8 +71,3 @@ Thumbs.db
 *.dll
 *.exe
 
-# Documentation
-Doc/
-Doc/*
-Doxyfile
-

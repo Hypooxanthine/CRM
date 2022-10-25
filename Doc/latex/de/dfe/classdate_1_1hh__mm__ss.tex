@@ -1,0 +1,64 @@
+\hypertarget{classdate_1_1hh__mm__ss}{}\doxysection{date\+::hh\+\_\+mm\+\_\+ss$<$ Duration $>$ Class Template Reference}
+\label{classdate_1_1hh__mm__ss}\index{date::hh\_mm\_ss$<$ Duration $>$@{date::hh\_mm\_ss$<$ Duration $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_aff99a5a4f7e5f4058c32699c8e5b6769}\label{classdate_1_1hh__mm__ss_aff99a5a4f7e5f4058c32699c8e5b6769}} 
+using {\bfseries precision} = typename dfs\+::precision
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_ae5b52d781f50e5a04efc3873f5b0b784}\label{classdate_1_1hh__mm__ss_ae5b52d781f50e5a04efc3873f5b0b784}} 
+CONSTCD11 {\bfseries hh\+\_\+mm\+\_\+ss} (Duration d) NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a7ac8435bd0c109ba56d6727b87c1f34f}\label{classdate_1_1hh__mm__ss_a7ac8435bd0c109ba56d6727b87c1f34f}} 
+CONSTCD11 std\+::chrono\+::hours {\bfseries hours} () const NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a34fa85a8fec13becdcf6a34d608f1333}\label{classdate_1_1hh__mm__ss_a34fa85a8fec13becdcf6a34d608f1333}} 
+CONSTCD11 std\+::chrono\+::minutes {\bfseries minutes} () const NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_ac357ff882bf43e4060750be5504d6c0f}\label{classdate_1_1hh__mm__ss_ac357ff882bf43e4060750be5504d6c0f}} 
+CONSTCD11 std\+::chrono\+::seconds {\bfseries seconds} () const NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_aeb094b9f731e928e76c455ed944c0765}\label{classdate_1_1hh__mm__ss_aeb094b9f731e928e76c455ed944c0765}} 
+CONSTCD14 std\+::chrono\+::seconds \& {\bfseries seconds} (\mbox{\hyperlink{structdate_1_1detail_1_1undocumented}{detail\+::undocumented}}) NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a4ee5fb878d686792df2cfdfac893c4b4}\label{classdate_1_1hh__mm__ss_a4ee5fb878d686792df2cfdfac893c4b4}} 
+CONSTCD11 precision {\bfseries subseconds} () const NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a291896e84e7206020da59ef3263476d4}\label{classdate_1_1hh__mm__ss_a291896e84e7206020da59ef3263476d4}} 
+CONSTCD11 bool {\bfseries is\+\_\+negative} () const NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a4772bbf93556440e676b31c64e847f3b}\label{classdate_1_1hh__mm__ss_a4772bbf93556440e676b31c64e847f3b}} 
+CONSTCD11 {\bfseries operator precision} () const NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_ac980f2b7e26e4f01e3dd1603af7579a9}\label{classdate_1_1hh__mm__ss_ac980f2b7e26e4f01e3dd1603af7579a9}} 
+CONSTCD11 precision {\bfseries to\+\_\+duration} () const NOEXCEPT
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_aa849771f5162429bbdce806296c2d0c2}\label{classdate_1_1hh__mm__ss_aa849771f5162429bbdce806296c2d0c2}} 
+CONSTCD11 bool {\bfseries in\+\_\+conventional\+\_\+range} () const NOEXCEPT
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a609581afb61332646f7b30a60f7a997b}\label{classdate_1_1hh__mm__ss_a609581afb61332646f7b30a60f7a997b}} 
+static unsigned CONSTDATA {\bfseries fractional\+\_\+width} = dfs\+::width
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a8d4f6bcc9345198fade86fc2157b71ad}\label{classdate_1_1hh__mm__ss_a8d4f6bcc9345198fade86fc2157b71ad}} 
+{\footnotesize template$<$class charT , class traits $>$ }\\std\+::basic\+\_\+ostream$<$ charT, traits $>$ \& {\bfseries operator$<$$<$} (std\+::basic\+\_\+ostream$<$ charT, traits $>$ \&os, \mbox{\hyperlink{classdate_1_1hh__mm__ss}{hh\+\_\+mm\+\_\+ss}} const \&tod)
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a6596281e160cddc98e383715f92fe705}\label{classdate_1_1hh__mm__ss_a6596281e160cddc98e383715f92fe705}} 
+{\footnotesize template$<$class CharT , class Traits , class Duration2 $>$ }\\std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \& {\bfseries date\+::to\+\_\+stream} (std\+::basic\+\_\+ostream$<$ CharT, Traits $>$ \&os, const CharT $\ast$fmt, const \mbox{\hyperlink{structdate_1_1fields}{fields}}$<$ Duration2 $>$ \&fds, const std\+::string $\ast$abbrev, const std\+::chrono\+::seconds $\ast$offset\+\_\+sec)
+\item 
+\mbox{\Hypertarget{classdate_1_1hh__mm__ss_a8f4da00e6aad4c49286b3b9e63bc75e6}\label{classdate_1_1hh__mm__ss_a8f4da00e6aad4c49286b3b9e63bc75e6}} 
+{\footnotesize template$<$class CharT , class Traits , class Duration2 , class Alloc $>$ }\\std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \& {\bfseries date\+::from\+\_\+stream} (std\+::basic\+\_\+istream$<$ CharT, Traits $>$ \&is, const CharT $\ast$fmt, \mbox{\hyperlink{structdate_1_1fields}{fields}}$<$ Duration2 $>$ \&fds, std\+::basic\+\_\+string$<$ CharT, Traits, Alloc $>$ $\ast$abbrev, std\+::chrono\+::minutes $\ast$offset)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+datelib.\+h\end{DoxyCompactItemize}
