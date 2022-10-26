@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 {
     Test_Todo();
     Test_Interaction();
+    Test_Contact();
 
     QApplication a(argc, argv);
 
