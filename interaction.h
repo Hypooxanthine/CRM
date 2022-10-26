@@ -9,6 +9,7 @@
 class Interaction
 {
 public: // Publics methods
+    friend class UnitTest;
     /**
      * @brief Default constructor is deleted.
      */

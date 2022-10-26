@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interaction_31',['Interaction',['../db/d0c/classInteraction.html#a506b94800c3b34e1959efe5a3248ebf5',1,'Interaction::Interaction()=delete'],['../db/d0c/classInteraction.html#ad4cef60f821211c9cb1c9aad1bbaa5a5',1,'Interaction::Interaction(const std::string &amp;content, const Date &amp;date)'],['../db/d0c/classInteraction.html#af1b7795a91d4a83a2fe1dee19018fbef',1,'Interaction::Interaction(const std::string &amp;content)']]]
+  ['date_43',['Date',['../de/d4a/classDate.html#a4e59ed4ba66eec61c27460c5d09fa1bd',1,'Date::Date()'],['../de/d4a/classDate.html#a5b341ab7a28301092c8f421523553456',1,'Date::Date(const uint8_t &amp;day, const uint8_t &amp;month, const uint16_t &amp;year)']]]
 ];

@@ -34,8 +34,10 @@ void Interaction::parseTodos(const std::string& str)
         }
         else
             content += line + '\n';
-
     }
+
+    // Right trim of the content
+    content.erase(std::find_if(content.rbegin(), content.rend(), [](const char& c){ return c != '\n';}).base(), content.end());
 }
 
 std::ostream& operator<<(std::ostream& os, const Interaction& interaction)

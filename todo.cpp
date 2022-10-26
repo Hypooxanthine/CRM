@@ -15,6 +15,11 @@ Todo::Todo(const std::string& content)
 void Todo::getContentAndDate(const std::string& str)
 {
     std::istringstream ss(str);
+    // We only need the first line
+    std::string firstLine;
+    std::getline(ss, firstLine);
+    ss = std::istringstream(firstLine);
+
     std::string word;
 
     bool dateFound = false;
@@ -49,8 +54,13 @@ void Todo::getContentAndDate(const std::string& str)
             }
         }
         else
-            content += word;
+            content += word + ' ';
     }
+
+    // Right trim of the content
+    content.erase(std::find_if(content.rbegin(), content.rend(), [](const char& c){ return c != ' ';}).base(), content.end());
+    // Left trim of the content
+    content.erase(content.begin(), std::find_if(content.begin(), content.end(), [](const char& c){ return c != ' ';}));
 
     if(!dateFound)
         date = Date::today();

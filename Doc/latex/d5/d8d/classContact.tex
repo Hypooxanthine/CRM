@@ -3,60 +3,311 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classContact_a450daeecfe6d374cefb9eea3ca83ad96}\label{classContact_a450daeecfe6d374cefb9eea3ca83ad96}} 
-{\bfseries Contact} (const std\+::string \&id, const std\+::string \&name, const std\+::string \&email, const std\+::string \&phone, const std\+::string \&photo, const unsigned c\+Date, const std\+::vector$<$ \mbox{\hyperlink{classInteraction}{Interaction}} $>$ interaction\+List)
-\item 
-\mbox{\Hypertarget{classContact_ae0b009acfca5ca419465b21b21e5c19d}\label{classContact_ae0b009acfca5ca419465b21b21e5c19d}} 
-{\bfseries Contact} (const \mbox{\hyperlink{classContact}{Contact}} \&c)
-\item 
-\mbox{\Hypertarget{classContact_a831dfe4049ab8b345360b7128dc7a826}\label{classContact_a831dfe4049ab8b345360b7128dc7a826}} 
-std\+::string {\bfseries get\+Id} () const
-\item 
-\mbox{\Hypertarget{classContact_abc1f387bf63e4e2b4c8a4f7a28ac7371}\label{classContact_abc1f387bf63e4e2b4c8a4f7a28ac7371}} 
-void {\bfseries set\+Id} (const std\+::string \&new\+Id)
-\item 
-\mbox{\Hypertarget{classContact_a4fdbfb743dbd97669c48f9078ddb37fd}\label{classContact_a4fdbfb743dbd97669c48f9078ddb37fd}} 
-std\+::string {\bfseries get\+Name} () const
-\item 
-\mbox{\Hypertarget{classContact_a1273b5aa9954d9bb07ec19f6aa836b50}\label{classContact_a1273b5aa9954d9bb07ec19f6aa836b50}} 
-void {\bfseries set\+Name} (const std\+::string \&new\+Name)
-\item 
-\mbox{\Hypertarget{classContact_aaa61cb6be5f476b215ab8a5c010e98ad}\label{classContact_aaa61cb6be5f476b215ab8a5c010e98ad}} 
-std\+::string {\bfseries get\+Email} () const
-\item 
-\mbox{\Hypertarget{classContact_a006b8e279631a7848c5e3fbb67bd420c}\label{classContact_a006b8e279631a7848c5e3fbb67bd420c}} 
-void {\bfseries set\+Email} (const std\+::string \&new\+Email)
-\item 
-\mbox{\Hypertarget{classContact_a2b0f355cd2f3ede57a22b005be712b91}\label{classContact_a2b0f355cd2f3ede57a22b005be712b91}} 
-std\+::string {\bfseries get\+Phone} () const
-\item 
-\mbox{\Hypertarget{classContact_aaf274ced1f3a53e7de00753a276fe45e}\label{classContact_aaf274ced1f3a53e7de00753a276fe45e}} 
-void {\bfseries set\+Phone} (const std\+::string \&new\+Phone)
-\item 
-\mbox{\Hypertarget{classContact_a0c9099d80538c241c852d68f2630fc54}\label{classContact_a0c9099d80538c241c852d68f2630fc54}} 
-std\+::string {\bfseries get\+Photo} () const
-\item 
-\mbox{\Hypertarget{classContact_a1fcadcf84b3524178b46f92bbb4404db}\label{classContact_a1fcadcf84b3524178b46f92bbb4404db}} 
-void {\bfseries set\+Photo} (const std\+::string \&new\+Photo)
-\item 
-\mbox{\Hypertarget{classContact_a3a4e1650e793e0572a7c890197f9b6f0}\label{classContact_a3a4e1650e793e0572a7c890197f9b6f0}} 
-unsigned {\bfseries get\+Creation\+Date} () const
-\item 
-\mbox{\Hypertarget{classContact_af5d81cb0a1c84587f3b30355cc7f51f7}\label{classContact_af5d81cb0a1c84587f3b30355cc7f51f7}} 
-void {\bfseries set\+Creation\+Date} (const unsigned \&new\+Creation\+Date)
-\item 
-\mbox{\Hypertarget{classContact_ab6c872ed1a1ccdac9c3b699705459804}\label{classContact_ab6c872ed1a1ccdac9c3b699705459804}} 
-std\+::vector$<$ \mbox{\hyperlink{classInteraction}{Interaction}} $>$ {\bfseries get\+Interaction\+List} () const
-\item 
-\mbox{\Hypertarget{classContact_a20d4f53a33fa1acc1c4afc9654bbc440}\label{classContact_a20d4f53a33fa1acc1c4afc9654bbc440}} 
-void {\bfseries set\+Interaction\+List} (const std\+::vector$<$ \mbox{\hyperlink{classInteraction}{Interaction}} $>$ \&new\+Interaction\+List)
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classContact_ab1787df226299efc41a06b7d483ed657}\label{classContact_ab1787df226299efc41a06b7d483ed657}} 
+\mbox{\hyperlink{classContact_ab1787df226299efc41a06b7d483ed657}{Contact}} ()=delete
+\begin{DoxyCompactList}\small\item\em Default constructor is deleted. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classContact_ab5f8cd38f381a5f193c0c73b6f7f2fda}{Contact}} (const std\+::string \&id, const std\+::string \&name, const std\+::string \&email, const std\+::string \&phone, const std\+::string \&photo\+Path, const \mbox{\hyperlink{classDate}{Date}} \&date, const std\+::vector$<$ \mbox{\hyperlink{classInteraction}{Interaction}} $>$ interaction\+List)
+\begin{DoxyCompactList}\small\item\em Has to be called for a known Contact.\+For example, when retrieving a \mbox{\hyperlink{classContact}{Contact}} from the database, the \mbox{\hyperlink{classContact}{Contact}} is known, so are the other parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classContact_ae0b009acfca5ca419465b21b21e5c19d}{Contact}} (const \mbox{\hyperlink{classContact}{Contact}} \&c)
+\begin{DoxyCompactList}\small\item\em Has to be called to copy a \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_ada43b10888ec20411e8aa6e45486b13f}{set\+Id}} (const std\+::string \&id)
+\begin{DoxyCompactList}\small\item\em Sets the id of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_ac6c364a50b5d0ee7ceba8499b1ae9fce}{set\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Sets the Name of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_a6669771d7c07596bd7dc190de02a7991}{set\+Email}} (const std\+::string \&email)
+\begin{DoxyCompactList}\small\item\em Sets the email of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_a3efe1754c6d6fc83961a3aaa275da41a}{set\+Phone}} (const std\+::string \&phone)
+\begin{DoxyCompactList}\small\item\em Sets the phone of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_aa38ff60d2a2dded4b450a88c712058c3}{set\+Photo\+Path}} (const std\+::string \&photo\+Path)
+\begin{DoxyCompactList}\small\item\em Sets the photo\textquotesingle{}s path of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_ae41366c7db10229a0e4d5977d40a2833}{set\+Date}} (const \mbox{\hyperlink{classDate}{Date}} \&date)
+\begin{DoxyCompactList}\small\item\em Sets the date of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_a54f2d44fc7808def04adc2299e1c31e9}{set\+Interaction\+List}} (const std\+::vector$<$ \mbox{\hyperlink{classInteraction}{Interaction}} $>$ \&Interaction\+List)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classContact_acf40c57274b28f89eb7c77a069c405c7}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Gets the id of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classContact_a53425c2e4c8ad27ccdaf8c7fa072dd75}{get\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Name of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classContact_a0d5964a672f881801093729be3c15888}{get\+Email}} () const
+\begin{DoxyCompactList}\small\item\em Gets the email of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classContact_aa3ab84fe7ed50683ec9d73c215a7a61a}{get\+Phone}} () const
+\begin{DoxyCompactList}\small\item\em Gets the phone of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{classContact_ace315412e0306e33c781679848eacc8c}{get\+Photo\+Path}} () const
+\begin{DoxyCompactList}\small\item\em Gets the photo\textquotesingle{}s path of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classContact_a488e12f492ff085844f0f342a897f101}{get\+Date}} () const
+\begin{DoxyCompactList}\small\item\em Gets the date of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+const std\+::vector$<$ \mbox{\hyperlink{classInteraction}{Interaction}} $>$ \mbox{\hyperlink{classContact_a7b42d55dcf8c724c73087c33057565f5}{get\+Interaction\+List}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_ab49cb9912c754ff3461f75d31ed25fe5}{add\+Interaction}} (\mbox{\hyperlink{classInteraction}{Interaction}} interaction)
+\begin{DoxyCompactList}\small\item\em Add an interaction to the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classContact_a832b4d233efee1a32feb0f4190b30d39}\label{classContact_a832b4d233efee1a32feb0f4190b30d39}} 
+class {\bfseries Unit\+Test}
 \item 
 \mbox{\Hypertarget{classContact_af87e832bd0c9667d25df0dfec1c17c1b}\label{classContact_af87e832bd0c9667d25df0dfec1c17c1b}} 
 std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{classContact}{Contact}} \&c)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classContact_ab5f8cd38f381a5f193c0c73b6f7f2fda}\label{classContact_ab5f8cd38f381a5f193c0c73b6f7f2fda}} 
+\index{Contact@{Contact}!Contact@{Contact}}
+\index{Contact@{Contact}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{Contact()}{Contact()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Contact\+::\+Contact (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id,  }\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{email,  }\item[{const std\+::string \&}]{phone,  }\item[{const std\+::string \&}]{photo\+Path,  }\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{classInteraction}{Interaction}} $>$}]{interaction\+List }\end{DoxyParamCaption})}
+
+
+
+Has to be called for a known Contact.\+For example, when retrieving a \mbox{\hyperlink{classContact}{Contact}} from the database, the \mbox{\hyperlink{classContact}{Contact}} is known, so are the other parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & The id of the \mbox{\hyperlink{classContact}{Contact}}. \\
+\hline
+{\em name} & The name of the \mbox{\hyperlink{classContact}{Contact}}. \\
+\hline
+{\em email} & The email of the \mbox{\hyperlink{classContact}{Contact}}. \\
+\hline
+{\em phone} & The phone of the \mbox{\hyperlink{classContact}{Contact}}. \\
+\hline
+{\em photo\+Path} & The photo\textquotesingle{}s path of the contact. \\
+\hline
+{\em date} & The date the \mbox{\hyperlink{classContact}{Contact}} was created. \\
+\hline
+{\em interaction\+List} & The \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classContact_ae0b009acfca5ca419465b21b21e5c19d}\label{classContact_ae0b009acfca5ca419465b21b21e5c19d}} 
+\index{Contact@{Contact}!Contact@{Contact}}
+\index{Contact@{Contact}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{Contact()}{Contact()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Contact\+::\+Contact (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContact}{Contact}} \&}]{c }\end{DoxyParamCaption})}
+
+
+
+Has to be called to copy a \mbox{\hyperlink{classContact}{Contact}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & The \mbox{\hyperlink{classContact}{Contact}} to copy. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classContact_ab49cb9912c754ff3461f75d31ed25fe5}\label{classContact_ab49cb9912c754ff3461f75d31ed25fe5}} 
+\index{Contact@{Contact}!addInteraction@{addInteraction}}
+\index{addInteraction@{addInteraction}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{addInteraction()}{addInteraction()}}
+{\footnotesize\ttfamily void Contact\+::add\+Interaction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classInteraction}{Interaction}}}]{interaction }\end{DoxyParamCaption})}
+
+
+
+Add an interaction to the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em interaction} & to add to the list. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classContact_a488e12f492ff085844f0f342a897f101}\label{classContact_a488e12f492ff085844f0f342a897f101}} 
+\index{Contact@{Contact}!getDate@{getDate}}
+\index{getDate@{getDate}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getDate()}{getDate()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classDate}{Date}} Contact\+::get\+Date (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the date of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+\begin{DoxyReturn}{Returns}
+The date of the \mbox{\hyperlink{classContact}{Contact}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classContact_a0d5964a672f881801093729be3c15888}\label{classContact_a0d5964a672f881801093729be3c15888}} 
+\index{Contact@{Contact}!getEmail@{getEmail}}
+\index{getEmail@{getEmail}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getEmail()}{getEmail()}}
+{\footnotesize\ttfamily const std\+::string Contact\+::get\+Email (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the email of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+\begin{DoxyReturn}{Returns}
+The email of the \mbox{\hyperlink{classContact}{Contact}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classContact_acf40c57274b28f89eb7c77a069c405c7}\label{classContact_acf40c57274b28f89eb7c77a069c405c7}} 
+\index{Contact@{Contact}!getId@{getId}}
+\index{getId@{getId}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily const std\+::string Contact\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the id of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+\begin{DoxyReturn}{Returns}
+The id of the \mbox{\hyperlink{classContact}{Contact}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classContact_a7b42d55dcf8c724c73087c33057565f5}\label{classContact_a7b42d55dcf8c724c73087c33057565f5}} 
+\index{Contact@{Contact}!getInteractionList@{getInteractionList}}
+\index{getInteractionList@{getInteractionList}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getInteractionList()}{getInteractionList()}}
+{\footnotesize\ttfamily const std\+::vector$<$\mbox{\hyperlink{classInteraction}{Interaction}}$>$ Contact\+::get\+Interaction\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
+
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classContact_a53425c2e4c8ad27ccdaf8c7fa072dd75}\label{classContact_a53425c2e4c8ad27ccdaf8c7fa072dd75}} 
+\index{Contact@{Contact}!getName@{getName}}
+\index{getName@{getName}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string Contact\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the Name of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+\begin{DoxyReturn}{Returns}
+The Name of the \mbox{\hyperlink{classContact}{Contact}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classContact_aa3ab84fe7ed50683ec9d73c215a7a61a}\label{classContact_aa3ab84fe7ed50683ec9d73c215a7a61a}} 
+\index{Contact@{Contact}!getPhone@{getPhone}}
+\index{getPhone@{getPhone}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getPhone()}{getPhone()}}
+{\footnotesize\ttfamily const std\+::string Contact\+::get\+Phone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the phone of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+\begin{DoxyReturn}{Returns}
+The phone of the contact. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classContact_ace315412e0306e33c781679848eacc8c}\label{classContact_ace315412e0306e33c781679848eacc8c}} 
+\index{Contact@{Contact}!getPhotoPath@{getPhotoPath}}
+\index{getPhotoPath@{getPhotoPath}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getPhotoPath()}{getPhotoPath()}}
+{\footnotesize\ttfamily const std\+::string Contact\+::get\+Photo\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the photo\textquotesingle{}s path of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+\begin{DoxyReturn}{Returns}
+The photo\textquotesingle{}s path of the \mbox{\hyperlink{classContact}{Contact}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classContact_ae41366c7db10229a0e4d5977d40a2833}\label{classContact_ae41366c7db10229a0e4d5977d40a2833}} 
+\index{Contact@{Contact}!setDate@{setDate}}
+\index{setDate@{setDate}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setDate()}{setDate()}}
+{\footnotesize\ttfamily void Contact\+::set\+Date (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the date of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & new date . \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classContact_a6669771d7c07596bd7dc190de02a7991}\label{classContact_a6669771d7c07596bd7dc190de02a7991}} 
+\index{Contact@{Contact}!setEmail@{setEmail}}
+\index{setEmail@{setEmail}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setEmail()}{setEmail()}}
+{\footnotesize\ttfamily void Contact\+::set\+Email (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{email }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the email of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & new email. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classContact_ada43b10888ec20411e8aa6e45486b13f}\label{classContact_ada43b10888ec20411e8aa6e45486b13f}} 
+\index{Contact@{Contact}!setId@{setId}}
+\index{setId@{setId}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily void Contact\+::set\+Id (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the id of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & new id. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classContact_a54f2d44fc7808def04adc2299e1c31e9}\label{classContact_a54f2d44fc7808def04adc2299e1c31e9}} 
+\index{Contact@{Contact}!setInteractionList@{setInteractionList}}
+\index{setInteractionList@{setInteractionList}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setInteractionList()}{setInteractionList()}}
+{\footnotesize\ttfamily void Contact\+::set\+Interaction\+List (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classInteraction}{Interaction}} $>$ \&}]{Interaction\+List }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & new \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classContact_ac6c364a50b5d0ee7ceba8499b1ae9fce}\label{classContact_ac6c364a50b5d0ee7ceba8499b1ae9fce}} 
+\index{Contact@{Contact}!setName@{setName}}
+\index{setName@{setName}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Contact\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the Name of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & new name. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classContact_a3efe1754c6d6fc83961a3aaa275da41a}\label{classContact_a3efe1754c6d6fc83961a3aaa275da41a}} 
+\index{Contact@{Contact}!setPhone@{setPhone}}
+\index{setPhone@{setPhone}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setPhone()}{setPhone()}}
+{\footnotesize\ttfamily void Contact\+::set\+Phone (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{phone }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the phone of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & new phone. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classContact_aa38ff60d2a2dded4b450a88c712058c3}\label{classContact_aa38ff60d2a2dded4b450a88c712058c3}} 
+\index{Contact@{Contact}!setPhotoPath@{setPhotoPath}}
+\index{setPhotoPath@{setPhotoPath}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setPhotoPath()}{setPhotoPath()}}
+{\footnotesize\ttfamily void Contact\+::set\+Photo\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{photo\+Path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the photo\textquotesingle{}s path of the \mbox{\hyperlink{classContact}{Contact}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & new photo\textquotesingle{}s path. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

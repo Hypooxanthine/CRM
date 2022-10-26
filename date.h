@@ -6,6 +6,7 @@
 class Date
 {
 public:
+    friend class UnitTest;
     /**
      * @brief Creates an "invalid" date : day, month and year are set to zero.
      */

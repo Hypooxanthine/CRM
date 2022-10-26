@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['contact_0',['Contact',['../d5/d8d/classContact.html',1,'']]],
-  ['crm_1',['CRM',['../d0/d30/md_README.html',1,'']]]
+  ['addinteraction_0',['addInteraction',['../d5/d8d/classContact.html#ab49cb9912c754ff3461f75d31ed25fe5',1,'Contact']]]
 ];

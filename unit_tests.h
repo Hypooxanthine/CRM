@@ -1,5 +1,15 @@
 #pragma once
 
-void Test_Todo();
-void Test_Interaction();
-void Test_Contact();
+class UnitTest
+{
+public:
+    /**
+     * @brief Unit tests for Todo class.
+     */
+    static void Test_Todo();
+
+    /**
+     * @brief Unit tests for Interaction class.
+     */
+    static void Test_Interaction();
+};

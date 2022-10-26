@@ -1,36 +1,125 @@
 #include "unit_tests.h"
 
 #include <iostream>
-#include <vector>
+#include <sstream>
+
 #include "todo.h"
 #include "interaction.h"
 #include "contact.h"
 
-void Test_Todo()
+#define VAL value
+#define BEGIN_TEST(val) {\
+    auto VAL = val;\
+    std::ostringstream ossExpected, ossResult;\
+    std::cout << std::endl << "\x1B[33mTest on VAL = " << #val << " :\033[0m\t\t" << std::endl;
+#ifdef __unix
+    #define TEST(x, expected) {\
+        ossExpected = std::ostringstream();\
+        ossExpected << expected;\
+        ossResult = std::ostringstream();\
+        ossResult << x;\
+        std::cout << "Value " << #x << std::endl;\
+        std::cout << "-Expected : " << std::endl << expected << std::endl << "-Result :" << std::endl << x << std::endl;\
+        if (std::string(ossExpected.str()) == std::string(ossResult.str())) std::cout << "\x1B[32m-> OK\033[0m\t\t";\
+        else std::cout << "\x1B[31m-> BAD RESULT\033[0m\t\t";\
+        std::cout << std::endl << std::endl;}
+    #define END_TEST }
+#elif
+    #define TEST(x, expected) {\
+        ossExpected = std::ostringstream();\
+        ossExpected << expected;\
+        ossResult = std::ostringstream();\
+        ossResult << x;\
+        std::cout << "Value " << #x << std::endl;\
+        std::cout << "-Expected : " << std::endl << expected << std::endl << "-Result :" << std::endl << x << std::endl;\
+        if (std::string(ossExpected.str()) == std::string(ossResult.str())) std::cout << "-> OK";\
+        else std::cout << "-> BAD RESULT";\
+        std::cout << std::endl << std::endl;}
+    #define END_TEST }
+#endif
+
+void UnitTest::Test_Todo()
 {
-    std::cout << Todo("Rappeler", Date(1, 1, 2023)) << std::endl;
-    std::cout << Todo("Rappeler", Date::today()) << std::endl;
-    std::cout << Todo("Rappeler") << std::endl;
-    std::cout << Todo("Rappeler @date 5/12/2022") << std::endl;
-    std::cout << Todo("Rappeler @date 5/12/2020002") << std::endl;
-    std::cout << Todo("Rappeler @date 5/12/2022") << std::endl;
+    BEGIN_TEST(Todo::parseDate("02/11/2023"));
+    TEST(VAL.has_value(), 1);
+    if(VAL.has_value()) TEST(VAL.value(), "2/11/2023");
+    END_TEST;
+
+    BEGIN_TEST(Todo::parseDate("02 11 2023"));
+    TEST(VAL.has_value(), 0);
+    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    END_TEST;
+
+    BEGIN_TEST(Todo::parseDate("bad date"));
+    TEST(VAL.has_value(), 0);
+    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    END_TEST;
+
+    BEGIN_TEST(Todo::parseNumber("25"));
+    TEST(VAL.has_value(), 1);
+    if(VAL.has_value()) TEST(VAL.value(), 25);
+    END_TEST;
+
+    BEGIN_TEST(Todo::parseNumber("-25"));
+    TEST(VAL.has_value(), 0);
+    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    END_TEST;
+
+    BEGIN_TEST(Todo("Rappeler le client"));
+    TEST(VAL.content, "Rappeler le client");
+    TEST(VAL.date, Date::today());
+    END_TEST;
+
+    BEGIN_TEST(Todo("Rappeler @date 2/3/2023"));
+    TEST(VAL.content, "Rappeler");
+    TEST(VAL.date, Date(2, 3, 2023));
+    END_TEST;
+
+    BEGIN_TEST(Todo("Rappeler@date 2/3/2023"));
+    TEST(VAL.content, "Rappeler@date 2/3/2023");
+    TEST(VAL.date, Date::today());
+    END_TEST;
+
+    BEGIN_TEST(Todo("Rappeler\n@date 2/3/2023"));
+    TEST(VAL.content, "Rappeler");
+    TEST(VAL.date, Date::today());
+    END_TEST;
+
+    BEGIN_TEST(Todo("Rappeler @date 2/3/2023\nLigne non prise en compte"));
+    TEST(VAL.content, "Rappeler");
+    TEST(VAL.date, Date(2, 3, 2023));
+    END_TEST;
+
+    BEGIN_TEST(Todo("Rappeler le client.", Date(1, 1, 2023)));
+    TEST(VAL.content, "Rappeler le client.");
+    TEST(VAL.date, Date(1, 1, 2023));
+    END_TEST;
 }
 
-void Test_Interaction()
+void UnitTest::Test_Interaction()
 {
-    std::cout << Interaction("Conferance sur zoom.", Date(1, 1, 2023)) << std::endl;
-    std::cout << Interaction("@todo Rappeler.", Date(1, 1, 2023)) << std::endl;
-    std::cout << Interaction("rdv aujourd'hui par tel.", Date::today()) << std::endl;
-    std::cout << Interaction("@todo confirmer commande n 146") << std::endl;
-    std::cout << Interaction("anniversaire jean luc @date 5/12/2022") << std::endl;
-    std::cout << Interaction("Rendre @todo projet cdaa @date 17/12/2022") << std::endl;
-    std::cout << Interaction("Rappeler @date 5/12/2022") << std::endl;
-}
+    BEGIN_TEST(Interaction("Conférence sur zoom.", Date(1, 1, 2023)));
+    TEST(VAL.content, "Conférence sur zoom.");
+    TEST(VAL.date, Date(1, 1, 2023));
+    END_TEST;
 
-void Test_Contact()
-{
-    Contact c1 = Contact("1", "Ismail", "is@gmail.com", "3484", "photo1", Date(1, 1, 2023) , {} );
-    std::cout << Contact("1", "Ismail", "is@gmail.com", "3484", "photo1", Date(1, 1, 2023) , {} ) << std::endl;
-    std::cout << Contact(c1)  << std::endl;
-    std::cout << Contact("1", "Alexandre", "al@gmail.com", "8475", "photo2", Date(10, 2, 2024) , {} )  << std::endl;
+    BEGIN_TEST(Interaction("Conférence sur zoom.\n@todo Rappeler"));
+    TEST(VAL.content, "Conférence sur zoom.");
+    TEST(VAL.date, Date::today());
+    TEST(VAL.todos.size(), 1);
+    if(VAL.todos.size() > 0) TEST(VAL.todos[0], Todo("Rappeler"));
+    END_TEST;
+
+    BEGIN_TEST(Interaction("@todo Rappeler."));
+    TEST(VAL.content, "");
+    TEST(VAL.date, Date::today());
+    TEST(VAL.todos.size(), 1);
+    if(VAL.todos.size() > 0) TEST(VAL.todos[0], Todo("Rappeler."));
+    END_TEST;
+
+    BEGIN_TEST(Interaction("Anniversaire @date 5/12/2022"));
+    TEST(VAL.content, "Anniversaire @date 5/12/2022");
+    TEST(VAL.date, Date::today());
+    TEST(VAL.todos.size(), 0);
+    END_TEST;
 }

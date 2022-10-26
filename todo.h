@@ -8,6 +8,7 @@
 class Todo
 {
 public:
+    friend class UnitTest;
     /**
      * @brief Defautl constructor is deleted.
      */
@@ -68,14 +69,14 @@ private:
      * @param str The raw date string.
      * @return An optional Date : empty if parsing failed.
      */
-    std::optional<Date> parseDate(const std::string& str);
+    static std::optional<Date> parseDate(const std::string& str);
 
     /**
      * @brief parseNumber
      * @param str
      * @return
      */
-    std::optional<uint16_t> parseNumber(const std::string& str);
+    static std::optional<uint16_t> parseNumber(const std::string& str);
 
 private:
     std::string content;

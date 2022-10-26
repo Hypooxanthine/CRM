@@ -73,61 +73,631 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a450daeecfe6d374cefb9eea3ca83ad96"><td class="memItemLeft" align="right" valign="top"><a id="a450daeecfe6d374cefb9eea3ca83ad96"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Contact</b> (const std::string &amp;id, const std::string &amp;name, const std::string &amp;email, const std::string &amp;phone, const std::string &amp;photo, const unsigned cDate, const std::vector&lt; <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> &gt; interactionList)</td></tr>
-<tr class="separator:a450daeecfe6d374cefb9eea3ca83ad96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0b009acfca5ca419465b21b21e5c19d"><td class="memItemLeft" align="right" valign="top"><a id="ae0b009acfca5ca419465b21b21e5c19d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Contact</b> (const <a class="el" href="../../d5/d8d/classContact.html">Contact</a> &amp;c)</td></tr>
+<tr class="memitem:ab1787df226299efc41a06b7d483ed657"><td class="memItemLeft" align="right" valign="top"><a id="ab1787df226299efc41a06b7d483ed657"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#ab1787df226299efc41a06b7d483ed657">Contact</a> ()=delete</td></tr>
+<tr class="memdesc:ab1787df226299efc41a06b7d483ed657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor is deleted. <br /></td></tr>
+<tr class="separator:ab1787df226299efc41a06b7d483ed657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5f8cd38f381a5f193c0c73b6f7f2fda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#ab5f8cd38f381a5f193c0c73b6f7f2fda">Contact</a> (const std::string &amp;id, const std::string &amp;name, const std::string &amp;email, const std::string &amp;phone, const std::string &amp;photoPath, const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;date, const std::vector&lt; <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> &gt; interactionList)</td></tr>
+<tr class="memdesc:ab5f8cd38f381a5f193c0c73b6f7f2fda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has to be called for a known Contact.For example, when retrieving a <a class="el" href="../../d5/d8d/classContact.html">Contact</a> from the database, the <a class="el" href="../../d5/d8d/classContact.html">Contact</a> is known, so are the other parameters.  <a href="../../d5/d8d/classContact.html#ab5f8cd38f381a5f193c0c73b6f7f2fda">More...</a><br /></td></tr>
+<tr class="separator:ab5f8cd38f381a5f193c0c73b6f7f2fda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0b009acfca5ca419465b21b21e5c19d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#ae0b009acfca5ca419465b21b21e5c19d">Contact</a> (const <a class="el" href="../../d5/d8d/classContact.html">Contact</a> &amp;c)</td></tr>
+<tr class="memdesc:ae0b009acfca5ca419465b21b21e5c19d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Has to be called to copy a <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#ae0b009acfca5ca419465b21b21e5c19d">More...</a><br /></td></tr>
 <tr class="separator:ae0b009acfca5ca419465b21b21e5c19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a831dfe4049ab8b345360b7128dc7a826"><td class="memItemLeft" align="right" valign="top"><a id="a831dfe4049ab8b345360b7128dc7a826"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const</td></tr>
-<tr class="separator:a831dfe4049ab8b345360b7128dc7a826"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1f387bf63e4e2b4c8a4f7a28ac7371"><td class="memItemLeft" align="right" valign="top"><a id="abc1f387bf63e4e2b4c8a4f7a28ac7371"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (const std::string &amp;newId)</td></tr>
-<tr class="separator:abc1f387bf63e4e2b4c8a4f7a28ac7371"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fdbfb743dbd97669c48f9078ddb37fd"><td class="memItemLeft" align="right" valign="top"><a id="a4fdbfb743dbd97669c48f9078ddb37fd"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
-<tr class="separator:a4fdbfb743dbd97669c48f9078ddb37fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1273b5aa9954d9bb07ec19f6aa836b50"><td class="memItemLeft" align="right" valign="top"><a id="a1273b5aa9954d9bb07ec19f6aa836b50"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (const std::string &amp;newName)</td></tr>
-<tr class="separator:a1273b5aa9954d9bb07ec19f6aa836b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa61cb6be5f476b215ab8a5c010e98ad"><td class="memItemLeft" align="right" valign="top"><a id="aaa61cb6be5f476b215ab8a5c010e98ad"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getEmail</b> () const</td></tr>
-<tr class="separator:aaa61cb6be5f476b215ab8a5c010e98ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a006b8e279631a7848c5e3fbb67bd420c"><td class="memItemLeft" align="right" valign="top"><a id="a006b8e279631a7848c5e3fbb67bd420c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEmail</b> (const std::string &amp;newEmail)</td></tr>
-<tr class="separator:a006b8e279631a7848c5e3fbb67bd420c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b0f355cd2f3ede57a22b005be712b91"><td class="memItemLeft" align="right" valign="top"><a id="a2b0f355cd2f3ede57a22b005be712b91"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getPhone</b> () const</td></tr>
-<tr class="separator:a2b0f355cd2f3ede57a22b005be712b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf274ced1f3a53e7de00753a276fe45e"><td class="memItemLeft" align="right" valign="top"><a id="aaf274ced1f3a53e7de00753a276fe45e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPhone</b> (const std::string &amp;newPhone)</td></tr>
-<tr class="separator:aaf274ced1f3a53e7de00753a276fe45e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c9099d80538c241c852d68f2630fc54"><td class="memItemLeft" align="right" valign="top"><a id="a0c9099d80538c241c852d68f2630fc54"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getPhoto</b> () const</td></tr>
-<tr class="separator:a0c9099d80538c241c852d68f2630fc54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fcadcf84b3524178b46f92bbb4404db"><td class="memItemLeft" align="right" valign="top"><a id="a1fcadcf84b3524178b46f92bbb4404db"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPhoto</b> (const std::string &amp;newPhoto)</td></tr>
-<tr class="separator:a1fcadcf84b3524178b46f92bbb4404db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a4e1650e793e0572a7c890197f9b6f0"><td class="memItemLeft" align="right" valign="top"><a id="a3a4e1650e793e0572a7c890197f9b6f0"></a>
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>getCreationDate</b> () const</td></tr>
-<tr class="separator:a3a4e1650e793e0572a7c890197f9b6f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5d81cb0a1c84587f3b30355cc7f51f7"><td class="memItemLeft" align="right" valign="top"><a id="af5d81cb0a1c84587f3b30355cc7f51f7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCreationDate</b> (const unsigned &amp;newCreationDate)</td></tr>
-<tr class="separator:af5d81cb0a1c84587f3b30355cc7f51f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6c872ed1a1ccdac9c3b699705459804"><td class="memItemLeft" align="right" valign="top"><a id="ab6c872ed1a1ccdac9c3b699705459804"></a>
-std::vector&lt; <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getInteractionList</b> () const</td></tr>
-<tr class="separator:ab6c872ed1a1ccdac9c3b699705459804"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20d4f53a33fa1acc1c4afc9654bbc440"><td class="memItemLeft" align="right" valign="top"><a id="a20d4f53a33fa1acc1c4afc9654bbc440"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setInteractionList</b> (const std::vector&lt; <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> &gt; &amp;newInteractionList)</td></tr>
-<tr class="separator:a20d4f53a33fa1acc1c4afc9654bbc440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada43b10888ec20411e8aa6e45486b13f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#ada43b10888ec20411e8aa6e45486b13f">setId</a> (const std::string &amp;id)</td></tr>
+<tr class="memdesc:ada43b10888ec20411e8aa6e45486b13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the id of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#ada43b10888ec20411e8aa6e45486b13f">More...</a><br /></td></tr>
+<tr class="separator:ada43b10888ec20411e8aa6e45486b13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6c364a50b5d0ee7ceba8499b1ae9fce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#ac6c364a50b5d0ee7ceba8499b1ae9fce">setName</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:ac6c364a50b5d0ee7ceba8499b1ae9fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Name of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#ac6c364a50b5d0ee7ceba8499b1ae9fce">More...</a><br /></td></tr>
+<tr class="separator:ac6c364a50b5d0ee7ceba8499b1ae9fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6669771d7c07596bd7dc190de02a7991"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#a6669771d7c07596bd7dc190de02a7991">setEmail</a> (const std::string &amp;email)</td></tr>
+<tr class="memdesc:a6669771d7c07596bd7dc190de02a7991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the email of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#a6669771d7c07596bd7dc190de02a7991">More...</a><br /></td></tr>
+<tr class="separator:a6669771d7c07596bd7dc190de02a7991"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3efe1754c6d6fc83961a3aaa275da41a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#a3efe1754c6d6fc83961a3aaa275da41a">setPhone</a> (const std::string &amp;phone)</td></tr>
+<tr class="memdesc:a3efe1754c6d6fc83961a3aaa275da41a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the phone of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#a3efe1754c6d6fc83961a3aaa275da41a">More...</a><br /></td></tr>
+<tr class="separator:a3efe1754c6d6fc83961a3aaa275da41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa38ff60d2a2dded4b450a88c712058c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#aa38ff60d2a2dded4b450a88c712058c3">setPhotoPath</a> (const std::string &amp;photoPath)</td></tr>
+<tr class="memdesc:aa38ff60d2a2dded4b450a88c712058c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the photo's path of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#aa38ff60d2a2dded4b450a88c712058c3">More...</a><br /></td></tr>
+<tr class="separator:aa38ff60d2a2dded4b450a88c712058c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae41366c7db10229a0e4d5977d40a2833"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#ae41366c7db10229a0e4d5977d40a2833">setDate</a> (const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;date)</td></tr>
+<tr class="memdesc:ae41366c7db10229a0e4d5977d40a2833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the date of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#ae41366c7db10229a0e4d5977d40a2833">More...</a><br /></td></tr>
+<tr class="separator:ae41366c7db10229a0e4d5977d40a2833"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54f2d44fc7808def04adc2299e1c31e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#a54f2d44fc7808def04adc2299e1c31e9">setInteractionList</a> (const std::vector&lt; <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> &gt; &amp;InteractionList)</td></tr>
+<tr class="memdesc:a54f2d44fc7808def04adc2299e1c31e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions.  <a href="../../d5/d8d/classContact.html#a54f2d44fc7808def04adc2299e1c31e9">More...</a><br /></td></tr>
+<tr class="separator:a54f2d44fc7808def04adc2299e1c31e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf40c57274b28f89eb7c77a069c405c7"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#acf40c57274b28f89eb7c77a069c405c7">getId</a> () const</td></tr>
+<tr class="memdesc:acf40c57274b28f89eb7c77a069c405c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the id of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#acf40c57274b28f89eb7c77a069c405c7">More...</a><br /></td></tr>
+<tr class="separator:acf40c57274b28f89eb7c77a069c405c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53425c2e4c8ad27ccdaf8c7fa072dd75"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#a53425c2e4c8ad27ccdaf8c7fa072dd75">getName</a> () const</td></tr>
+<tr class="memdesc:a53425c2e4c8ad27ccdaf8c7fa072dd75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Name of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#a53425c2e4c8ad27ccdaf8c7fa072dd75">More...</a><br /></td></tr>
+<tr class="separator:a53425c2e4c8ad27ccdaf8c7fa072dd75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d5964a672f881801093729be3c15888"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#a0d5964a672f881801093729be3c15888">getEmail</a> () const</td></tr>
+<tr class="memdesc:a0d5964a672f881801093729be3c15888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the email of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#a0d5964a672f881801093729be3c15888">More...</a><br /></td></tr>
+<tr class="separator:a0d5964a672f881801093729be3c15888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ab84fe7ed50683ec9d73c215a7a61a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#aa3ab84fe7ed50683ec9d73c215a7a61a">getPhone</a> () const</td></tr>
+<tr class="memdesc:aa3ab84fe7ed50683ec9d73c215a7a61a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the phone of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#aa3ab84fe7ed50683ec9d73c215a7a61a">More...</a><br /></td></tr>
+<tr class="separator:aa3ab84fe7ed50683ec9d73c215a7a61a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace315412e0306e33c781679848eacc8c"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#ace315412e0306e33c781679848eacc8c">getPhotoPath</a> () const</td></tr>
+<tr class="memdesc:ace315412e0306e33c781679848eacc8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the photo's path of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#ace315412e0306e33c781679848eacc8c">More...</a><br /></td></tr>
+<tr class="separator:ace315412e0306e33c781679848eacc8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a488e12f492ff085844f0f342a897f101"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="../../de/d4a/classDate.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#a488e12f492ff085844f0f342a897f101">getDate</a> () const</td></tr>
+<tr class="memdesc:a488e12f492ff085844f0f342a897f101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the date of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>.  <a href="../../d5/d8d/classContact.html#a488e12f492ff085844f0f342a897f101">More...</a><br /></td></tr>
+<tr class="separator:a488e12f492ff085844f0f342a897f101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b42d55dcf8c724c73087c33057565f5"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#a7b42d55dcf8c724c73087c33057565f5">getInteractionList</a> () const</td></tr>
+<tr class="memdesc:a7b42d55dcf8c724c73087c33057565f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions.  <a href="../../d5/d8d/classContact.html#a7b42d55dcf8c724c73087c33057565f5">More...</a><br /></td></tr>
+<tr class="separator:a7b42d55dcf8c724c73087c33057565f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab49cb9912c754ff3461f75d31ed25fe5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/d8d/classContact.html#ab49cb9912c754ff3461f75d31ed25fe5">addInteraction</a> (<a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> interaction)</td></tr>
+<tr class="memdesc:ab49cb9912c754ff3461f75d31ed25fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an interaction to the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions.  <a href="../../d5/d8d/classContact.html#ab49cb9912c754ff3461f75d31ed25fe5">More...</a><br /></td></tr>
+<tr class="separator:ab49cb9912c754ff3461f75d31ed25fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
+<tr class="memitem:a832b4d233efee1a32feb0f4190b30d39"><td class="memItemLeft" align="right" valign="top"><a id="a832b4d233efee1a32feb0f4190b30d39"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>UnitTest</b></td></tr>
+<tr class="separator:a832b4d233efee1a32feb0f4190b30d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af87e832bd0c9667d25df0dfec1c17c1b"><td class="memItemLeft" align="right" valign="top"><a id="af87e832bd0c9667d25df0dfec1c17c1b"></a>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, const <a class="el" href="../../d5/d8d/classContact.html">Contact</a> &amp;c)</td></tr>
 <tr class="separator:af87e832bd0c9667d25df0dfec1c17c1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab5f8cd38f381a5f193c0c73b6f7f2fda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5f8cd38f381a5f193c0c73b6f7f2fda">&#9670;&nbsp;</a></span>Contact() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Contact::Contact </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>email</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>phone</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>photoPath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> &gt;&#160;</td>
+          <td class="paramname"><em>interactionList</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Has to be called for a known Contact.For example, when retrieving a <a class="el" href="../../d5/d8d/classContact.html">Contact</a> from the database, the <a class="el" href="../../d5/d8d/classContact.html">Contact</a> is known, so are the other parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id</td><td>The id of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </td></tr>
+    <tr><td class="paramname">name</td><td>The name of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </td></tr>
+    <tr><td class="paramname">email</td><td>The email of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </td></tr>
+    <tr><td class="paramname">phone</td><td>The phone of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </td></tr>
+    <tr><td class="paramname">photoPath</td><td>The photo's path of the contact. </td></tr>
+    <tr><td class="paramname">date</td><td>The date the <a class="el" href="../../d5/d8d/classContact.html">Contact</a> was created. </td></tr>
+    <tr><td class="paramname">interactionList</td><td>The <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae0b009acfca5ca419465b21b21e5c19d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0b009acfca5ca419465b21b21e5c19d">&#9670;&nbsp;</a></span>Contact() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Contact::Contact </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d8d/classContact.html">Contact</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Has to be called to copy a <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>The <a class="el" href="../../d5/d8d/classContact.html">Contact</a> to copy. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab49cb9912c754ff3461f75d31ed25fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab49cb9912c754ff3461f75d31ed25fe5">&#9670;&nbsp;</a></span>addInteraction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Contact::addInteraction </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>&#160;</td>
+          <td class="paramname"><em>interaction</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add an interaction to the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interaction</td><td>to add to the list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a488e12f492ff085844f0f342a897f101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a488e12f492ff085844f0f342a897f101">&#9670;&nbsp;</a></span>getDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../de/d4a/classDate.html">Date</a> Contact::getDate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the date of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The date of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a0d5964a672f881801093729be3c15888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5964a672f881801093729be3c15888">&#9670;&nbsp;</a></span>getEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Contact::getEmail </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the email of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The email of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </dd></dl>
+
+</div>
+</div>
+<a id="acf40c57274b28f89eb7c77a069c405c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf40c57274b28f89eb7c77a069c405c7">&#9670;&nbsp;</a></span>getId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Contact::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the id of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The id of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a7b42d55dcf8c724c73087c33057565f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b42d55dcf8c724c73087c33057565f5">&#9670;&nbsp;</a></span>getInteractionList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="../../db/d0c/classInteraction.html">Interaction</a>&gt; Contact::getInteractionList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions. </p>
+<dl class="section return"><dt>Returns</dt><dd>The <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions. </dd></dl>
+
+</div>
+</div>
+<a id="a53425c2e4c8ad27ccdaf8c7fa072dd75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53425c2e4c8ad27ccdaf8c7fa072dd75">&#9670;&nbsp;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Contact::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the Name of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The Name of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </dd></dl>
+
+</div>
+</div>
+<a id="aa3ab84fe7ed50683ec9d73c215a7a61a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ab84fe7ed50683ec9d73c215a7a61a">&#9670;&nbsp;</a></span>getPhone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Contact::getPhone </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the phone of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The phone of the contact. </dd></dl>
+
+</div>
+</div>
+<a id="ace315412e0306e33c781679848eacc8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace315412e0306e33c781679848eacc8c">&#9670;&nbsp;</a></span>getPhotoPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Contact::getPhotoPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the photo's path of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>The photo's path of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ae41366c7db10229a0e4d5977d40a2833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae41366c7db10229a0e4d5977d40a2833">&#9670;&nbsp;</a></span>setDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Contact::setDate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;&#160;</td>
+          <td class="paramname"><em>date</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the date of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>new date . </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6669771d7c07596bd7dc190de02a7991"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6669771d7c07596bd7dc190de02a7991">&#9670;&nbsp;</a></span>setEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Contact::setEmail </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>email</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the email of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>new email. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ada43b10888ec20411e8aa6e45486b13f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada43b10888ec20411e8aa6e45486b13f">&#9670;&nbsp;</a></span>setId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Contact::setId </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the id of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>new id. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54f2d44fc7808def04adc2299e1c31e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54f2d44fc7808def04adc2299e1c31e9">&#9670;&nbsp;</a></span>setInteractionList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Contact::setInteractionList </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="../../db/d0c/classInteraction.html">Interaction</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>InteractionList</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>new <a class="el" href="../../d5/d8d/classContact.html">Contact</a>'s list of interactions. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac6c364a50b5d0ee7ceba8499b1ae9fce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6c364a50b5d0ee7ceba8499b1ae9fce">&#9670;&nbsp;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Contact::setName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the Name of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>new name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3efe1754c6d6fc83961a3aaa275da41a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3efe1754c6d6fc83961a3aaa275da41a">&#9670;&nbsp;</a></span>setPhone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Contact::setPhone </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>phone</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the phone of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>new phone. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa38ff60d2a2dded4b450a88c712058c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa38ff60d2a2dded4b450a88c712058c3">&#9670;&nbsp;</a></span>setPhotoPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Contact::setPhotoPath </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>photoPath</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the photo's path of the <a class="el" href="../../d5/d8d/classContact.html">Contact</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">The</td><td>new photo's path. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="../../dc/dcf/contact_8h_source.html">contact.h</a></li>
 <li>contact.cpp</li>

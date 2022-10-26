@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['date_2',['Date',['../de/d4a/classDate.html',1,'Date'],['../de/d4a/classDate.html#a4e59ed4ba66eec61c27460c5d09fa1bd',1,'Date::Date()'],['../de/d4a/classDate.html#a5b341ab7a28301092c8f421523553456',1,'Date::Date(const uint8_t &amp;day, const uint8_t &amp;month, const uint16_t &amp;year)']]]
+  ['contact_1',['Contact',['../d5/d8d/classContact.html',1,'Contact'],['../d5/d8d/classContact.html#ab1787df226299efc41a06b7d483ed657',1,'Contact::Contact()=delete'],['../d5/d8d/classContact.html#ab5f8cd38f381a5f193c0c73b6f7f2fda',1,'Contact::Contact(const std::string &amp;id, const std::string &amp;name, const std::string &amp;email, const std::string &amp;phone, const std::string &amp;photoPath, const Date &amp;date, const std::vector&lt; Interaction &gt; interactionList)'],['../d5/d8d/classContact.html#ae0b009acfca5ca419465b21b21e5c19d',1,'Contact::Contact(const Contact &amp;c)']]],
+  ['crm_2',['CRM',['../d0/d30/md_README.html',1,'']]]
 ];
