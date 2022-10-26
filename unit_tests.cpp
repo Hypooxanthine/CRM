@@ -12,7 +12,7 @@
     auto VAL = val;\
     std::ostringstream ossExpected, ossResult;\
     std::cout << std::endl << "\x1B[33mTest on VAL = " << #val << " :\033[0m\t\t" << std::endl;
-#ifdef __unix
+//#ifdef __unix
     #define TEST(x, expected) {\
         ossExpected = std::ostringstream();\
         ossExpected << expected;\
@@ -24,19 +24,6 @@
         else std::cout << "\x1B[31m-> BAD RESULT\033[0m\t\t";\
         std::cout << std::endl << std::endl;}
     #define END_TEST }
-#elif
-    #define TEST(x, expected) {\
-        ossExpected = std::ostringstream();\
-        ossExpected << expected;\
-        ossResult = std::ostringstream();\
-        ossResult << x;\
-        std::cout << "Value " << #x << std::endl;\
-        std::cout << "-Expected : " << std::endl << expected << std::endl << "-Result :" << std::endl << x << std::endl;\
-        if (std::string(ossExpected.str()) == std::string(ossResult.str())) std::cout << "-> OK";\
-        else std::cout << "-> BAD RESULT";\
-        std::cout << std::endl << std::endl;}
-    #define END_TEST }
-#endif
 
 void UnitTest::Test_Todo()
 {
