@@ -5,7 +5,7 @@ var searchData=
   ['setday_91',['setDay',['../de/d4a/classDate.html#a5f626a35a911710588b1faa243363c4e',1,'Date']]],
   ['setemail_92',['setEmail',['../d5/d8d/classContact.html#a6669771d7c07596bd7dc190de02a7991',1,'Contact']]],
   ['setid_93',['setId',['../d5/d8d/classContact.html#ae4fb5cb0c892a853ea33b23e02ee5e78',1,'Contact']]],
-  ['setinteractionlist_94',['setInteractionList',['../d5/d8d/classContact.html#a519a0d51347d9b338044d6058a618507',1,'Contact']]],
+  ['setinteractionmanager_94',['setInteractionManager',['../d5/d8d/classContact.html#a76df6c867ca0a813806695bf952e0b22',1,'Contact']]],
   ['setmonth_95',['setMonth',['../de/d4a/classDate.html#a2f2ddf4951a523a9984161ef41a60473',1,'Date']]],
   ['setname_96',['setName',['../d5/d8d/classContact.html#ac6c364a50b5d0ee7ceba8499b1ae9fce',1,'Contact']]],
   ['setphone_97',['setPhone',['../d5/d8d/classContact.html#a3efe1754c6d6fc83961a3aaa275da41a',1,'Contact']]],

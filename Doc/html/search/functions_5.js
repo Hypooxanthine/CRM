@@ -7,7 +7,7 @@ var searchData=
   ['getemail_73',['getEmail',['../d5/d8d/classContact.html#ab03694fe5871feb7da6a982276ffedde',1,'Contact']]],
   ['getfront_74',['getFront',['../dd/dcd/classManager.html#a5575b7207cf0e6ca6fcbcc7027550249',1,'Manager::getFront() const'],['../dd/dcd/classManager.html#aa89c963395aa7a3949455e732f3f02ec',1,'Manager::getFront()']]],
   ['getid_75',['getId',['../d5/d8d/classContact.html#acf9953df22428fc09f8e871b8b3c5a38',1,'Contact']]],
-  ['getinteractionlist_76',['getInteractionList',['../d5/d8d/classContact.html#a1ecb78d6cf8fbcebf467315d3dc45a3c',1,'Contact']]],
+  ['getinteractionmanager_76',['getInteractionManager',['../d5/d8d/classContact.html#ab51d7f496838f447b990adb39b436e65',1,'Contact']]],
   ['getmonth_77',['getMonth',['../de/d4a/classDate.html#a9f3944d94e7a72ac785fbf2fde5fa996',1,'Date']]],
   ['getname_78',['getName',['../d5/d8d/classContact.html#a9d384c7fd8678edd2852a5a155f44cfc',1,'Contact']]],
   ['getphone_79',['getPhone',['../d5/d8d/classContact.html#a387d8f52ba0fc5a97c0355bda41096ea',1,'Contact']]],
