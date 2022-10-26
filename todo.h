@@ -13,6 +13,8 @@ public:
      * @brief Defautl constructor is deleted.
      */
     Todo() = delete;
+    Todo(const Todo&) = default;
+    Todo(Todo&& other);
 
     /**
      * @brief Has to be called for a known Todo. For example, when retrieving a Todo from the database, the Todo is already known, so is the date.
@@ -55,6 +57,9 @@ public:
     const Date& getDate() const { return date; }
 
     friend std::ostream& operator<<(std::ostream& os, const Todo& todo);
+
+    Todo& operator=(const Todo&) = default;
+    bool operator==(const Todo& other) const;
 
 private:
     /**

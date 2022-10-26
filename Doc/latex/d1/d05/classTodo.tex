@@ -6,6 +6,12 @@
 \mbox{\Hypertarget{classTodo_ae7419f12211644849e6717ee3cae2945}\label{classTodo_ae7419f12211644849e6717ee3cae2945}} 
 \mbox{\hyperlink{classTodo_ae7419f12211644849e6717ee3cae2945}{Todo}} ()=delete
 \begin{DoxyCompactList}\small\item\em Defautl constructor is deleted. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTodo_a4fe9173123b4ac37891c12504afd7024}\label{classTodo_a4fe9173123b4ac37891c12504afd7024}} 
+{\bfseries Todo} (const \mbox{\hyperlink{classTodo}{Todo}} \&)=default
+\item 
+\mbox{\Hypertarget{classTodo_a0296c410a58386684f852b7fb3971765}\label{classTodo_a0296c410a58386684f852b7fb3971765}} 
+{\bfseries Todo} (\mbox{\hyperlink{classTodo}{Todo}} \&\&other)
+\item 
 \mbox{\hyperlink{classTodo_aa5edea70abab3b2df092ec5328dfd75e}{Todo}} (const std\+::string \&content, const \mbox{\hyperlink{classDate}{Date}} \&date)
 \begin{DoxyCompactList}\small\item\em Has to be called for a known \mbox{\hyperlink{classTodo}{Todo}}. For example, when retrieving a \mbox{\hyperlink{classTodo}{Todo}} from the database, the \mbox{\hyperlink{classTodo}{Todo}} is already known, so is the date. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classTodo_a9af0ff3577d3fedecfbce817059198ea}{Todo}} (const std\+::string \&content)
@@ -17,7 +23,13 @@ void \mbox{\hyperlink{classTodo_a83dcecea40d44b6fb43823cd42a11d03}{set\+Date}} (
 const std\+::string \& \mbox{\hyperlink{classTodo_a7e69a5a1496e6b601a22c06dc0bb22f0}{get\+Content}} () const
 \begin{DoxyCompactList}\small\item\em Gets the content of the \mbox{\hyperlink{classTodo}{Todo}}. It shouldn\textquotesingle{}t contain any @date tag. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classTodo_af6e9fe25204bd718052c51cd131596b8}{get\+Date}} () const
-\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classTodo}{Todo}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classTodo}{Todo}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classTodo_aef13cf8f2a46c456e5794440f659871c}\label{classTodo_aef13cf8f2a46c456e5794440f659871c}} 
+\mbox{\hyperlink{classTodo}{Todo}} \& {\bfseries operator=} (const \mbox{\hyperlink{classTodo}{Todo}} \&)=default
+\item 
+\mbox{\Hypertarget{classTodo_a24dc561b664a2217c954f5b601037c7c}\label{classTodo_a24dc561b664a2217c954f5b601037c7c}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classTodo}{Todo}} \&other) const
+\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 

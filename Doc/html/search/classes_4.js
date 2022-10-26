@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['todo_39',['Todo',['../d1/d05/classTodo.html',1,'']]]
+  ['todo_62',['Todo',['../d1/d05/classTodo.html',1,'']]],
+  ['todomanager_63',['TodoManager',['../d6/d77/classTodoManager.html',1,'']]]
 ];

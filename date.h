@@ -12,6 +12,9 @@ public:
      */
     Date();
 
+    Date(Date&&) = default;
+    Date(const Date&) = default;
+
     /**
      * @brief Creates a new date. No verification is done about the values, leap years, etc.
      * @param day Day value.
@@ -62,7 +65,11 @@ public:
      */
     static Date today();
 
+    Date& operator=(const Date&) = default;
+
     friend std::ostream& operator<<(std::ostream& os, const Date& date);
+
+    bool operator==(const Date& other) const;
 
 private:
     uint8_t day, month;

@@ -3,6 +3,10 @@
 #include <sstream>
 #include <iostream>
 
+Todo::Todo(Todo&& other)
+    : content(std::move(other.content)), date(std::move(other.date))
+{}
+
 Todo::Todo(const std::string& content, const Date& date)
     : content(content), date(date)
 {}
@@ -146,4 +150,9 @@ std::ostream& operator<<(std::ostream& os, const Todo& todo)
 {
     os << "(" << todo.getDate() << ") " << todo.getContent();
     return os;
+}
+
+bool Todo::operator==(const Todo& other) const
+{
+    return content == other.content && date == other.date;
 }

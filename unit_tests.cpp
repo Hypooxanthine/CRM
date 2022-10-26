@@ -106,20 +106,20 @@ void UnitTest::Test_Interaction()
     BEGIN_TEST(Interaction("Conférence sur zoom.\n@todo Rappeler"));
     TEST(VAL.content, "Conférence sur zoom.");
     TEST(VAL.date, Date::today());
-    TEST(VAL.todos.size(), 1);
-    if(VAL.todos.size() > 0) TEST(VAL.todos[0], Todo("Rappeler"));
+    TEST(VAL.todos.getSize(), 1);
+    if(VAL.todos.getSize() > 0) TEST(VAL.getTodos().getFront(), Todo("Rappeler"));
     END_TEST;
 
     BEGIN_TEST(Interaction("@todo Rappeler."));
     TEST(VAL.content, "");
     TEST(VAL.date, Date::today());
-    TEST(VAL.todos.size(), 1);
-    if(VAL.todos.size() > 0) TEST(VAL.todos[0], Todo("Rappeler."));
+    TEST(VAL.todos.getSize(), 1);
+    if(VAL.todos.getSize() > 0) TEST(VAL.getTodos().getFront(), Todo("Rappeler."));
     END_TEST;
 
     BEGIN_TEST(Interaction("Anniversaire @date 5/12/2022"));
     TEST(VAL.content, "Anniversaire @date 5/12/2022");
     TEST(VAL.date, Date::today());
-    TEST(VAL.todos.size(), 0);
+    TEST(VAL.todos.getSize(), 0);
     END_TEST;
 }

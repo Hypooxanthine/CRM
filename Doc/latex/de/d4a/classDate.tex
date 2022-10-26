@@ -6,6 +6,12 @@
 \mbox{\Hypertarget{classDate_a4e59ed4ba66eec61c27460c5d09fa1bd}\label{classDate_a4e59ed4ba66eec61c27460c5d09fa1bd}} 
 \mbox{\hyperlink{classDate_a4e59ed4ba66eec61c27460c5d09fa1bd}{Date}} ()
 \begin{DoxyCompactList}\small\item\em Creates an \char`\"{}invalid\char`\"{} date \+: day, month and year are set to zero. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a1d69719479e350f14e45b0d100651f57}\label{classDate_a1d69719479e350f14e45b0d100651f57}} 
+{\bfseries Date} (\mbox{\hyperlink{classDate}{Date}} \&\&)=default
+\item 
+\mbox{\Hypertarget{classDate_af5f2083a393074085f0ca88bd6ffad56}\label{classDate_af5f2083a393074085f0ca88bd6ffad56}} 
+{\bfseries Date} (const \mbox{\hyperlink{classDate}{Date}} \&)=default
+\item 
 \mbox{\hyperlink{classDate_a5b341ab7a28301092c8f421523553456}{Date}} (const uint8\+\_\+t \&day, const uint8\+\_\+t \&month, const uint16\+\_\+t \&year)
 \begin{DoxyCompactList}\small\item\em Creates a new date. No verification is done about the values, leap years, etc. \end{DoxyCompactList}\item 
 const uint8\+\_\+t \& \mbox{\hyperlink{classDate_a2f4c8a1601d95e8f3e0e1269f5fde82e}{get\+Day}} () const
@@ -19,7 +25,13 @@ void \mbox{\hyperlink{classDate_a5f626a35a911710588b1faa243363c4e}{set\+Day}} (c
 void \mbox{\hyperlink{classDate_a2f2ddf4951a523a9984161ef41a60473}{set\+Month}} (const uint8\+\_\+t \&m)
 \begin{DoxyCompactList}\small\item\em Sets the month of the \mbox{\hyperlink{classDate}{Date}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classDate_a460f21e30a308824ca4f0f4eb936fdd4}{set\+Year}} (const uint16\+\_\+t \&y)
-\begin{DoxyCompactList}\small\item\em Sets the year of the \mbox{\hyperlink{classDate}{Date}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the year of the \mbox{\hyperlink{classDate}{Date}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDate_a3308dcdb43f6f3b02eb962005d2e19b7}\label{classDate_a3308dcdb43f6f3b02eb962005d2e19b7}} 
+\mbox{\hyperlink{classDate}{Date}} \& {\bfseries operator=} (const \mbox{\hyperlink{classDate}{Date}} \&)=default
+\item 
+\mbox{\Hypertarget{classDate_a3b103cc8257d3055aedb519fff343503}\label{classDate_a3b103cc8257d3055aedb519fff343503}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classDate}{Date}} \&other) const
+\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 

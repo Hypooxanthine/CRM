@@ -1,15 +1,18 @@
 var searchData=
 [
-  ['setcontent_57',['setContent',['../db/d0c/classInteraction.html#ac586b317091b175eae572b53a80f5721',1,'Interaction::setContent()'],['../d1/d05/classTodo.html#ae918e4da1cdc9d419d05e24749c82e7e',1,'Todo::setContent()']]],
-  ['setdate_58',['setDate',['../d5/d8d/classContact.html#ae41366c7db10229a0e4d5977d40a2833',1,'Contact::setDate()'],['../db/d0c/classInteraction.html#a485ba37b2ee05e614266f7ff6a79e074',1,'Interaction::setDate()'],['../d1/d05/classTodo.html#a83dcecea40d44b6fb43823cd42a11d03',1,'Todo::setDate()']]],
-  ['setday_59',['setDay',['../de/d4a/classDate.html#a5f626a35a911710588b1faa243363c4e',1,'Date']]],
-  ['setemail_60',['setEmail',['../d5/d8d/classContact.html#a6669771d7c07596bd7dc190de02a7991',1,'Contact']]],
-  ['setid_61',['setId',['../d5/d8d/classContact.html#ada43b10888ec20411e8aa6e45486b13f',1,'Contact']]],
-  ['setinteractionlist_62',['setInteractionList',['../d5/d8d/classContact.html#a54f2d44fc7808def04adc2299e1c31e9',1,'Contact']]],
-  ['setmonth_63',['setMonth',['../de/d4a/classDate.html#a2f2ddf4951a523a9984161ef41a60473',1,'Date']]],
-  ['setname_64',['setName',['../d5/d8d/classContact.html#ac6c364a50b5d0ee7ceba8499b1ae9fce',1,'Contact']]],
-  ['setphone_65',['setPhone',['../d5/d8d/classContact.html#a3efe1754c6d6fc83961a3aaa275da41a',1,'Contact']]],
-  ['setphotopath_66',['setPhotoPath',['../d5/d8d/classContact.html#aa38ff60d2a2dded4b450a88c712058c3',1,'Contact']]],
-  ['settodos_67',['setTodos',['../db/d0c/classInteraction.html#a77e5439b7a983145b88c37df3832ef4d',1,'Interaction']]],
-  ['setyear_68',['setYear',['../de/d4a/classDate.html#a460f21e30a308824ca4f0f4eb936fdd4',1,'Date']]]
+  ['getback_71',['getBack',['../dd/dcd/classManager.html#afc379efe5b079f142d281a7484026330',1,'Manager::getBack() const'],['../dd/dcd/classManager.html#a3ba1b4a5bd27a9e7125c47038ed2c974',1,'Manager::getBack()']]],
+  ['getcontent_72',['getContent',['../db/d0c/classInteraction.html#a93aeda0573ce1c7a5fa951cc08b7fbd7',1,'Interaction::getContent()'],['../d1/d05/classTodo.html#a7e69a5a1496e6b601a22c06dc0bb22f0',1,'Todo::getContent()']]],
+  ['getdate_73',['getDate',['../d5/d8d/classContact.html#a488e12f492ff085844f0f342a897f101',1,'Contact::getDate()'],['../db/d0c/classInteraction.html#ac283e62345397dd169a390584d2b7fc3',1,'Interaction::getDate()'],['../d1/d05/classTodo.html#af6e9fe25204bd718052c51cd131596b8',1,'Todo::getDate()']]],
+  ['getday_74',['getDay',['../de/d4a/classDate.html#a2f4c8a1601d95e8f3e0e1269f5fde82e',1,'Date']]],
+  ['getemail_75',['getEmail',['../d5/d8d/classContact.html#a0d5964a672f881801093729be3c15888',1,'Contact']]],
+  ['getfront_76',['getFront',['../dd/dcd/classManager.html#a5575b7207cf0e6ca6fcbcc7027550249',1,'Manager::getFront() const'],['../dd/dcd/classManager.html#aa89c963395aa7a3949455e732f3f02ec',1,'Manager::getFront()']]],
+  ['getid_77',['getId',['../d5/d8d/classContact.html#acf40c57274b28f89eb7c77a069c405c7',1,'Contact']]],
+  ['getinteractionlist_78',['getInteractionList',['../d5/d8d/classContact.html#a6e7b713fb482d32b3a2aeafadbc9e34d',1,'Contact']]],
+  ['getmonth_79',['getMonth',['../de/d4a/classDate.html#a9f3944d94e7a72ac785fbf2fde5fa996',1,'Date']]],
+  ['getname_80',['getName',['../d5/d8d/classContact.html#a53425c2e4c8ad27ccdaf8c7fa072dd75',1,'Contact']]],
+  ['getphone_81',['getPhone',['../d5/d8d/classContact.html#aa3ab84fe7ed50683ec9d73c215a7a61a',1,'Contact']]],
+  ['getphotopath_82',['getPhotoPath',['../d5/d8d/classContact.html#ace315412e0306e33c781679848eacc8c',1,'Contact']]],
+  ['getsize_83',['getSize',['../dd/dcd/classManager.html#aabde67c32107a630f64bb0218396fbc0',1,'Manager']]],
+  ['gettodos_84',['getTodos',['../db/d0c/classInteraction.html#a717e768023325d30b310b2bbdbd60bda',1,'Interaction']]],
+  ['getyear_85',['getYear',['../de/d4a/classDate.html#a78b28665cdae69d1a74134e8217253fc',1,'Date']]]
 ];

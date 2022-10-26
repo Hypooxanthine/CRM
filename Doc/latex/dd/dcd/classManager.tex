@@ -1,0 +1,300 @@
+\hypertarget{classManager}{}\doxysection{Manager$<$ T $>$ Class Template Reference}
+\label{classManager}\index{Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classManager_aa6a3f860f6c5b98788c9c2e00131450b}\label{classManager_aa6a3f860f6c5b98788c9c2e00131450b}} 
+using {\bfseries iterator} = typename std\+::list$<$ T $>$\+::iterator
+\item 
+\mbox{\Hypertarget{classManager_a3c0d1fb888e6a96bbe685dee74f5c6c3}\label{classManager_a3c0d1fb888e6a96bbe685dee74f5c6c3}} 
+using {\bfseries const\+\_\+iterator} = typename std\+::list$<$ T $>$\+::const\+\_\+iterator
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classManager_a1c42182de7aab8038a952c299a61a52d}{add}} (const T \&element)
+\begin{DoxyCompactList}\small\item\em Adds an element to the \mbox{\hyperlink{classManager}{Manager}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManager_a2a2406416b2e5abe502bb525e4445e29}{add}} (T \&\&element)
+\begin{DoxyCompactList}\small\item\em Adds an element to the \mbox{\hyperlink{classManager}{Manager}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManager_a2a1711c222b812a9c51781f270561c66}{remove}} (const T \&element)
+\begin{DoxyCompactList}\small\item\em Removes an element from the \mbox{\hyperlink{classManager}{Manager}}. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classManager_aa89c963395aa7a3949455e732f3f02ec}{get\+Front}} ()
+\begin{DoxyCompactList}\small\item\em Gets the front element. \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{classManager_a5575b7207cf0e6ca6fcbcc7027550249}{get\+Front}} () const
+\begin{DoxyCompactList}\small\item\em Gets the front element. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{classManager_a3ba1b4a5bd27a9e7125c47038ed2c974}{get\+Back}} ()
+\begin{DoxyCompactList}\small\item\em Gets the back element. \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{classManager_afc379efe5b079f142d281a7484026330}{get\+Back}} () const
+\begin{DoxyCompactList}\small\item\em Gets the back element. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classManager_aabde67c32107a630f64bb0218396fbc0}{get\+Size}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of elements of the \mbox{\hyperlink{classManager}{Manager}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classManager_a193a41cd34dd986563df6284b8d4042f}{is\+Empty}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classManager}{Manager}} is empty or not. \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{classManager_a51ec72719efc8046f8da0e7874b5d72b}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Gets an iterator to the front element. \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{classManager_ab5fb52adef8097a715b0ff2a622740fc}{rbegin}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reverse iterator to the front element. \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{classManager_a1096e538052674d6e8c0306907b0f163}{end}} ()
+\begin{DoxyCompactList}\small\item\em Gets an iterator to the back element. \end{DoxyCompactList}\item 
+iterator \mbox{\hyperlink{classManager_acfaa97151f66b2c54e4b7443016bdfba}{rend}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reverse iterator to the back element. \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{classManager_a31ae8cfce3bf0629ac22231c5bb6c0dd}{begin}} () const
+\begin{DoxyCompactList}\small\item\em Gets a const iterator to the front element. \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{classManager_a61af476b0298d20545cd3fc217755176}{rbegin}} () const
+\begin{DoxyCompactList}\small\item\em Gets a const reverse iterator to the front element. \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{classManager_a333446200919945f173dce3da6e0e6ed}{end}} () const
+\begin{DoxyCompactList}\small\item\em Gets a const iterator to the back element. \end{DoxyCompactList}\item 
+const\+\_\+iterator \mbox{\hyperlink{classManager_ade97948739d96ec9cf612fb6010c2cb7}{rend}} () const
+\begin{DoxyCompactList}\small\item\em Gets a const reverse iterator to the back element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classManager_a1c42182de7aab8038a952c299a61a52d}\label{classManager_a1c42182de7aab8038a952c299a61a52d}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!add@{add}}
+\index{add@{add}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const T \&}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds an element to the \mbox{\hyperlink{classManager}{Manager}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & A const reference to the element to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classManager_a2a2406416b2e5abe502bb525e4445e29}\label{classManager_a2a2406416b2e5abe502bb525e4445e29}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!add@{add}}
+\index{add@{add}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{T \&\&}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds an element to the \mbox{\hyperlink{classManager}{Manager}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & An rvalue of the element to add. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classManager_a51ec72719efc8046f8da0e7874b5d72b}\label{classManager_a51ec72719efc8046f8da0e7874b5d72b}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+iterator \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets an iterator to the front element. 
+
+\begin{DoxyReturn}{Returns}
+An iterator to the front element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_a31ae8cfce3bf0629ac22231c5bb6c0dd}\label{classManager_a31ae8cfce3bf0629ac22231c5bb6c0dd}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const\+\_\+iterator \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a const iterator to the front element. 
+
+\begin{DoxyReturn}{Returns}
+A const iterator to the front element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_a1096e538052674d6e8c0306907b0f163}\label{classManager_a1096e538052674d6e8c0306907b0f163}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!end@{end}}
+\index{end@{end}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+iterator \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets an iterator to the back element. 
+
+\begin{DoxyReturn}{Returns}
+An iterator to the back element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_a333446200919945f173dce3da6e0e6ed}\label{classManager_a333446200919945f173dce3da6e0e6ed}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!end@{end}}
+\index{end@{end}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const\+\_\+iterator \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a const iterator to the back element. 
+
+\begin{DoxyReturn}{Returns}
+A const iterator to the back element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_a3ba1b4a5bd27a9e7125c47038ed2c974}\label{classManager_a3ba1b4a5bd27a9e7125c47038ed2c974}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!getBack@{getBack}}
+\index{getBack@{getBack}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getBack()}{getBack()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T\& \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::get\+Back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the back element. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the back element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_afc379efe5b079f142d281a7484026330}\label{classManager_afc379efe5b079f142d281a7484026330}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!getBack@{getBack}}
+\index{getBack@{getBack}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getBack()}{getBack()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const T\& \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::get\+Back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the back element. 
+
+\begin{DoxyReturn}{Returns}
+A const reference to the back element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_aa89c963395aa7a3949455e732f3f02ec}\label{classManager_aa89c963395aa7a3949455e732f3f02ec}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!getFront@{getFront}}
+\index{getFront@{getFront}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getFront()}{getFront()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T\& \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::get\+Front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the front element. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the front element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_a5575b7207cf0e6ca6fcbcc7027550249}\label{classManager_a5575b7207cf0e6ca6fcbcc7027550249}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!getFront@{getFront}}
+\index{getFront@{getFront}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getFront()}{getFront()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const T\& \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::get\+Front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the front element. 
+
+\begin{DoxyReturn}{Returns}
+A const reference to the front element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_aabde67c32107a630f64bb0218396fbc0}\label{classManager_aabde67c32107a630f64bb0218396fbc0}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!getSize@{getSize}}
+\index{getSize@{getSize}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the number of elements of the \mbox{\hyperlink{classManager}{Manager}}. 
+
+\begin{DoxyReturn}{Returns}
+The number of elements of the \mbox{\hyperlink{classManager}{Manager}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_a193a41cd34dd986563df6284b8d4042f}\label{classManager_a193a41cd34dd986563df6284b8d4042f}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::is\+Empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks if the \mbox{\hyperlink{classManager}{Manager}} is empty or not. 
+
+\begin{DoxyReturn}{Returns}
+A boolean \+: true if empty, false if not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_ab5fb52adef8097a715b0ff2a622740fc}\label{classManager_ab5fb52adef8097a715b0ff2a622740fc}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+iterator \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::rbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a reverse iterator to the front element. 
+
+\begin{DoxyReturn}{Returns}
+A reverse iterator to the front element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_a61af476b0298d20545cd3fc217755176}\label{classManager_a61af476b0298d20545cd3fc217755176}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!rbegin@{rbegin}}
+\index{rbegin@{rbegin}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rbegin()}{rbegin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const\+\_\+iterator \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::rbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a const reverse iterator to the front element. 
+
+\begin{DoxyReturn}{Returns}
+A const reverse iterator to the front element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_a2a1711c222b812a9c51781f270561c66}\label{classManager_a2a1711c222b812a9c51781f270561c66}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!remove@{remove}}
+\index{remove@{remove}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{const T \&}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Removes an element from the \mbox{\hyperlink{classManager}{Manager}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em element} & A const reference to the element. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classManager_acfaa97151f66b2c54e4b7443016bdfba}\label{classManager_acfaa97151f66b2c54e4b7443016bdfba}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!rend@{rend}}
+\index{rend@{rend}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+iterator \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::rend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a reverse iterator to the back element. 
+
+\begin{DoxyReturn}{Returns}
+A reverse iterator to the back element. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManager_ade97948739d96ec9cf612fb6010c2cb7}\label{classManager_ade97948739d96ec9cf612fb6010c2cb7}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!rend@{rend}}
+\index{rend@{rend}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rend()}{rend()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const\+\_\+iterator \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::rend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a const reverse iterator to the back element. 
+
+\begin{DoxyReturn}{Returns}
+A const reverse iterator to the back element. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+manager.\+h\end{DoxyCompactItemize}

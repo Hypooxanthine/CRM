@@ -1,10 +1,8 @@
 #pragma once
 
 #include <string>
-#include <iostream>
-#include <vector>
 
-#include "interaction.h"
+#include "interactionmanager.h"
 #include "date.h"
 
 class Contact
@@ -30,7 +28,7 @@ public: //Publics methods
     Contact(const std::string& id, const std::string& name,
             const std::string& email,const std::string& phone,
             const std::string& photoPath, const Date& date,
-            const std::vector<Interaction> interactionList );
+            const InteractionManager interactionList );
 
     /**
      * @brief Has to be called to copy a Contact.
@@ -79,7 +77,7 @@ public: //Publics methods
      * @brief Sets the Contact's list of interactions.
      * @param The new Contact's list of interactions.
      */
-    inline void setInteractionList(const std::vector<Interaction>& InteractionList){this->interactionList = InteractionList;}
+    inline void setInteractionList(const InteractionManager& InteractionList){this->interactionList = InteractionList;}
 
 
     //Getters
@@ -124,7 +122,7 @@ public: //Publics methods
      * @brief Gets the Contact's list of interactions.
      * @return The Contact's list of interactions.
      */
-    inline const std::vector<Interaction> getInteractionList() const {return interactionList;}
+    inline const InteractionManager getInteractionList() const {return interactionList;}
 
 
     /**
@@ -142,7 +140,7 @@ private: // Private memebers
     std::string phone;
     std::string photoPath;
     Date date;
-    std::vector<Interaction> interactionList;
+    InteractionManager interactionList;
 };
 
 

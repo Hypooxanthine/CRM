@@ -1,10 +1,10 @@
 #include "contact.h"
 #include "date.h"
 
-Contact::     Contact(const std::string& id, const std::string& name,
+Contact::Contact(const std::string& id, const std::string& name,
                       const std::string& email,const std::string& phone,
                       const std::string& photoPath, const Date& date,
-                      const std::vector<Interaction> interactionList)
+                      const InteractionManager interactionList)
 {
     setId(id);
     setName(name);
@@ -27,7 +27,7 @@ Contact::Contact(const Contact& c){
 
 void Contact::addInteraction(Interaction interaction)
 {
-    Contact::interactionList.push_back(interaction);
+    interactionList.add(interaction);
 }
 
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <vector>
+#include <todomanager.h>
 
 #include "date.h"
 #include "todo.h"
@@ -47,7 +47,7 @@ public: // Publics methods
      * @brief Sets the Todo's list.
      * @param t The new Todo's list.
      */
-    inline void setTodos(const std::vector<Todo>& t) { todos = t;}
+    inline void setTodos(const TodoManager& t) { todos = t;}
 
     // Getters
     /**
@@ -66,8 +66,9 @@ public: // Publics methods
      * @brief Gets the Todo's list.
      * @return The Todo's list.
      */
-    inline const std::vector<Todo>& getTodos() const { return todos; }
+    inline const TodoManager& getTodos() const { return todos; }
 
+    Interaction& operator=(const Interaction&) = default;
     friend std::ostream& operator<<(std::ostream& os, const Interaction& interaction);
 
 private: // Private methods
@@ -80,6 +81,6 @@ private: // Private methods
 private: // Private members
     std::string content;
     Date date;
-    std::vector<Todo> todos;
+    TodoManager todos;
 };
 ;

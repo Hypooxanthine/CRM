@@ -30,7 +30,7 @@ void Interaction::parseTodos(const std::string& str)
         if(word == "@todo")
         {
             std::string todoContent = line.substr(liness.tellg()); // Contains the string except "@todo"
-            todos.push_back(Todo(todoContent));
+            todos.add(Todo(todoContent));
         }
         else
             content += line + '\n';
@@ -40,12 +40,14 @@ void Interaction::parseTodos(const std::string& str)
     content.erase(std::find_if(content.rbegin(), content.rend(), [](const char& c){ return c != '\n';}).base(), content.end());
 }
 
+
+
 std::ostream& operator<<(std::ostream& os, const Interaction& interaction)
 {
     os << "Content : \"" << interaction.getContent() << "\"" << std::endl;
     os << "Date : " << interaction.getDate() << std::endl;
 
-    if(interaction.getTodos().empty())
+    if(interaction.getTodos().isEmpty())
         os << "No Todo.";
     else
     {

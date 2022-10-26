@@ -20,3 +20,8 @@ std::ostream& operator<<(std::ostream& os, const Date& date)
     os << +date.getDay() << '/' << +date.getMonth() << '/' << +date.getYear();
     return os;
 }
+
+bool Date::operator==(const Date& other) const
+{
+    return day == other.day && month == other.month && year == other.year;
+}
