@@ -1,5 +1,5 @@
-#include "contact.h"
-#include "date.h"
+#include "DataStructures/contact.h"
+#include "DataStructures/date.h"
 
 Contact::Contact(const size_t& id, const std::string& name,
                       const std::string& email,const std::string& phone,

@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 
-#include "unit_tests.h"
+#include "UnitTests/unit_tests.h"
 
 int main()
 {

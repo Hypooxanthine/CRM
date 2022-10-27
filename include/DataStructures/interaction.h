@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string>
-#include <todomanager.h>
+#include "todomanager.h"
 
 #include "date.h"
 #include "todo.h"
@@ -63,10 +63,16 @@ public: // Publics methods
     inline const Date& getDate() const { return date; }
 
     /**
-     * @brief Gets the Todo's list.
-     * @return The Todo's list.
+     * @brief Gets a const reference to the Todo's list.
+     * @return A const reference to the Todo's list.
      */
     inline const TodoManager& getTodos() const { return todos; }
+
+    /**
+     * @brief Gets a reference the Todo's list.
+     * @return A reference to the Todo's list.
+     */
+    inline TodoManager& getTodos() { return todos; }
 
     Interaction& operator=(const Interaction&) = default;
     friend std::ostream& operator<<(std::ostream& os, const Interaction& interaction);

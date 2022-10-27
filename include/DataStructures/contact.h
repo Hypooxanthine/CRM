@@ -92,37 +92,43 @@ public: //Publics methods
      * @brief Gets the Name of the Contact.
      * @return The Name of the Contact.
      */
-    inline const std::string& getName() const {return Name;}
+    inline const std::string& getName() const { return Name; }
 
     /**
      * @brief Gets the email of the Contact.
      * @return The email of the Contact.
      */
-    inline const std::string& getEmail() const {return email;}
+    inline const std::string& getEmail() const { return email; }
 
     /**
      * @brief Gets the phone of the Contact.
      * @return The phone of the contact.
      */
-    inline const std::string& getPhone() const {return phone;}
+    inline const std::string& getPhone() const { return phone; }
 
     /**
      * @brief Gets the photo's path of the Contact.
      * @return The photo's path of the Contact.
      */
-    inline const std::string& getPhotoPath() const {return photoPath;}
+    inline const std::string& getPhotoPath() const { return photoPath; }
 
     /**
      * @brief Gets the date of the Contact.
      * @return The date of the Contact.
      */
-    inline const Date& getDate() const {return date;}
+    inline const Date& getDate() const { return date; }
 
     /**
-     * @brief Gets the Contact's list of interactions.
-     * @return The Contact's list of interactions.
+     * @brief Gets a const reference to the Contact's list of interactions.
+     * @return A const reference to the Contact's list of interactions.
      */
-    inline const InteractionManager& getInteractionManager() const {return interactionList;}
+    inline const InteractionManager& getInteractionManager() const { return interactionList; }
+
+    /**
+     * @brief Gets a reference to the Contact's list of interactions.
+     * @return A reference to the Contact's list of interactions.
+     */
+    inline InteractionManager& getInteractionManager() { return interactionList; }
 
     friend std::ostream& operator<<(std::ostream& os, const Contact& c);
 

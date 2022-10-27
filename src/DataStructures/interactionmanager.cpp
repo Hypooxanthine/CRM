@@ -1,4 +1,4 @@
-#include "interactionmanager.h"
+#include "DataStructures/interactionmanager.h"
 
 InteractionManager::InteractionManager()
 {

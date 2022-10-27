@@ -1,11 +1,11 @@
-#include "unit_tests.h"
+#include "UnitTests/unit_tests.h"
 
 #include <iostream>
 #include <sstream>
 
-#include "todo.h"
-#include "interaction.h"
-#include "contact.h"
+#include "DataStructures/todo.h"
+#include "DataStructures/interaction.h"
+#include "DataStructures/contact.h"
 
 #define VAL value
 #define BEGIN_TEST(val) {\
@@ -108,5 +108,15 @@ void UnitTest::Test_Interaction()
     TEST(VAL.content, "Anniversaire @date 5/12/2022");
     TEST(VAL.date, Date::today());
     TEST(VAL.todos.getSize(), 0);
+    END_TEST;
+
+    BEGIN_TEST(Interaction("Rdv avec le client.\n@todo Confirmer commande 12\n@todo Confirmer commande 13 @date 02/02/2023"));
+    TEST(VAL.content, "Rdv avec le client.");
+    TEST(VAL.date, Date::today());
+    TEST(VAL.todos.getSize(), 2);
+    auto expected = Interaction("Rdv avec le client.", Date::today());
+    expected.getTodos().add(Todo("Confirmer commande 12"));
+    expected.getTodos().add(Todo("Confirmer commande 13 @date 02/02/2023"));
+    TEST(VAL, expected);
     END_TEST;
 }

@@ -1,17 +1,17 @@
-#include "interaction.h"
+#include "DataStructures/interaction.h"
 
 #include <sstream>
 #include <string>
 
 Interaction::Interaction(const std::string& content, const Date& date)
-    : date(date)
-{
-    parseTodos(content);
-}
+    : content(content), date(date)
+{}
 
 Interaction::Interaction(const std::string& content)
-    : Interaction(content, Date::today())
-{}
+{
+    parseTodos(content);
+    date = Date::today();
+}
 
 void Interaction::parseTodos(const std::string& str)
 {
