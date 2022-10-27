@@ -21,10 +21,14 @@ const std\+::string \& \mbox{\hyperlink{classInteraction_a93aeda0573ce1c7a5fa951
 const \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classInteraction_ac283e62345397dd169a390584d2b7fc3}{get\+Date}} () const
 \begin{DoxyCompactList}\small\item\em Gets the creation \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classInteraction}{Interaction}}. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classTodoManager}{Todo\+Manager}} \& \mbox{\hyperlink{classInteraction_a717e768023325d30b310b2bbdbd60bda}{get\+Todos}} () const
-\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Gets a const reference to the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTodoManager}{Todo\+Manager}} \& \mbox{\hyperlink{classInteraction_a4a0b368166d33e613f5c3f18d7cce235}{get\+Todos}} ()
+\begin{DoxyCompactList}\small\item\em Gets a reference the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classInteraction_af2922a5e2e0f8ebecda8d02d6361429c}\label{classInteraction_af2922a5e2e0f8ebecda8d02d6361429c}} 
 \mbox{\hyperlink{classInteraction}{Interaction}} \& {\bfseries operator=} (const \mbox{\hyperlink{classInteraction}{Interaction}} \&)=default
-\end{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classInteraction_a3d101f44d0f69bbb27144202ddde9947}{operator==}} (const \mbox{\hyperlink{classInteraction}{Interaction}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -98,18 +102,49 @@ Gets the creation \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{cla
 \begin{DoxyReturn}{Returns}
 The creation \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classInteraction}{Interaction}}. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classInteraction_a4a0b368166d33e613f5c3f18d7cce235}\label{classInteraction_a4a0b368166d33e613f5c3f18d7cce235}} 
+\index{Interaction@{Interaction}!getTodos@{getTodos}}
+\index{getTodos@{getTodos}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{getTodos()}{getTodos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTodoManager}{Todo\+Manager}}\& Interaction\+::get\+Todos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a reference the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
+
+\begin{DoxyReturn}{Returns}
+A reference to the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classInteraction_a717e768023325d30b310b2bbdbd60bda}\label{classInteraction_a717e768023325d30b310b2bbdbd60bda}} 
 \index{Interaction@{Interaction}!getTodos@{getTodos}}
 \index{getTodos@{getTodos}!Interaction@{Interaction}}
-\doxysubsubsection{\texorpdfstring{getTodos()}{getTodos()}}
+\doxysubsubsection{\texorpdfstring{getTodos()}{getTodos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classTodoManager}{Todo\+Manager}}\& Interaction\+::get\+Todos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Gets the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
+Gets a const reference to the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
 
 \begin{DoxyReturn}{Returns}
-The \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
+A const reference to the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classInteraction_a3d101f44d0f69bbb27144202ddde9947}\label{classInteraction_a3d101f44d0f69bbb27144202ddde9947}} 
+\index{Interaction@{Interaction}!operator==@{operator==}}
+\index{operator==@{operator==}!Interaction@{Interaction}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Interaction\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classInteraction}{Interaction}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{classInteraction}{Interaction}} to compare to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean. True \+: content, date and todos are equals. False otherwise. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classInteraction_ac586b317091b175eae572b53a80f5721}\label{classInteraction_ac586b317091b175eae572b53a80f5721}} 
 \index{Interaction@{Interaction}!setContent@{setContent}}
@@ -160,5 +195,5 @@ Sets the \mbox{\hyperlink{classTodo}{Todo}}\textquotesingle{}s list.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-interaction.\+h\item 
-interaction.\+cpp\end{DoxyCompactItemize}
+include/\+Data\+Structures/interaction.\+h\item 
+src/\+Data\+Structures/interaction.\+cpp\end{DoxyCompactItemize}

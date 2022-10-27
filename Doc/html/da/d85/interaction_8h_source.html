@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CRM: interaction.h Source File</title>
+<title>CRM: include/DataStructures/interaction.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -46,7 +46,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -61,6 +60,11 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_da326e167cd4be868fa4b04cf9ff4615.html">DataStructures</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">interaction.h</div>  </div>
@@ -69,7 +73,7 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;todomanager.h&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;todomanager.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;date.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;todo.h&quot;</span></div>
@@ -98,24 +102,29 @@ $(function() {
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../db/d0c/classInteraction.html#a717e768023325d30b310b2bbdbd60bda">   69</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="../../d6/d77/classTodoManager.html">TodoManager</a>&amp; <a class="code" href="../../db/d0c/classInteraction.html#a717e768023325d30b310b2bbdbd60bda">getTodos</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> todos; }</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp; interaction);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">private</span>: <span class="comment">// Private methods</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> parseTodos(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keyword">private</span>: <span class="comment">// Private members</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::string content;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="../../de/d4a/classDate.html">Date</a> date;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <a class="code" href="../../d6/d77/classTodoManager.html">TodoManager</a> todos;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;;</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../db/d0c/classInteraction.html#a4a0b368166d33e613f5c3f18d7cce235">   75</a></span>&#160;    <span class="keyword">inline</span> <a class="code" href="../../d6/d77/classTodoManager.html">TodoManager</a>&amp; <a class="code" href="../../db/d0c/classInteraction.html#a4a0b368166d33e613f5c3f18d7cce235">getTodos</a>() { <span class="keywordflow">return</span> todos; }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp; interaction);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">private</span>: <span class="comment">// Private methods</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment"></span>    <span class="keywordtype">void</span> parseTodos(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">private</span>: <span class="comment">// Private members</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    std::string content;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="../../de/d4a/classDate.html">Date</a> date;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <a class="code" href="../../d6/d77/classTodoManager.html">TodoManager</a> todos;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;};</div>
 <div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> date.h:7</div></div>
 <div class="ttc" id="aclassInteraction_html"><div class="ttname"><a href="../../db/d0c/classInteraction.html">Interaction</a></div><div class="ttdef"><b>Definition:</b> interaction.h:10</div></div>
 <div class="ttc" id="aclassInteraction_html_a293f133a42ab3a68144f4668e300263a"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a293f133a42ab3a68144f4668e300263a">Interaction::setTodos</a></div><div class="ttdeci">void setTodos(const TodoManager &amp;t)</div><div class="ttdoc">Sets the Todo's list.</div><div class="ttdef"><b>Definition:</b> interaction.h:50</div></div>
+<div class="ttc" id="aclassInteraction_html_a3d101f44d0f69bbb27144202ddde9947"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947">Interaction::operator==</a></div><div class="ttdeci">bool operator==(const Interaction &amp;other) const</div><div class="ttdoc">Compare operator.</div><div class="ttdef"><b>Definition:</b> interaction.cpp:65</div></div>
 <div class="ttc" id="aclassInteraction_html_a485ba37b2ee05e614266f7ff6a79e074"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a485ba37b2ee05e614266f7ff6a79e074">Interaction::setDate</a></div><div class="ttdeci">void setDate(const Date d)</div><div class="ttdoc">Sets the Date of the content.</div><div class="ttdef"><b>Definition:</b> interaction.h:44</div></div>
+<div class="ttc" id="aclassInteraction_html_a4a0b368166d33e613f5c3f18d7cce235"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a4a0b368166d33e613f5c3f18d7cce235">Interaction::getTodos</a></div><div class="ttdeci">TodoManager &amp; getTodos()</div><div class="ttdoc">Gets a reference the Todo's list.</div><div class="ttdef"><b>Definition:</b> interaction.h:75</div></div>
 <div class="ttc" id="aclassInteraction_html_a506b94800c3b34e1959efe5a3248ebf5"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a506b94800c3b34e1959efe5a3248ebf5">Interaction::Interaction</a></div><div class="ttdeci">Interaction()=delete</div><div class="ttdoc">Default constructor is deleted.</div></div>
-<div class="ttc" id="aclassInteraction_html_a717e768023325d30b310b2bbdbd60bda"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a717e768023325d30b310b2bbdbd60bda">Interaction::getTodos</a></div><div class="ttdeci">const TodoManager &amp; getTodos() const</div><div class="ttdoc">Gets the Todo's list.</div><div class="ttdef"><b>Definition:</b> interaction.h:69</div></div>
+<div class="ttc" id="aclassInteraction_html_a717e768023325d30b310b2bbdbd60bda"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a717e768023325d30b310b2bbdbd60bda">Interaction::getTodos</a></div><div class="ttdeci">const TodoManager &amp; getTodos() const</div><div class="ttdoc">Gets a const reference to the Todo's list.</div><div class="ttdef"><b>Definition:</b> interaction.h:69</div></div>
 <div class="ttc" id="aclassInteraction_html_a93aeda0573ce1c7a5fa951cc08b7fbd7"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a93aeda0573ce1c7a5fa951cc08b7fbd7">Interaction::getContent</a></div><div class="ttdeci">const std::string &amp; getContent() const</div><div class="ttdoc">Gets the content of the Interaction. It shouldn't contain any @todo.</div><div class="ttdef"><b>Definition:</b> interaction.h:57</div></div>
 <div class="ttc" id="aclassInteraction_html_ac283e62345397dd169a390584d2b7fc3"><div class="ttname"><a href="../../db/d0c/classInteraction.html#ac283e62345397dd169a390584d2b7fc3">Interaction::getDate</a></div><div class="ttdeci">const Date &amp; getDate() const</div><div class="ttdoc">Gets the creation Date of the Interaction.</div><div class="ttdef"><b>Definition:</b> interaction.h:63</div></div>
 <div class="ttc" id="aclassInteraction_html_ac586b317091b175eae572b53a80f5721"><div class="ttname"><a href="../../db/d0c/classInteraction.html#ac586b317091b175eae572b53a80f5721">Interaction::setContent</a></div><div class="ttdeci">void setContent(const std::string &amp;str)</div><div class="ttdoc">Sets the content of the interaction. No @todo should appear in it.</div><div class="ttdef"><b>Definition:</b> interaction.h:38</div></div>

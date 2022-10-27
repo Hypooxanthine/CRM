@@ -45,7 +45,18 @@ const\+\_\+iterator \mbox{\hyperlink{classManager_a61af476b0298d20545cd3fc217755
 const\+\_\+iterator \mbox{\hyperlink{classManager_a333446200919945f173dce3da6e0e6ed}{end}} () const
 \begin{DoxyCompactList}\small\item\em Gets a const iterator to the back element. \end{DoxyCompactList}\item 
 const\+\_\+iterator \mbox{\hyperlink{classManager_ade97948739d96ec9cf612fb6010c2cb7}{rend}} () const
-\begin{DoxyCompactList}\small\item\em Gets a const reverse iterator to the back element. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets a const reverse iterator to the back element. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classManager_aefb758ebe58645597331bdfdc6ded44b}{operator==}} (const \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$ \&other) const
+\begin{DoxyCompactList}\small\item\em Compare operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classManager_a832b4d233efee1a32feb0f4190b30d39}\label{classManager_a832b4d233efee1a32feb0f4190b30d39}} 
+class {\bfseries Unit\+Test}
+\item 
+\mbox{\Hypertarget{classManager_a41abe6c3b1787591ed251f5a54507932}\label{classManager_a41abe6c3b1787591ed251f5a54507932}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$ \&other)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Member Function Documentation}
@@ -221,6 +232,25 @@ Checks if the \mbox{\hyperlink{classManager}{Manager}} is empty or not.
 \begin{DoxyReturn}{Returns}
 A boolean \+: true if empty, false if not. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classManager_aefb758ebe58645597331bdfdc6ded44b}\label{classManager_aefb758ebe58645597331bdfdc6ded44b}} 
+\index{Manager$<$ T $>$@{Manager$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Manager$<$ T $>$@{Manager$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classManager}{Manager}}$<$ T $>$ \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Compare operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{classManager}{Manager}} to compare to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean. True \+: all elements in data are the same. False otherwise. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classManager_ab5fb52adef8097a715b0ff2a622740fc}\label{classManager_ab5fb52adef8097a715b0ff2a622740fc}} 
 \index{Manager$<$ T $>$@{Manager$<$ T $>$}!rbegin@{rbegin}}
 \index{rbegin@{rbegin}!Manager$<$ T $>$@{Manager$<$ T $>$}}
@@ -297,4 +327,4 @@ A const reverse iterator to the back element.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-manager.\+h\end{DoxyCompactItemize}
+include/\+Data\+Structures/manager.\+h\end{DoxyCompactItemize}

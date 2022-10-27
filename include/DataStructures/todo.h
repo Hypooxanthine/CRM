@@ -83,9 +83,9 @@ private:
     static std::optional<Date> parseDate(const std::string& str);
 
     /**
-     * @brief parseNumber
-     * @param str
-     * @return
+     * @brief parseNumber Will try to parse a whole positive number from a string. Max value : 2¹⁶ - 1
+     * @param str The raw number string.
+     * @return An optional uint16_t : empty if parsing failed.
      */
     static std::optional<uint16_t> parseNumber(const std::string& str);
 
