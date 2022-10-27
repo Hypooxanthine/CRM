@@ -15,9 +15,24 @@ Date Date::today()
     return Date((unsigned)asDateLib.day(), (unsigned)asDateLib.month(), std::abs((int)asDateLib.year()));
 }
 
+Date::operator std::string() const
+{
+    std::ostringstream ss;
+
+    if(day < 10) ss << "0";
+    ss << +day << "/";
+
+    if(month < 10) ss << "0";
+    ss << +month << "/";
+
+    ss << +year;
+
+    return ss.str();
+}
+
 std::ostream& operator<<(std::ostream& os, const Date& date)
 {
-    os << +date.getDay() << '/' << +date.getMonth() << '/' << +date.getYear();
+    os << (std::string)date;
     return os;
 }
 

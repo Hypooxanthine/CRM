@@ -18,7 +18,7 @@
     ossExpected << expected;\
     ossResult = std::ostringstream();\
     ossResult << x;\
-    std::cout << "Value " << #x << std::endl;\
+    std::cout << "\x1B[36mValue " << #x << "\033[0m\t\t" << std::endl;\
     std::cout << "-Expected : " << std::endl << expected << std::endl << "-Result :" << std::endl << x << std::endl;\
     if (std::string(ossExpected.str()) == std::string(ossResult.str())) std::cout << "\x1B[32m-> OK\033[0m\t\t";\
     else std::cout << "\x1B[31m-> BAD RESULT\033[0m\t\t";\
@@ -29,7 +29,7 @@ void UnitTest::Test_Todo()
 {
     BEGIN_TEST(Todo::parseDate("02/11/2023"));
     TEST(VAL.has_value(), 1);
-    if(VAL.has_value()) TEST(VAL.value(), "2/11/2023");
+    if(VAL.has_value()) TEST(VAL.value(), Date(2, 11, 2023));
     END_TEST;
 
     BEGIN_TEST(Todo::parseDate("02 11 2023"));

@@ -1,15 +1,6 @@
 var searchData=
 [
-  ['setcontent_33',['setContent',['../db/d0c/classInteraction.html#ac586b317091b175eae572b53a80f5721',1,'Interaction::setContent()'],['../d1/d05/classTodo.html#ae918e4da1cdc9d419d05e24749c82e7e',1,'Todo::setContent()']]],
-  ['setdate_34',['setDate',['../d5/d8d/classContact.html#ae41366c7db10229a0e4d5977d40a2833',1,'Contact::setDate()'],['../db/d0c/classInteraction.html#a485ba37b2ee05e614266f7ff6a79e074',1,'Interaction::setDate()'],['../d1/d05/classTodo.html#a83dcecea40d44b6fb43823cd42a11d03',1,'Todo::setDate()']]],
-  ['setday_35',['setDay',['../de/d4a/classDate.html#a5f626a35a911710588b1faa243363c4e',1,'Date']]],
-  ['setemail_36',['setEmail',['../d5/d8d/classContact.html#a6669771d7c07596bd7dc190de02a7991',1,'Contact']]],
-  ['setid_37',['setId',['../d5/d8d/classContact.html#ae4fb5cb0c892a853ea33b23e02ee5e78',1,'Contact']]],
-  ['setinteractionmanager_38',['setInteractionManager',['../d5/d8d/classContact.html#a76df6c867ca0a813806695bf952e0b22',1,'Contact']]],
-  ['setmonth_39',['setMonth',['../de/d4a/classDate.html#a2f2ddf4951a523a9984161ef41a60473',1,'Date']]],
-  ['setname_40',['setName',['../d5/d8d/classContact.html#ac6c364a50b5d0ee7ceba8499b1ae9fce',1,'Contact']]],
-  ['setphone_41',['setPhone',['../d5/d8d/classContact.html#a3efe1754c6d6fc83961a3aaa275da41a',1,'Contact']]],
-  ['setphotopath_42',['setPhotoPath',['../d5/d8d/classContact.html#aa38ff60d2a2dded4b450a88c712058c3',1,'Contact']]],
-  ['settodos_43',['setTodos',['../db/d0c/classInteraction.html#a293f133a42ab3a68144f4668e300263a',1,'Interaction']]],
-  ['setyear_44',['setYear',['../de/d4a/classDate.html#a460f21e30a308824ca4f0f4eb936fdd4',1,'Date']]]
+  ['rbegin_32',['rbegin',['../dd/dcd/classManager.html#ab5fb52adef8097a715b0ff2a622740fc',1,'Manager::rbegin()'],['../dd/dcd/classManager.html#a61af476b0298d20545cd3fc217755176',1,'Manager::rbegin() const']]],
+  ['remove_33',['remove',['../dd/dcd/classManager.html#a2a1711c222b812a9c51781f270561c66',1,'Manager']]],
+  ['rend_34',['rend',['../dd/dcd/classManager.html#acfaa97151f66b2c54e4b7443016bdfba',1,'Manager::rend()'],['../dd/dcd/classManager.html#ade97948739d96ec9cf612fb6010c2cb7',1,'Manager::rend() const']]]
 ];

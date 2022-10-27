@@ -27,9 +27,8 @@ const \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classTodo_af6e9fe25
 \mbox{\Hypertarget{classTodo_aef13cf8f2a46c456e5794440f659871c}\label{classTodo_aef13cf8f2a46c456e5794440f659871c}} 
 \mbox{\hyperlink{classTodo}{Todo}} \& {\bfseries operator=} (const \mbox{\hyperlink{classTodo}{Todo}} \&)=default
 \item 
-\mbox{\Hypertarget{classTodo_a24dc561b664a2217c954f5b601037c7c}\label{classTodo_a24dc561b664a2217c954f5b601037c7c}} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classTodo}{Todo}} \&other) const
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{classTodo_a24dc561b664a2217c954f5b601037c7c}{operator==}} (const \mbox{\hyperlink{classTodo}{Todo}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -102,6 +101,24 @@ Gets the \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classTodo}{T
 
 \begin{DoxyReturn}{Returns}
 The \mbox{\hyperlink{classDate}{Date}} of the \mbox{\hyperlink{classTodo}{Todo}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTodo_a24dc561b664a2217c954f5b601037c7c}\label{classTodo_a24dc561b664a2217c954f5b601037c7c}} 
+\index{Todo@{Todo}!operator==@{operator==}}
+\index{operator==@{operator==}!Todo@{Todo}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Todo\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTodo}{Todo}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{classTodo}{Todo}} to compare to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean. True \+: content and date are equals. False otherwise. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classTodo_ae918e4da1cdc9d419d05e24749c82e7e}\label{classTodo_ae918e4da1cdc9d419d05e24749c82e7e}} 
 \index{Todo@{Todo}!setContent@{setContent}}

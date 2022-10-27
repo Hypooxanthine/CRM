@@ -99,23 +99,25 @@ $(function() {
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../d1/d05/classTodo.html">Todo</a>&amp; todo);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="../../d1/d05/classTodo.html">Todo</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="../../d1/d05/classTodo.html">Todo</a>&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="../../d1/d05/classTodo.html">Todo</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> getContentAndDate(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">static</span> std::optional&lt;Date&gt; parseDate(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">static</span> std::optional&lt;uint16_t&gt; parseNumber(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    std::string content;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="../../de/d4a/classDate.html">Date</a> date;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../d1/d05/classTodo.html#a24dc561b664a2217c954f5b601037c7c">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d05/classTodo.html">Todo</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> getContentAndDate(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">static</span> std::optional&lt;Date&gt; parseDate(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">static</span> std::optional&lt;uint16_t&gt; parseNumber(<span class="keyword">const</span> std::string&amp; str);</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    std::string content;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <a class="code" href="../../de/d4a/classDate.html">Date</a> date;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
 <div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> date.h:7</div></div>
 <div class="ttc" id="aclassTodo_html"><div class="ttname"><a href="../../d1/d05/classTodo.html">Todo</a></div><div class="ttdef"><b>Definition:</b> todo.h:9</div></div>
+<div class="ttc" id="aclassTodo_html_a24dc561b664a2217c954f5b601037c7c"><div class="ttname"><a href="../../d1/d05/classTodo.html#a24dc561b664a2217c954f5b601037c7c">Todo::operator==</a></div><div class="ttdeci">bool operator==(const Todo &amp;other) const</div><div class="ttdoc">Compare operator.</div><div class="ttdef"><b>Definition:</b> todo.cpp:155</div></div>
 <div class="ttc" id="aclassTodo_html_a7e69a5a1496e6b601a22c06dc0bb22f0"><div class="ttname"><a href="../../d1/d05/classTodo.html#a7e69a5a1496e6b601a22c06dc0bb22f0">Todo::getContent</a></div><div class="ttdeci">const std::string &amp; getContent() const</div><div class="ttdoc">Gets the content of the Todo. It shouldn't contain any @date tag.</div><div class="ttdef"><b>Definition:</b> todo.h:51</div></div>
 <div class="ttc" id="aclassTodo_html_a83dcecea40d44b6fb43823cd42a11d03"><div class="ttname"><a href="../../d1/d05/classTodo.html#a83dcecea40d44b6fb43823cd42a11d03">Todo::setDate</a></div><div class="ttdeci">void setDate(const Date d)</div><div class="ttdoc">Sets the Date of the todo, i.e the date the todo has to be done.</div><div class="ttdef"><b>Definition:</b> todo.h:44</div></div>
 <div class="ttc" id="aclassTodo_html_ae7419f12211644849e6717ee3cae2945"><div class="ttname"><a href="../../d1/d05/classTodo.html#ae7419f12211644849e6717ee3cae2945">Todo::Todo</a></div><div class="ttdeci">Todo()=delete</div><div class="ttdoc">Defautl constructor is deleted.</div></div>

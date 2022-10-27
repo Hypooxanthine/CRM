@@ -29,9 +29,11 @@ void \mbox{\hyperlink{classDate_a460f21e30a308824ca4f0f4eb936fdd4}{set\+Year}} (
 \mbox{\Hypertarget{classDate_a3308dcdb43f6f3b02eb962005d2e19b7}\label{classDate_a3308dcdb43f6f3b02eb962005d2e19b7}} 
 \mbox{\hyperlink{classDate}{Date}} \& {\bfseries operator=} (const \mbox{\hyperlink{classDate}{Date}} \&)=default
 \item 
-\mbox{\Hypertarget{classDate_a3b103cc8257d3055aedb519fff343503}\label{classDate_a3b103cc8257d3055aedb519fff343503}} 
-bool {\bfseries operator==} (const \mbox{\hyperlink{classDate}{Date}} \&other) const
-\end{DoxyCompactItemize}
+\mbox{\Hypertarget{classDate_aa44ece498dfcc5f17daf4bedbb36b1f7}\label{classDate_aa44ece498dfcc5f17daf4bedbb36b1f7}} 
+\mbox{\hyperlink{classDate_aa44ece498dfcc5f17daf4bedbb36b1f7}{operator std\+::string}} () const
+\begin{DoxyCompactList}\small\item\em Explicit conversion to a std\+::string. Days and months will be displayed as two characters, no modification will be done on the year. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDate_a3b103cc8257d3055aedb519fff343503}{operator==}} (const \mbox{\hyperlink{classDate}{Date}} \&other) const
+\begin{DoxyCompactList}\small\item\em Compare operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -109,6 +111,24 @@ Gets the year value.
 
 \begin{DoxyReturn}{Returns}
 The year of the \mbox{\hyperlink{classDate}{Date}}. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDate_a3b103cc8257d3055aedb519fff343503}\label{classDate_a3b103cc8257d3055aedb519fff343503}} 
+\index{Date@{Date}!operator==@{operator==}}
+\index{operator==@{operator==}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Date\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{other }\end{DoxyParamCaption}) const}
+
+
+
+Compare operator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The \mbox{\hyperlink{classDate}{Date}} to compare to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean. True \+: days, months and years are the same. False otherwise. 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classDate_a5f626a35a911710588b1faa243363c4e}\label{classDate_a5f626a35a911710588b1faa243363c4e}} 
 \index{Date@{Date}!setDay@{setDay}}

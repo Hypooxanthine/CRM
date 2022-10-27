@@ -67,8 +67,19 @@ public:
 
     Date& operator=(const Date&) = default;
 
+    /**
+     * @brief Explicit conversion to a std::string. Days and months will be displayed as two characters, no modification will be done
+     * on the year.
+     */
+    explicit operator std::string() const;
+
     friend std::ostream& operator<<(std::ostream& os, const Date& date);
 
+    /**
+     * @brief Compare operator.
+     * @param other The Date to compare to.
+     * @return A boolean. True : days, months and years are the same. False otherwise.
+     */
     bool operator==(const Date& other) const;
 
 private:

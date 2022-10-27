@@ -108,8 +108,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3308dcdb43f6f3b02eb962005d2e19b7"><td class="memItemLeft" align="right" valign="top"><a id="a3308dcdb43f6f3b02eb962005d2e19b7"></a>
 <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;)=default</td></tr>
 <tr class="separator:a3308dcdb43f6f3b02eb962005d2e19b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b103cc8257d3055aedb519fff343503"><td class="memItemLeft" align="right" valign="top"><a id="a3b103cc8257d3055aedb519fff343503"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;other) const</td></tr>
+<tr class="memitem:aa44ece498dfcc5f17daf4bedbb36b1f7"><td class="memItemLeft" align="right" valign="top"><a id="aa44ece498dfcc5f17daf4bedbb36b1f7"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d4a/classDate.html#aa44ece498dfcc5f17daf4bedbb36b1f7">operator std::string</a> () const</td></tr>
+<tr class="memdesc:aa44ece498dfcc5f17daf4bedbb36b1f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit conversion to a std::string. Days and months will be displayed as two characters, no modification will be done on the year. <br /></td></tr>
+<tr class="separator:aa44ece498dfcc5f17daf4bedbb36b1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b103cc8257d3055aedb519fff343503"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503">operator==</a> (const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;other) const</td></tr>
+<tr class="memdesc:a3b103cc8257d3055aedb519fff343503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare operator.  <a href="../../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503">More...</a><br /></td></tr>
 <tr class="separator:a3b103cc8257d3055aedb519fff343503"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
@@ -254,6 +258,33 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 
 <p>Gets the year value. </p>
 <dl class="section return"><dt>Returns</dt><dd>The year of the <a class="el" href="../../de/d4a/classDate.html">Date</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a3b103cc8257d3055aedb519fff343503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b103cc8257d3055aedb519fff343503">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Date::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../de/d4a/classDate.html">Date</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compare operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The <a class="el" href="../../de/d4a/classDate.html">Date</a> to compare to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean. True : days, months and years are the same. False otherwise. </dd></dl>
 
 </div>
 </div>

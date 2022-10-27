@@ -59,6 +59,12 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Todo& todo);
 
     Todo& operator=(const Todo&) = default;
+
+    /**
+     * @brief Compare operator.
+     * @param other The Todo to compare to.
+     * @return A boolean. True : content and date are equals. False otherwise.
+     */
     bool operator==(const Todo& other) const;
 
 private:
