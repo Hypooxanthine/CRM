@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CRM: include/UnitTests/unit_tests.h Source File</title>
+<title>CRM: src/main.cpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -62,32 +62,30 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../dir_75384ca88545f9ff930085fb6944a7d8.html">UnitTests</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">unit_tests.h</div>  </div>
+<div class="title">main.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;mainwindow.h&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="../../d7/d35/classUnitTest.html">    3</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d35/classUnitTest.html">UnitTest</a></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d35/classUnitTest.html#a92f0c3c8606f65b9e07b2fd0f7692d40">Test_Todo</a>();</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;UnitTests/unit_tests.h&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keywordtype">int</span> main()</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <a class="code" href="../../d7/d35/classUnitTest.html#ab29725907b54b1340da3f671195c93bf">UnitTest::Test_Date</a>();</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <a class="code" href="../../d7/d35/classUnitTest.html#a92f0c3c8606f65b9e07b2fd0f7692d40">UnitTest::Test_Todo</a>();</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="../../d7/d35/classUnitTest.html#a1dd0d0329f14e1192680ee2a650c16d1">UnitTest::Test_Interaction</a>();</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d35/classUnitTest.html#a1dd0d0329f14e1192680ee2a650c16d1">Test_Interaction</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d35/classUnitTest.html#a4bdfae917f20266df9b1c0dc834446ca">Test_ContactManager</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d35/classUnitTest.html#a616cf01474b83702803b7c0d98967b26">Test_InteractionManager</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d35/classUnitTest.html#a0c959dd9179d24b375129f6964c56881">Test_TodoManager</a>();</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d7/d35/classUnitTest.html#ab29725907b54b1340da3f671195c93bf">Test_Date</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
-<div class="ttc" id="aclassUnitTest_html"><div class="ttname"><a href="../../d7/d35/classUnitTest.html">UnitTest</a></div><div class="ttdef"><b>Definition:</b> <a href="../../dd/dda/unit__tests_8h_source.html#l00003">unit_tests.h:4</a></div></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="../../d7/d35/classUnitTest.html#a4bdfae917f20266df9b1c0dc834446ca">UnitTest::Test_ContactManager</a>();</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="../../d7/d35/classUnitTest.html#a616cf01474b83702803b7c0d98967b26">UnitTest::Test_InteractionManager</a>();</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="../../d7/d35/classUnitTest.html#a0c959dd9179d24b375129f6964c56881">UnitTest::Test_TodoManager</a>();</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="ttc" id="aclassUnitTest_html_a0c959dd9179d24b375129f6964c56881"><div class="ttname"><a href="../../d7/d35/classUnitTest.html#a0c959dd9179d24b375129f6964c56881">UnitTest::Test_TodoManager</a></div><div class="ttdeci">static void Test_TodoManager()</div><div class="ttdoc">Unit tests for TodoManager class.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d42/unit__tests_8cpp_source.html#l00174">unit_tests.cpp:174</a></div></div>
 <div class="ttc" id="aclassUnitTest_html_a1dd0d0329f14e1192680ee2a650c16d1"><div class="ttname"><a href="../../d7/d35/classUnitTest.html#a1dd0d0329f14e1192680ee2a650c16d1">UnitTest::Test_Interaction</a></div><div class="ttdeci">static void Test_Interaction()</div><div class="ttdoc">Unit tests for Interaction class.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d42/unit__tests_8cpp_source.html#l00090">unit_tests.cpp:90</a></div></div>
 <div class="ttc" id="aclassUnitTest_html_a4bdfae917f20266df9b1c0dc834446ca"><div class="ttname"><a href="../../d7/d35/classUnitTest.html#a4bdfae917f20266df9b1c0dc834446ca">UnitTest::Test_ContactManager</a></div><div class="ttdeci">static void Test_ContactManager()</div><div class="ttdoc">Unit tests for ContactManager class.</div><div class="ttdef"><b>Definition:</b> <a href="../../d8/d42/unit__tests_8cpp_source.html#l00128">unit_tests.cpp:128</a></div></div>
