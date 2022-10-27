@@ -77,6 +77,13 @@ public: // Publics methods
     Interaction& operator=(const Interaction&) = default;
     friend std::ostream& operator<<(std::ostream& os, const Interaction& interaction);
 
+    /**
+     * @brief Compare operator.
+     * @param other The Interaction to compare to.
+     * @return A boolean. True : content, date and todos are equals. False otherwise.
+     */
+    bool operator==(const Interaction& other) const;
+
 private: // Private methods
     /**
      * @brief This method parses all the Todo's and puts them into the Todo's list.
@@ -89,4 +96,3 @@ private: // Private members
     Date date;
     TodoManager todos;
 };
-;

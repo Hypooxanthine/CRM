@@ -4,8 +4,13 @@
 
 int main()
 {
+    UnitTest::Test_Date();
     UnitTest::Test_Todo();
     UnitTest::Test_Interaction();
+
+    UnitTest::Test_ContactManager();
+    UnitTest::Test_InteractionManager();
+    UnitTest::Test_TodoManager();
 
     return 0;
 }

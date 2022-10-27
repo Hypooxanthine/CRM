@@ -61,3 +61,10 @@ std::ostream& operator<<(std::ostream& os, const Interaction& interaction)
 
     return os;
 }
+
+bool Interaction::operator==(const Interaction& other) const
+{
+    return content == other.content
+            && date == other.date
+            && todos == other.todos;
+}

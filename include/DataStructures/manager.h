@@ -2,6 +2,7 @@
 
 #include <list>
 #include <cstddef>
+#include <iostream>
 
 template <typename T>
 class Manager
@@ -10,6 +11,8 @@ public:
     using iterator = typename std::list<T>::iterator;
     using const_iterator = typename std::list<T>::const_iterator;
 public:
+    friend class UnitTest;
+
     Manager() {}
 
     /**
@@ -135,6 +138,30 @@ public:
      * @return A const reverse iterator to the back element.
      */
     const_iterator rend() const { return data.rend(); }
+
+    /**
+     * @brief Compare operator.
+     * @param other The Manager to compare to.
+     * @return A boolean. True : all elements in data are the same. False otherwise.
+     */
+    bool operator==(const Manager<T>& other) const
+    {
+        return data == other.data;
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const Manager<T>& other)
+    {
+        auto it = other.begin();
+
+        while(it != other.end())
+        {
+            os << *it;
+            if(++it != other.end())
+                os << std::endl;
+        }
+
+        return os;
+    }
 
 private:
     std::list<T> data;

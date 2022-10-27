@@ -23,12 +23,10 @@ public: //Publics methods
      * @param phone The phone of the Contact.
      * @param photoPath The photo's path of the contact.
      * @param date The date the Contact was created.
-     * @param interactionList The Contact's list of interactions.
      */
     Contact(const size_t& id, const std::string& name,
             const std::string& email,const std::string& phone,
-            const std::string& photoPath, const Date& date,
-            const InteractionManager interactionList = InteractionManager());
+            const std::string& photoPath, const Date& date);
 
     /**
      * @brief Has to be called to copy a Contact.
@@ -47,7 +45,7 @@ public: //Publics methods
      * @brief Sets the Name of the Contact.
      * @param The new name.
      */
-    inline void setName(const std::string& name){ this->Name = name; }
+    inline void setName(const std::string& name){ this->name = name; }
 
     /**
      * @brief Sets the email of the Contact.
@@ -92,7 +90,7 @@ public: //Publics methods
      * @brief Gets the Name of the Contact.
      * @return The Name of the Contact.
      */
-    inline const std::string& getName() const { return Name; }
+    inline const std::string& getName() const { return name; }
 
     /**
      * @brief Gets the email of the Contact.
@@ -132,9 +130,16 @@ public: //Publics methods
 
     friend std::ostream& operator<<(std::ostream& os, const Contact& c);
 
+    /**
+     * @brief Compare operator.
+     * @param other The Contact to compare to.
+     * @return A boolean. True : all fields are the same. False otherwise.
+     */
+    bool operator==(const Contact& other) const;
+
 private: // Private memebers
     size_t id;
-    std::string Name;
+    std::string name;
     std::string email;
     std::string phone;
     std::string photoPath;
