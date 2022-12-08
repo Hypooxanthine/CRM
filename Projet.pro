@@ -22,6 +22,7 @@ INCLUDEPATH += \
     libs
 
 HEADERS += \
+    include/DataStructures/JsonInterface.h \
     include/DataStructures/contact.h \
     include/DataStructures/contactmanager.h \
     include/DataStructures/date.h \
@@ -35,6 +36,7 @@ HEADERS += \
     include/mainwindow.h
 
 SOURCES += \
+    src/DataStructures/JsonInterface.cpp \
     src/DataStructures/contact.cpp \
     src/DataStructures/contactmanager.cpp \
     src/DataStructures/date.cpp \

@@ -10,6 +10,7 @@
 #include "DataStructures/interactionmanager.h"
 #include "DataStructures/todomanager.h"
 #include "DataStructures/date.h"
+#include "DataStructures/JsonInterface.h"
 
 #define VAL value
 #define BEGIN_TEST(val) {\
@@ -205,4 +206,29 @@ void UnitTest::Test_Date()
     BEGIN_TEST(Date::today());
         TEST(VAL, "27/10/2022"); // Will fail tomorrow and after.
     END_TEST;
+}
+
+void UnitTest::Test_Json()
+{
+InteractionManager im;
+Interaction i1 = (Interaction("Rdv avec le client1.\n@todo Confirmer commande n 121."));
+im.add(i1);
+Interaction i2 = (Interaction("Anniversaire @date 5/12/2022"));
+im.add(i2);
+Interaction i3 = (Interaction("Rdv avec le client3.\n@todo Confirmer commande n 123."));
+im.add(i3);
+
+ContactManager cm;
+Contact c1 = (Contact(1, "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+c1.setInteractionManager(im);
+cm.add(c1);
+Contact c2 = (Contact(2, "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+c2.setInteractionManager(im);
+cm.add(c2);
+Contact c3 = (Contact(3, "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+cm.add(c3);
+
+std::cout << "json en creation" << std::endl;
+JsonInterface::ExportData(cm,"C:\\Users\\isyou\\OneDrive\\Bureau\\projet_CDAA\\CRM");
+std::cout << "json fait !!!!" << std::endl;
 }

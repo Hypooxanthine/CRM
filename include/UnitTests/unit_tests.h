@@ -34,4 +34,6 @@ public:
      * @brief Unit tests for Date class.
      */
     static void Test_Date();
+
+    static void Test_Json();
 };
