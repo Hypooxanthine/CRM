@@ -10,7 +10,8 @@
 #include "DataStructures/interactionmanager.h"
 #include "DataStructures/todomanager.h"
 #include "DataStructures/date.h"
-#include "DataStructures/JsonInterface.h"
+#include "ExtData/JsonInterface.h"
+#include "ExtData/dbinterface.h"
 
 #define VAL value
 #define BEGIN_TEST(val) {\
@@ -25,7 +26,7 @@
     ossResult << x;\
     std::cout << "\x1B[36mValue " << #x << "\033[0m\t\t" << std::endl;\
     std::cout << "-Expected : " << std::endl << expected << std::endl << "-Result :" << std::endl << x << std::endl;\
-    if (std::string(ossExpected.str()) == std::string(ossResult.str())) std::cout << "\x1B[32m-> OK\033[0m\t\t";\
+    if (x == expected) std::cout << "\x1B[32m-> OK\033[0m\t\t";\
     else std::cout << "\x1B[31m-> BAD RESULT\033[0m\t\t";\
     std::cout << std::endl << std::endl;}
 #define END_TEST }
@@ -33,32 +34,32 @@
 void UnitTest::Test_Todo()
 {
     BEGIN_TEST(Todo("Rappeler le client"));
-    TEST(VAL.content, "Rappeler le client");
+    TEST(VAL.content, (std::string)"Rappeler le client");
     TEST(VAL.date, Date::today());
     END_TEST;
 
     BEGIN_TEST(Todo("Rappeler @date 2/3/2023"));
-    TEST(VAL.content, "Rappeler");
+    TEST(VAL.content, (std::string)"Rappeler");
     TEST(VAL.date, Date(2, 3, 2023));
     END_TEST;
 
     BEGIN_TEST(Todo("Rappeler@date 2/3/2023"));
-    TEST(VAL.content, "Rappeler@date 2/3/2023");
+    TEST(VAL.content, (std::string)"Rappeler@date 2/3/2023");
     TEST(VAL.date, Date::today());
     END_TEST;
 
     BEGIN_TEST(Todo("Rappeler\n@date 2/3/2023"));
-    TEST(VAL.content, "Rappeler");
+    TEST(VAL.content, (std::string)"Rappeler");
     TEST(VAL.date, Date::today());
     END_TEST;
 
     BEGIN_TEST(Todo("Rappeler @date 2/3/2023\nLigne non prise en compte"));
-    TEST(VAL.content, "Rappeler");
+    TEST(VAL.content, (std::string)"Rappeler");
     TEST(VAL.date, Date(2, 3, 2023));
     END_TEST;
 
     BEGIN_TEST(Todo("Rappeler le client.", Date(1, 1, 2023)));
-    TEST(VAL.content, "Rappeler le client.");
+    TEST(VAL.content, (std::string)"Rappeler le client.");
     TEST(VAL.date, Date(1, 1, 2023));
     END_TEST;
 }
@@ -66,12 +67,12 @@ void UnitTest::Test_Todo()
 void UnitTest::Test_Interaction()
 {
     BEGIN_TEST(Interaction("Conférence sur zoom.", Date(1, 1, 2023)));
-    TEST(VAL.content, "Conférence sur zoom.");
+    TEST(VAL.content, (std::string)"Conférence sur zoom.");
     TEST(VAL.date, Date(1, 1, 2023));
     END_TEST;
 
     BEGIN_TEST(Interaction("Conférence sur zoom.\n@todo Rappeler"));
-    TEST(VAL.content, "Conférence sur zoom.");
+    TEST(VAL.content, (std::string)"Conférence sur zoom.");
     TEST(VAL.date, Date::today());
     TEST(VAL.todos.getSize(), 1);
     if(VAL.todos.getSize() > 0) TEST(VAL.getTodos().getFront(), Todo("Rappeler"));
@@ -91,7 +92,7 @@ void UnitTest::Test_Interaction()
     END_TEST;
 
     BEGIN_TEST(Interaction("Rdv avec le client.\n@todo Confirmer commande 12\n@todo Confirmer commande 13 @date 02/02/2023"));
-    TEST(VAL.content, "Rdv avec le client.");
+    TEST(VAL.content, (std::string)"Rdv avec le client.");
     TEST(VAL.date, Date::today());
     TEST(VAL.todos.getSize(), 2);
     auto expected = Interaction("Rdv avec le client.", Date::today());
@@ -179,7 +180,7 @@ void UnitTest::Test_Date()
     END_TEST;
 
     BEGIN_TEST(Date::today());
-        TEST(VAL, "27/10/2022"); // Will fail tomorrow and after.
+        TEST(VAL, Date(9, 12, 2022)); // Will fail tomorrow and after.
     END_TEST;
 
     BEGIN_TEST(Date::parseDate("02/11/2023"));
@@ -188,13 +189,11 @@ void UnitTest::Test_Date()
     END_TEST;
 
     BEGIN_TEST(Date::parseDate("02 11 2023"));
-    TEST(VAL.has_value(), 0);
-    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    TEST(VAL.has_value(), false);
     END_TEST;
 
     BEGIN_TEST(Date::parseDate("bad date"));
-    TEST(VAL.has_value(), 0);
-    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    TEST(VAL.has_value(), false);
     END_TEST;
 
     BEGIN_TEST(Date::parseNumber("25"));
@@ -203,8 +202,7 @@ void UnitTest::Test_Date()
     END_TEST;
 
     BEGIN_TEST(Date::parseNumber("-25"));
-    TEST(VAL.has_value(), 0);
-    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    TEST(VAL.has_value(), false);
     END_TEST;
 }
 
@@ -231,4 +229,36 @@ void UnitTest::Test_Json()
     std::cout << "json en creation" << std::endl;
     JsonInterface::ExportData(cm,"C:\\Users\\isyou\\OneDrive\\Bureau\\projet_CDAA\\CRM");
     std::cout << "json fait !!!!" << std::endl;
+}
+
+void UnitTest::Test_DBInterface()
+{
+    BEGIN_TEST(ContactManager())
+        ContactManager toSave;
+            toSave.add(Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+                toSave.getBack().getInteractions().add(Interaction("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
+                toSave.getBack().getInteractions().add(Interaction("Content2", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
+            toSave.add(Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+                toSave.getBack().getInteractions().add(Interaction("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
+                toSave.getBack().getInteractions().add(Interaction("Content2", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
+            toSave.add(Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+                toSave.getBack().getInteractions().add(Interaction("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
+                toSave.getBack().getInteractions().add(Interaction("Content2", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
+                    toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
+        DBInterface::SaveData(toSave);
+        VAL = DBInterface::LoadData();
+
+        TEST(VAL, toSave);
+    END_TEST;
 }

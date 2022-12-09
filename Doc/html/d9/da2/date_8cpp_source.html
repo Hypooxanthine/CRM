@@ -87,35 +87,113 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../de/d4a/classDate.html#a4e59ed4ba66eec61c27460c5d09fa1bd">Date</a>((<span class="keywordtype">unsigned</span>)asDateLib.day(), (<span class="keywordtype">unsigned</span>)asDateLib.month(), std::abs((<span class="keywordtype">int</span>)asDateLib.year()));</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../de/d4a/classDate.html#aa44ece498dfcc5f17daf4bedbb36b1f7">   18</a></span>&#160;Date::operator std::string()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::ostringstream ss;</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../de/d4a/classDate.html#a22fb517ca4ad5ca7cfa7e5df198c6dc4">   18</a></span>&#160;std::optional&lt;Date&gt; <a class="code" href="../../de/d4a/classDate.html#a22fb517ca4ad5ca7cfa7e5df198c6dc4">Date::parseDate</a>(<span class="keyword">const</span> std::string&amp; str)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    std::optional&lt;Date&gt; out;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">if</span>(day &lt; 10) ss &lt;&lt; <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    ss &lt;&lt; +day &lt;&lt; <span class="stringliteral">&quot;/&quot;</span>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">bool</span> dayFound = <span class="keyword">false</span>, monthFound = <span class="keyword">false</span>, yearFound = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">bool</span> error = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">if</span>(month &lt; 10) ss &lt;&lt; <span class="stringliteral">&quot;0&quot;</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ss &lt;&lt; +month &lt;&lt; <span class="stringliteral">&quot;/&quot;</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    uint8_t day = 0, month = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    uint16_t year = 0;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    ss &lt;&lt; +year;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../de/d4a/classDate.html">Date</a>&amp; date)</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    os &lt;&lt; (std::string)date;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503">   39</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503">Date::operator==</a>(<span class="keyword">const</span> <a class="code" href="../../de/d4a/classDate.html">Date</a>&amp; other)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> day == other.day &amp;&amp; month == other.month &amp;&amp; year == other.year;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d96/date_8h_source.html#l00006">date.h:7</a></div></div>
-<div class="ttc" id="aclassDate_html_a3b103cc8257d3055aedb519fff343503"><div class="ttname"><a href="../../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503">Date::operator==</a></div><div class="ttdeci">bool operator==(const Date &amp;other) const</div><div class="ttdoc">Compare operator.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da2/date_8cpp_source.html#l00039">date.cpp:39</a></div></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::istringstream ss(str);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::string token;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">while</span>(!error &amp;&amp; std::getline(ss, token, <span class="charliteral">&#39;/&#39;</span>))</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        <span class="keywordflow">if</span>(!dayFound)</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">if</span>(<span class="keyword">auto</span> number = <a class="code" href="../../de/d4a/classDate.html#a4fab889e18e8761086fbf817a4e0073c">parseNumber</a>(token); number.has_value())</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                dayFound = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                day = number.value();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            }</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                error = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!monthFound)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;            <span class="keywordflow">if</span>(<span class="keyword">auto</span> number = <a class="code" href="../../de/d4a/classDate.html#a4fab889e18e8761086fbf817a4e0073c">parseNumber</a>(token); number.has_value())</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                monthFound = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                month = number.value();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                error = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!yearFound)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">if</span>(<span class="keyword">auto</span> number = <a class="code" href="../../de/d4a/classDate.html#a4fab889e18e8761086fbf817a4e0073c">parseNumber</a>(token); number.has_value())</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                yearFound = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                year = number.value();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                error = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordflow">else</span> <span class="comment">// Every number has been found but there is another token : the date is not valid</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            error = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordflow">if</span>(!error &amp;&amp; dayFound &amp;&amp; monthFound &amp;&amp; yearFound)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        out = <a class="code" href="../../de/d4a/classDate.html#a4e59ed4ba66eec61c27460c5d09fa1bd">Date</a>(day, month, year);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../de/d4a/classDate.html#a4fab889e18e8761086fbf817a4e0073c">   74</a></span>&#160;std::optional&lt;uint16_t&gt; <a class="code" href="../../de/d4a/classDate.html#a4fab889e18e8761086fbf817a4e0073c">Date::parseNumber</a>(<span class="keyword">const</span> std::string&amp; str)</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    std::optional&lt;uint16_t&gt; out;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    uint16_t value = 0;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    uint8_t tenPower = 0;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">bool</span> error = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">for</span>(<span class="keyword">auto</span> it = str.rbegin(); it &lt; str.rend() &amp;&amp; !error; it++) <span class="comment">// 10000 is the max value for day, month and year.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span> (*it &lt; &#39;0&#39; || *it &gt; <span class="charliteral">&#39;9&#39;</span> || value &gt; 10000) <span class="comment">// Only numbers, no &#39;-&#39; : no negative numbers.</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            error = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            value += (*it - <span class="charliteral">&#39;0&#39;</span>) * std::pow(10, tenPower++);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span>(!error) out = value;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../de/d4a/classDate.html#aa44ece498dfcc5f17daf4bedbb36b1f7">   94</a></span>&#160;Date::operator std::string()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    std::ostringstream ss;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">if</span>(day &lt; 10) ss &lt;&lt; <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    ss &lt;&lt; +day &lt;&lt; <span class="stringliteral">&quot;/&quot;</span>;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">if</span>(month &lt; 10) ss &lt;&lt; <span class="stringliteral">&quot;0&quot;</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    ss &lt;&lt; +month &lt;&lt; <span class="stringliteral">&quot;/&quot;</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ss &lt;&lt; +year;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> ss.str();</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="../../de/d4a/classDate.html">Date</a>&amp; date)</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;{</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    os &lt;&lt; (std::string)date;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503">  115</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503">Date::operator==</a>(<span class="keyword">const</span> <a class="code" href="../../de/d4a/classDate.html">Date</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> day == other.day &amp;&amp; month == other.month &amp;&amp; year == other.year;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d96/date_8h_source.html#l00007">date.h:8</a></div></div>
+<div class="ttc" id="aclassDate_html_a22fb517ca4ad5ca7cfa7e5df198c6dc4"><div class="ttname"><a href="../../de/d4a/classDate.html#a22fb517ca4ad5ca7cfa7e5df198c6dc4">Date::parseDate</a></div><div class="ttdeci">static std::optional&lt; Date &gt; parseDate(const std::string &amp;str)</div><div class="ttdoc">Will try to parse a date from a string, according to the format : dd/mm/yyy.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da2/date_8cpp_source.html#l00018">date.cpp:18</a></div></div>
+<div class="ttc" id="aclassDate_html_a3b103cc8257d3055aedb519fff343503"><div class="ttname"><a href="../../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503">Date::operator==</a></div><div class="ttdeci">bool operator==(const Date &amp;other) const</div><div class="ttdoc">Compare operator.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da2/date_8cpp_source.html#l00115">date.cpp:115</a></div></div>
 <div class="ttc" id="aclassDate_html_a49d5657118ed1856d5e03e569214b775"><div class="ttname"><a href="../../de/d4a/classDate.html#a49d5657118ed1856d5e03e569214b775">Date::today</a></div><div class="ttdeci">static Date today()</div><div class="ttdoc">Gets the current date.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da2/date_8cpp_source.html#l00011">date.cpp:11</a></div></div>
 <div class="ttc" id="aclassDate_html_a4e59ed4ba66eec61c27460c5d09fa1bd"><div class="ttname"><a href="../../de/d4a/classDate.html#a4e59ed4ba66eec61c27460c5d09fa1bd">Date::Date</a></div><div class="ttdeci">Date()</div><div class="ttdoc">Creates an &quot;invalid&quot; date : day, month and year are set to zero.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da2/date_8cpp_source.html#l00007">date.cpp:7</a></div></div>
+<div class="ttc" id="aclassDate_html_a4fab889e18e8761086fbf817a4e0073c"><div class="ttname"><a href="../../de/d4a/classDate.html#a4fab889e18e8761086fbf817a4e0073c">Date::parseNumber</a></div><div class="ttdeci">static std::optional&lt; uint16_t &gt; parseNumber(const std::string &amp;str)</div><div class="ttdoc">parseNumber Will try to parse a whole positive number from a string. Max value : 2¹⁶ - 1</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da2/date_8cpp_source.html#l00074">date.cpp:74</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

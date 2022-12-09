@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['rbegin_94',['rbegin',['../dd/dcd/classManager.html#ab5fb52adef8097a715b0ff2a622740fc',1,'Manager::rbegin()'],['../dd/dcd/classManager.html#a61af476b0298d20545cd3fc217755176',1,'Manager::rbegin() const']]],
-  ['remove_95',['remove',['../dd/dcd/classManager.html#a2a1711c222b812a9c51781f270561c66',1,'Manager']]],
-  ['rend_96',['rend',['../dd/dcd/classManager.html#acfaa97151f66b2c54e4b7443016bdfba',1,'Manager::rend()'],['../dd/dcd/classManager.html#ade97948739d96ec9cf612fb6010c2cb7',1,'Manager::rend() const']]]
+  ['operator_3d_3d_107',['operator==',['../d5/d8d/classContact.html#aaa2d73a4c2a6e6680858a4841208d94b',1,'Contact::operator==()'],['../de/d4a/classDate.html#a3b103cc8257d3055aedb519fff343503',1,'Date::operator==()'],['../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947',1,'Interaction::operator==()'],['../dd/dcd/classManager.html#aefb758ebe58645597331bdfdc6ded44b',1,'Manager::operator==()'],['../d1/d05/classTodo.html#a24dc561b664a2217c954f5b601037c7c',1,'Todo::operator==()']]],
+  ['string_108',['string',['../de/d4a/classDate.html#aa44ece498dfcc5f17daf4bedbb36b1f7',1,'Date']]]
 ];

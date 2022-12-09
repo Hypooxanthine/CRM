@@ -51,12 +51,8 @@ std::ostream& operator<<(std::ostream& os, const Interaction& interaction)
         os << "No Todo.";
     else
     {
-        os << "Todo's :";
-
-        for(const auto& todo : interaction.getTodos())
-        {
-            os << std::endl << "\t" << todo;
-        }
+        os << "Todo's :" << std::endl;
+        os << interaction.getTodos();
     }
 
     return os;

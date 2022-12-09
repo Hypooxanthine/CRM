@@ -1,0 +1,79 @@
+\hypertarget{classDBInterface}{}\doxysection{DBInterface Class Reference}
+\label{classDBInterface}\index{DBInterface@{DBInterface}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDBInterface_a9071984400eb21acba81d44397b424e5}\label{classDBInterface_a9071984400eb21acba81d44397b424e5}} 
+static void \mbox{\hyperlink{classDBInterface_a9071984400eb21acba81d44397b424e5}{Init}} ()
+\begin{DoxyCompactList}\small\item\em Intializes the \mbox{\hyperlink{classDBInterface}{DBInterface}}. If database does not exist, it\textquotesingle{}ll create it. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classContactManager}{Contact\+Manager}} \mbox{\hyperlink{classDBInterface_a8957191d80e657858fdd0953fb1a247b}{Load\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Loads data from the database. Returns an empty \mbox{\hyperlink{classContactManager}{Contact\+Manager}} if anything is going wrong. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classDBInterface_a36e4f1f54b2ce72932432b6731281640}{Save\+Data}} (const \mbox{\hyperlink{classContactManager}{Contact\+Manager}} \&contacts)
+\begin{DoxyCompactList}\small\item\em Saves data into the database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 7 of file dbinterface.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDBInterface_a8957191d80e657858fdd0953fb1a247b}\label{classDBInterface_a8957191d80e657858fdd0953fb1a247b}} 
+\index{DBInterface@{DBInterface}!LoadData@{LoadData}}
+\index{LoadData@{LoadData}!DBInterface@{DBInterface}}
+\doxysubsubsection{\texorpdfstring{LoadData()}{LoadData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classContactManager}{Contact\+Manager}} DBInterface\+::\+Load\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads data from the database. Returns an empty \mbox{\hyperlink{classContactManager}{Contact\+Manager}} if anything is going wrong. 
+
+\begin{DoxyWarning}{Warning}
+This function asserts the \mbox{\hyperlink{classDBInterface}{DBInterface}} was initialized. 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classDBInterface_a9071984400eb21acba81d44397b424e5}{DBInterface\+::\+Init()}}. 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classContactManager}{Contact\+Manager}} with all the Contacts, and all their depending Interactions and Todos. 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file dbinterface.\+cpp.
+
+\mbox{\Hypertarget{classDBInterface_a36e4f1f54b2ce72932432b6731281640}\label{classDBInterface_a36e4f1f54b2ce72932432b6731281640}} 
+\index{DBInterface@{DBInterface}!SaveData@{SaveData}}
+\index{SaveData@{SaveData}!DBInterface@{DBInterface}}
+\doxysubsubsection{\texorpdfstring{SaveData()}{SaveData()}}
+{\footnotesize\ttfamily bool DBInterface\+::\+Save\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContactManager}{Contact\+Manager}} \&}]{contacts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Saves data into the database. 
+
+\begin{DoxyWarning}{Warning}
+This function asserts the \mbox{\hyperlink{classDBInterface}{DBInterface}} was initialized. 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{classDBInterface_a9071984400eb21acba81d44397b424e5}{DBInterface\+::\+Init()}}. 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em contacts} & A const refence to the list of contacts. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true on success; otherwise returns false. 
+\end{DoxyReturn}
+
+
+Definition at line 129 of file dbinterface.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\+Ext\+Data/dbinterface.\+h\item 
+src/\+Ext\+Data/dbinterface.\+cpp\end{DoxyCompactItemize}

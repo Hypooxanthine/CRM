@@ -3,17 +3,17 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classContact_ab1787df226299efc41a06b7d483ed657}\label{classContact_ab1787df226299efc41a06b7d483ed657}} 
-\mbox{\hyperlink{classContact_ab1787df226299efc41a06b7d483ed657}{Contact}} ()=delete
-\begin{DoxyCompactList}\small\item\em Default constructor is deleted. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classContact_a434cd2fe1ee482cd3967da84acf09e73}{Contact}} (const size\+\_\+t \&id, const std\+::string \&name, const std\+::string \&email, const std\+::string \&phone, const std\+::string \&photo\+Path, const \mbox{\hyperlink{classDate}{Date}} \&date)
+\mbox{\hyperlink{classContact_a625acc61dc618a950fc65a592d6ccbdd}{Contact}} (const std\+::string \&first\+Name, const std\+::string \&last\+Name, const std\+::string \&email, const std\+::string \&phone, const std\+::string \&photo\+Path, const \mbox{\hyperlink{classDate}{Date}} \&date)
 \begin{DoxyCompactList}\small\item\em Has to be called for a known \mbox{\hyperlink{classContact}{Contact}}. For example, when retrieving a \mbox{\hyperlink{classContact}{Contact}} from the database, the \mbox{\hyperlink{classContact}{Contact}} is known, so are the other parameters. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classContact_ae0b009acfca5ca419465b21b21e5c19d}{Contact}} (const \mbox{\hyperlink{classContact}{Contact}} \&c)
+\mbox{\Hypertarget{classContact_a10d4c96b4000d52529a8aa6dea79462f}\label{classContact_a10d4c96b4000d52529a8aa6dea79462f}} 
+\mbox{\hyperlink{classContact_a10d4c96b4000d52529a8aa6dea79462f}{Contact}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor constructs an empty contact. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classContact_aa1ec3a71e3260d3bcd3bb057508c4138}{Contact}} (const \mbox{\hyperlink{classContact}{Contact}} \&c)=default
 \begin{DoxyCompactList}\small\item\em Has to be called to copy a \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classContact_ae4fb5cb0c892a853ea33b23e02ee5e78}{set\+Id}} (const size\+\_\+t \&id)
-\begin{DoxyCompactList}\small\item\em Sets the id of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classContact_ac6c364a50b5d0ee7ceba8499b1ae9fce}{set\+Name}} (const std\+::string \&name)
-\begin{DoxyCompactList}\small\item\em Sets the Name of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_a35e18fe383f67ab22d076854fc19d985}{set\+First\+Name}} (const std\+::string \&first\+Name)
+\begin{DoxyCompactList}\small\item\em Sets the first name of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classContact_aee13e03f608e27729a527e78b1dc94d0}{set\+Last\+Name}} (const std\+::string \&last\+Name)
+\begin{DoxyCompactList}\small\item\em Sets the last name of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classContact_a6669771d7c07596bd7dc190de02a7991}{set\+Email}} (const std\+::string \&email)
 \begin{DoxyCompactList}\small\item\em Sets the email of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classContact_a3efe1754c6d6fc83961a3aaa275da41a}{set\+Phone}} (const std\+::string \&phone)
@@ -24,10 +24,10 @@ void \mbox{\hyperlink{classContact_ae41366c7db10229a0e4d5977d40a2833}{set\+Date}
 \begin{DoxyCompactList}\small\item\em Sets the date of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classContact_a76df6c867ca0a813806695bf952e0b22}{set\+Interaction\+Manager}} (const \mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}} \&Interaction\+List)
 \begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \end{DoxyCompactList}\item 
-const size\+\_\+t \& \mbox{\hyperlink{classContact_acf9953df22428fc09f8e871b8b3c5a38}{get\+Id}} () const
-\begin{DoxyCompactList}\small\item\em Gets the id of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
-const std\+::string \& \mbox{\hyperlink{classContact_a9d384c7fd8678edd2852a5a155f44cfc}{get\+Name}} () const
-\begin{DoxyCompactList}\small\item\em Gets the Name of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classContact_a18ca4d9cecabcf7df0d592941cf45cc8}{get\+First\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the first name of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classContact_a1dcef4ceaf3ec3a2b63e1b75b9039765}{get\+Last\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Gets the last name of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
 const std\+::string \& \mbox{\hyperlink{classContact_ab03694fe5871feb7da6a982276ffedde}{get\+Email}} () const
 \begin{DoxyCompactList}\small\item\em Gets the email of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
 const std\+::string \& \mbox{\hyperlink{classContact_a387d8f52ba0fc5a97c0355bda41096ea}{get\+Phone}} () const
@@ -36,10 +36,10 @@ const std\+::string \& \mbox{\hyperlink{classContact_a5ce026fede4e4ccf2d6f6211be
 \begin{DoxyCompactList}\small\item\em Gets the photo\textquotesingle{}s path of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{classDate}{Date}} \& \mbox{\hyperlink{classContact_abaf38913b90b844482bf427df871abb5}{get\+Date}} () const
 \begin{DoxyCompactList}\small\item\em Gets the date of the \mbox{\hyperlink{classContact}{Contact}}. \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}} \& \mbox{\hyperlink{classContact_ab51d7f496838f447b990adb39b436e65}{get\+Interaction\+Manager}} () const
-\begin{DoxyCompactList}\small\item\em Gets a const reference to the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}} \& \mbox{\hyperlink{classContact_a705b5fc254a7748ceb6a08d9762e6e72}{get\+Interaction\+Manager}} ()
-\begin{DoxyCompactList}\small\item\em Gets a reference to the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}} \& \mbox{\hyperlink{classContact_a3407a91ca44b49caf071adff2baac962}{get\+Interactions}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}} \& \mbox{\hyperlink{classContact_a91f923af70b5d985024429578f2c7c7f}{get\+Interactions}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classContact_aaa2d73a4c2a6e6680858a4841208d94b}{operator==}} (const \mbox{\hyperlink{classContact}{Contact}} \&other) const
 \begin{DoxyCompactList}\small\item\em Compare operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
@@ -61,11 +61,11 @@ Definition at line 8 of file contact.\+h.
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classContact_a434cd2fe1ee482cd3967da84acf09e73}\label{classContact_a434cd2fe1ee482cd3967da84acf09e73}} 
+\mbox{\Hypertarget{classContact_a625acc61dc618a950fc65a592d6ccbdd}\label{classContact_a625acc61dc618a950fc65a592d6ccbdd}} 
 \index{Contact@{Contact}!Contact@{Contact}}
 \index{Contact@{Contact}!Contact@{Contact}}
 \doxysubsubsection{\texorpdfstring{Contact()}{Contact()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Contact\+::\+Contact (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id,  }\item[{const std\+::string \&}]{name,  }\item[{const std\+::string \&}]{email,  }\item[{const std\+::string \&}]{phone,  }\item[{const std\+::string \&}]{photo\+Path,  }\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Contact\+::\+Contact (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{first\+Name,  }\item[{const std\+::string \&}]{last\+Name,  }\item[{const std\+::string \&}]{email,  }\item[{const std\+::string \&}]{phone,  }\item[{const std\+::string \&}]{photo\+Path,  }\item[{const \mbox{\hyperlink{classDate}{Date}} \&}]{date }\end{DoxyParamCaption})}
 
 
 
@@ -73,8 +73,6 @@ Has to be called for a known \mbox{\hyperlink{classContact}{Contact}}. For examp
 
 
 \begin{DoxyParams}{Parameters}
-{\em id} & The id of the \mbox{\hyperlink{classContact}{Contact}}. \\
-\hline
 {\em name} & The name of the \mbox{\hyperlink{classContact}{Contact}}. \\
 \hline
 {\em email} & The email of the \mbox{\hyperlink{classContact}{Contact}}. \\
@@ -90,11 +88,11 @@ Has to be called for a known \mbox{\hyperlink{classContact}{Contact}}. For examp
 
 Definition at line 4 of file contact.\+cpp.
 
-\mbox{\Hypertarget{classContact_ae0b009acfca5ca419465b21b21e5c19d}\label{classContact_ae0b009acfca5ca419465b21b21e5c19d}} 
+\mbox{\Hypertarget{classContact_aa1ec3a71e3260d3bcd3bb057508c4138}\label{classContact_aa1ec3a71e3260d3bcd3bb057508c4138}} 
 \index{Contact@{Contact}!Contact@{Contact}}
 \index{Contact@{Contact}!Contact@{Contact}}
 \doxysubsubsection{\texorpdfstring{Contact()}{Contact()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Contact\+::\+Contact (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContact}{Contact}} \&}]{c }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Contact\+::\+Contact (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classContact}{Contact}} \&}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
 
 
 
@@ -105,10 +103,6 @@ Has to be called to copy a \mbox{\hyperlink{classContact}{Contact}}.
 {\em c} & The \mbox{\hyperlink{classContact}{Contact}} to copy. \\
 \hline
 \end{DoxyParams}
-
-
-Definition at line 16 of file contact.\+cpp.
-
 
 
 \doxysubsection{Member Function Documentation}
@@ -127,7 +121,7 @@ The date of the \mbox{\hyperlink{classContact}{Contact}}.
 \end{DoxyReturn}
 
 
-Definition at line 117 of file contact.\+h.
+Definition at line 118 of file contact.\+h.
 
 \mbox{\Hypertarget{classContact_ab03694fe5871feb7da6a982276ffedde}\label{classContact_ab03694fe5871feb7da6a982276ffedde}} 
 \index{Contact@{Contact}!getEmail@{getEmail}}
@@ -144,75 +138,75 @@ The email of the \mbox{\hyperlink{classContact}{Contact}}.
 \end{DoxyReturn}
 
 
-Definition at line 99 of file contact.\+h.
+Definition at line 100 of file contact.\+h.
 
-\mbox{\Hypertarget{classContact_acf9953df22428fc09f8e871b8b3c5a38}\label{classContact_acf9953df22428fc09f8e871b8b3c5a38}} 
-\index{Contact@{Contact}!getId@{getId}}
-\index{getId@{getId}!Contact@{Contact}}
-\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
-{\footnotesize\ttfamily const size\+\_\+t\& Contact\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{classContact_a18ca4d9cecabcf7df0d592941cf45cc8}\label{classContact_a18ca4d9cecabcf7df0d592941cf45cc8}} 
+\index{Contact@{Contact}!getFirstName@{getFirstName}}
+\index{getFirstName@{getFirstName}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getFirstName()}{getFirstName()}}
+{\footnotesize\ttfamily const std\+::string\& Contact\+::get\+First\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Gets the id of the \mbox{\hyperlink{classContact}{Contact}}. 
+Gets the first name of the \mbox{\hyperlink{classContact}{Contact}}. 
 
 \begin{DoxyReturn}{Returns}
-The id of the \mbox{\hyperlink{classContact}{Contact}}. 
+The first name of the \mbox{\hyperlink{classContact}{Contact}}. 
 \end{DoxyReturn}
 
 
-Definition at line 87 of file contact.\+h.
+Definition at line 88 of file contact.\+h.
 
-\mbox{\Hypertarget{classContact_a705b5fc254a7748ceb6a08d9762e6e72}\label{classContact_a705b5fc254a7748ceb6a08d9762e6e72}} 
-\index{Contact@{Contact}!getInteractionManager@{getInteractionManager}}
-\index{getInteractionManager@{getInteractionManager}!Contact@{Contact}}
-\doxysubsubsection{\texorpdfstring{getInteractionManager()}{getInteractionManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}}\& Contact\+::get\+Interaction\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{classContact_a91f923af70b5d985024429578f2c7c7f}\label{classContact_a91f923af70b5d985024429578f2c7c7f}} 
+\index{Contact@{Contact}!getInteractions@{getInteractions}}
+\index{getInteractions@{getInteractions}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getInteractions()}{getInteractions()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}}\& Contact\+::get\+Interactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Gets a reference to the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
+Gets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
 
 \begin{DoxyReturn}{Returns}
 A reference to the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
 \end{DoxyReturn}
 
 
-Definition at line 129 of file contact.\+h.
+Definition at line 130 of file contact.\+h.
 
-\mbox{\Hypertarget{classContact_ab51d7f496838f447b990adb39b436e65}\label{classContact_ab51d7f496838f447b990adb39b436e65}} 
-\index{Contact@{Contact}!getInteractionManager@{getInteractionManager}}
-\index{getInteractionManager@{getInteractionManager}!Contact@{Contact}}
-\doxysubsubsection{\texorpdfstring{getInteractionManager()}{getInteractionManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}}\& Contact\+::get\+Interaction\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{classContact_a3407a91ca44b49caf071adff2baac962}\label{classContact_a3407a91ca44b49caf071adff2baac962}} 
+\index{Contact@{Contact}!getInteractions@{getInteractions}}
+\index{getInteractions@{getInteractions}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getInteractions()}{getInteractions()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classInteractionManager}{Interaction\+Manager}}\& Contact\+::get\+Interactions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Gets a const reference to the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
+Gets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
 
 \begin{DoxyReturn}{Returns}
 A const reference to the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of interactions. 
 \end{DoxyReturn}
 
 
-Definition at line 123 of file contact.\+h.
+Definition at line 124 of file contact.\+h.
 
-\mbox{\Hypertarget{classContact_a9d384c7fd8678edd2852a5a155f44cfc}\label{classContact_a9d384c7fd8678edd2852a5a155f44cfc}} 
-\index{Contact@{Contact}!getName@{getName}}
-\index{getName@{getName}!Contact@{Contact}}
-\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
-{\footnotesize\ttfamily const std\+::string\& Contact\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{classContact_a1dcef4ceaf3ec3a2b63e1b75b9039765}\label{classContact_a1dcef4ceaf3ec3a2b63e1b75b9039765}} 
+\index{Contact@{Contact}!getLastName@{getLastName}}
+\index{getLastName@{getLastName}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{getLastName()}{getLastName()}}
+{\footnotesize\ttfamily const std\+::string\& Contact\+::get\+Last\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Gets the Name of the \mbox{\hyperlink{classContact}{Contact}}. 
+Gets the last name of the \mbox{\hyperlink{classContact}{Contact}}. 
 
 \begin{DoxyReturn}{Returns}
-The Name of the \mbox{\hyperlink{classContact}{Contact}}. 
+The last name of the \mbox{\hyperlink{classContact}{Contact}}. 
 \end{DoxyReturn}
 
 
-Definition at line 93 of file contact.\+h.
+Definition at line 94 of file contact.\+h.
 
 \mbox{\Hypertarget{classContact_a387d8f52ba0fc5a97c0355bda41096ea}\label{classContact_a387d8f52ba0fc5a97c0355bda41096ea}} 
 \index{Contact@{Contact}!getPhone@{getPhone}}
@@ -229,7 +223,7 @@ The phone of the contact.
 \end{DoxyReturn}
 
 
-Definition at line 105 of file contact.\+h.
+Definition at line 106 of file contact.\+h.
 
 \mbox{\Hypertarget{classContact_a5ce026fede4e4ccf2d6f6211be604e58}\label{classContact_a5ce026fede4e4ccf2d6f6211be604e58}} 
 \index{Contact@{Contact}!getPhotoPath@{getPhotoPath}}
@@ -246,7 +240,7 @@ The photo\textquotesingle{}s path of the \mbox{\hyperlink{classContact}{Contact}
 \end{DoxyReturn}
 
 
-Definition at line 111 of file contact.\+h.
+Definition at line 112 of file contact.\+h.
 
 \mbox{\Hypertarget{classContact_aaa2d73a4c2a6e6680858a4841208d94b}\label{classContact_aaa2d73a4c2a6e6680858a4841208d94b}} 
 \index{Contact@{Contact}!operator==@{operator==}}
@@ -268,7 +262,7 @@ A boolean. True \+: all fields are the same. False otherwise.
 \end{DoxyReturn}
 
 
-Definition at line 37 of file contact.\+cpp.
+Definition at line 28 of file contact.\+cpp.
 
 \mbox{\Hypertarget{classContact_ae41366c7db10229a0e4d5977d40a2833}\label{classContact_ae41366c7db10229a0e4d5977d40a2833}} 
 \index{Contact@{Contact}!setDate@{setDate}}
@@ -287,7 +281,7 @@ Sets the date of the \mbox{\hyperlink{classContact}{Contact}}.
 \end{DoxyParams}
 
 
-Definition at line 72 of file contact.\+h.
+Definition at line 73 of file contact.\+h.
 
 \mbox{\Hypertarget{classContact_a6669771d7c07596bd7dc190de02a7991}\label{classContact_a6669771d7c07596bd7dc190de02a7991}} 
 \index{Contact@{Contact}!setEmail@{setEmail}}
@@ -306,26 +300,26 @@ Sets the email of the \mbox{\hyperlink{classContact}{Contact}}.
 \end{DoxyParams}
 
 
-Definition at line 54 of file contact.\+h.
+Definition at line 55 of file contact.\+h.
 
-\mbox{\Hypertarget{classContact_ae4fb5cb0c892a853ea33b23e02ee5e78}\label{classContact_ae4fb5cb0c892a853ea33b23e02ee5e78}} 
-\index{Contact@{Contact}!setId@{setId}}
-\index{setId@{setId}!Contact@{Contact}}
-\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
-{\footnotesize\ttfamily void Contact\+::set\+Id (\begin{DoxyParamCaption}\item[{const size\+\_\+t \&}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{classContact_a35e18fe383f67ab22d076854fc19d985}\label{classContact_a35e18fe383f67ab22d076854fc19d985}} 
+\index{Contact@{Contact}!setFirstName@{setFirstName}}
+\index{setFirstName@{setFirstName}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setFirstName()}{setFirstName()}}
+{\footnotesize\ttfamily void Contact\+::set\+First\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{first\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Sets the id of the \mbox{\hyperlink{classContact}{Contact}}. 
+Sets the first name of the \mbox{\hyperlink{classContact}{Contact}}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em The} & new id. \\
+{\em The} & new first name. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 42 of file contact.\+h.
+Definition at line 43 of file contact.\+h.
 
 \mbox{\Hypertarget{classContact_a76df6c867ca0a813806695bf952e0b22}\label{classContact_a76df6c867ca0a813806695bf952e0b22}} 
 \index{Contact@{Contact}!setInteractionManager@{setInteractionManager}}
@@ -344,26 +338,26 @@ Sets the \mbox{\hyperlink{classContact}{Contact}}\textquotesingle{}s list of int
 \end{DoxyParams}
 
 
-Definition at line 78 of file contact.\+h.
+Definition at line 79 of file contact.\+h.
 
-\mbox{\Hypertarget{classContact_ac6c364a50b5d0ee7ceba8499b1ae9fce}\label{classContact_ac6c364a50b5d0ee7ceba8499b1ae9fce}} 
-\index{Contact@{Contact}!setName@{setName}}
-\index{setName@{setName}!Contact@{Contact}}
-\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
-{\footnotesize\ttfamily void Contact\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\Hypertarget{classContact_aee13e03f608e27729a527e78b1dc94d0}\label{classContact_aee13e03f608e27729a527e78b1dc94d0}} 
+\index{Contact@{Contact}!setLastName@{setLastName}}
+\index{setLastName@{setLastName}!Contact@{Contact}}
+\doxysubsubsection{\texorpdfstring{setLastName()}{setLastName()}}
+{\footnotesize\ttfamily void Contact\+::set\+Last\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{last\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Sets the Name of the \mbox{\hyperlink{classContact}{Contact}}. 
+Sets the last name of the \mbox{\hyperlink{classContact}{Contact}}. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em The} & new name. \\
+{\em The} & new last name. \\
 \hline
 \end{DoxyParams}
 
 
-Definition at line 48 of file contact.\+h.
+Definition at line 49 of file contact.\+h.
 
 \mbox{\Hypertarget{classContact_a3efe1754c6d6fc83961a3aaa275da41a}\label{classContact_a3efe1754c6d6fc83961a3aaa275da41a}} 
 \index{Contact@{Contact}!setPhone@{setPhone}}
@@ -382,7 +376,7 @@ Sets the phone of the \mbox{\hyperlink{classContact}{Contact}}.
 \end{DoxyParams}
 
 
-Definition at line 60 of file contact.\+h.
+Definition at line 61 of file contact.\+h.
 
 \mbox{\Hypertarget{classContact_aa38ff60d2a2dded4b450a88c712058c3}\label{classContact_aa38ff60d2a2dded4b450a88c712058c3}} 
 \index{Contact@{Contact}!setPhotoPath@{setPhotoPath}}
@@ -401,7 +395,7 @@ Sets the photo\textquotesingle{}s path of the \mbox{\hyperlink{classContact}{Con
 \end{DoxyParams}
 
 
-Definition at line 66 of file contact.\+h.
+Definition at line 67 of file contact.\+h.
 
 
 

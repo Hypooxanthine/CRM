@@ -14,11 +14,14 @@ Contact::Contact(const std::string& firstName, const std::string& lastName,
 }
 
 std::ostream& operator<<(std::ostream& os, const Contact& c){
-    os << "{" <<
-        "\"Name\":\"" << c.getFirstName() << " " << c.getLastName() << "\","<<
-        "\"email\":\"" << c.getEmail() << "\","<<
-        "\"phone\":\"" << c.getPhone() << "\","<<
-        "\"creationDate\":" << c.getDate() << "}";
+    os << "Name: " << c.getFirstName() << " " << c.getLastName() << std::endl <<
+          "email: " << c.getEmail() << std::endl <<
+          "phone: " << c.getPhone() << std::endl <<
+          "creationDate: " << c.getDate() << std::endl;
+
+    os << "Interactions: " << std::endl;
+
+    os << c.getInteractions();
     return os;
  }
 

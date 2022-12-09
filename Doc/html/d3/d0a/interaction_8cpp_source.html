@@ -123,27 +123,23 @@ $(function() {
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;No Todo.&quot;</span>;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;Todo&#39;s :&quot;</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; todo : interaction.<a class="code" href="../../db/d0c/classInteraction.html#a717e768023325d30b310b2bbdbd60bda">getTodos</a>())</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            os &lt;&lt; std::endl &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; todo;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947">   65</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947">Interaction::operator==</a>(<span class="keyword">const</span> <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp; other)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> content == other.content</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            &amp;&amp; date == other.date</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            &amp;&amp; todos == other.todos;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
-<div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d96/date_8h_source.html#l00006">date.h:7</a></div></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        os &lt;&lt; <span class="stringliteral">&quot;Todo&#39;s :&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        os &lt;&lt; interaction.<a class="code" href="../../db/d0c/classInteraction.html#a717e768023325d30b310b2bbdbd60bda">getTodos</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947">   61</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="../../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947">Interaction::operator==</a>(<span class="keyword">const</span> <a class="code" href="../../db/d0c/classInteraction.html">Interaction</a>&amp; other)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">return</span> content == other.content</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            &amp;&amp; date == other.date</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            &amp;&amp; todos == other.todos;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;}</div>
+<div class="ttc" id="aclassDate_html"><div class="ttname"><a href="../../de/d4a/classDate.html">Date</a></div><div class="ttdef"><b>Definition:</b> <a href="../../db/d96/date_8h_source.html#l00007">date.h:8</a></div></div>
 <div class="ttc" id="aclassDate_html_a49d5657118ed1856d5e03e569214b775"><div class="ttname"><a href="../../de/d4a/classDate.html#a49d5657118ed1856d5e03e569214b775">Date::today</a></div><div class="ttdeci">static Date today()</div><div class="ttdoc">Gets the current date.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/da2/date_8cpp_source.html#l00011">date.cpp:11</a></div></div>
 <div class="ttc" id="aclassInteraction_html"><div class="ttname"><a href="../../db/d0c/classInteraction.html">Interaction</a></div><div class="ttdef"><b>Definition:</b> <a href="../../da/d85/interaction_8h_source.html#l00009">interaction.h:10</a></div></div>
-<div class="ttc" id="aclassInteraction_html_a3d101f44d0f69bbb27144202ddde9947"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947">Interaction::operator==</a></div><div class="ttdeci">bool operator==(const Interaction &amp;other) const</div><div class="ttdoc">Compare operator.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d0a/interaction_8cpp_source.html#l00065">interaction.cpp:65</a></div></div>
+<div class="ttc" id="aclassInteraction_html_a3d101f44d0f69bbb27144202ddde9947"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a3d101f44d0f69bbb27144202ddde9947">Interaction::operator==</a></div><div class="ttdeci">bool operator==(const Interaction &amp;other) const</div><div class="ttdoc">Compare operator.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d0a/interaction_8cpp_source.html#l00061">interaction.cpp:61</a></div></div>
 <div class="ttc" id="aclassInteraction_html_a506b94800c3b34e1959efe5a3248ebf5"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a506b94800c3b34e1959efe5a3248ebf5">Interaction::Interaction</a></div><div class="ttdeci">Interaction()=delete</div><div class="ttdoc">Default constructor is deleted.</div></div>
 <div class="ttc" id="aclassInteraction_html_a717e768023325d30b310b2bbdbd60bda"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a717e768023325d30b310b2bbdbd60bda">Interaction::getTodos</a></div><div class="ttdeci">const TodoManager &amp; getTodos() const</div><div class="ttdoc">Gets a const reference to the Todo's list.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d85/interaction_8h_source.html#l00069">interaction.h:69</a></div></div>
 <div class="ttc" id="aclassInteraction_html_a93aeda0573ce1c7a5fa951cc08b7fbd7"><div class="ttname"><a href="../../db/d0c/classInteraction.html#a93aeda0573ce1c7a5fa951cc08b7fbd7">Interaction::getContent</a></div><div class="ttdeci">const std::string &amp; getContent() const</div><div class="ttdoc">Gets the content of the Interaction. It shouldn't contain any @todo.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d85/interaction_8h_source.html#l00057">interaction.h:57</a></div></div>

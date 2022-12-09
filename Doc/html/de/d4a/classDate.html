@@ -121,6 +121,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a49d5657118ed1856d5e03e569214b775"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/d4a/classDate.html">Date</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d4a/classDate.html#a49d5657118ed1856d5e03e569214b775">today</a> ()</td></tr>
 <tr class="memdesc:a49d5657118ed1856d5e03e569214b775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current date.  <a href="../../de/d4a/classDate.html#a49d5657118ed1856d5e03e569214b775">More...</a><br /></td></tr>
 <tr class="separator:a49d5657118ed1856d5e03e569214b775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22fb517ca4ad5ca7cfa7e5df198c6dc4"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; <a class="el" href="../../de/d4a/classDate.html">Date</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d4a/classDate.html#a22fb517ca4ad5ca7cfa7e5df198c6dc4">parseDate</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a22fb517ca4ad5ca7cfa7e5df198c6dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will try to parse a date from a string, according to the format : dd/mm/yyy.  <a href="../../de/d4a/classDate.html#a22fb517ca4ad5ca7cfa7e5df198c6dc4">More...</a><br /></td></tr>
+<tr class="separator:a22fb517ca4ad5ca7cfa7e5df198c6dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fab889e18e8761086fbf817a4e0073c"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; uint16_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d4a/classDate.html#a4fab889e18e8761086fbf817a4e0073c">parseNumber</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a4fab889e18e8761086fbf817a4e0073c"><td class="mdescLeft">&#160;</td><td class="mdescRight">parseNumber Will try to parse a whole positive number from a string. Max value : 2¹⁶ - 1  <a href="../../de/d4a/classDate.html#a4fab889e18e8761086fbf817a4e0073c">More...</a><br /></td></tr>
+<tr class="separator:a4fab889e18e8761086fbf817a4e0073c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -133,7 +139,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00006">6</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00007">7</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5b341ab7a28301092c8f421523553456"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b341ab7a28301092c8f421523553456">&#9670;&nbsp;</a></span>Date()</h2>
@@ -208,7 +214,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <p>Gets the day value. </p>
 <dl class="section return"><dt>Returns</dt><dd>The day of the <a class="el" href="../../de/d4a/classDate.html">Date</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00030">30</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00033">33</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
 
 </div>
 </div>
@@ -238,7 +244,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <p>Gets the month value. </p>
 <dl class="section return"><dt>Returns</dt><dd>The month of the <a class="el" href="../../de/d4a/classDate.html">Date</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00036">36</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00039">39</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
 
 </div>
 </div>
@@ -268,7 +274,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <p>Gets the year value. </p>
 <dl class="section return"><dt>Returns</dt><dd>The year of the <a class="el" href="../../de/d4a/classDate.html">Date</a>. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00042">42</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00045">45</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
 
 </div>
 </div>
@@ -297,7 +303,81 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A boolean. True : days, months and years are the same. False otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/da2/date_8cpp_source.html#l00039">39</a> of file <a class="el" href="../../d9/da2/date_8cpp_source.html">date.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/da2/date_8cpp_source.html#l00115">115</a> of file <a class="el" href="../../d9/da2/date_8cpp_source.html">date.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a22fb517ca4ad5ca7cfa7e5df198c6dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22fb517ca4ad5ca7cfa7e5df198c6dc4">&#9670;&nbsp;</a></span>parseDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; <a class="el" href="../../de/d4a/classDate.html">Date</a> &gt; Date::parseDate </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Will try to parse a date from a string, according to the format : dd/mm/yyy. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The raw date string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An optional <a class="el" href="../../de/d4a/classDate.html">Date</a> : empty if parsing failed. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/da2/date_8cpp_source.html#l00018">18</a> of file <a class="el" href="../../d9/da2/date_8cpp_source.html">date.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a4fab889e18e8761086fbf817a4e0073c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fab889e18e8761086fbf817a4e0073c">&#9670;&nbsp;</a></span>parseNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; uint16_t &gt; Date::parseNumber </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>parseNumber Will try to parse a whole positive number from a string. Max value : 2¹⁶ - 1 </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>The raw number string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An optional uint16_t : empty if parsing failed. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/da2/date_8cpp_source.html#l00074">74</a> of file <a class="el" href="../../d9/da2/date_8cpp_source.html">date.cpp</a>.</p>
 
 </div>
 </div>
@@ -333,7 +413,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00048">48</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00053">53</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
 
 </div>
 </div>
@@ -369,7 +449,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00054">54</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00059">59</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
 
 </div>
 </div>
@@ -405,7 +485,7 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00060">60</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/d96/date_8h_source.html#l00065">65</a> of file <a class="el" href="../../db/d96/date_8h_source.html">date.h</a>.</p>
 
 </div>
 </div>

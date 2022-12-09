@@ -1,33 +1,85 @@
 #include "ExtData/dbinterface.h"
 
+#include <optional>
+
 #include <qdebug.h>
 #include <QtSql/QSqlQuery>
+#include <QtSql/QSqlError>
+#include <QFile>
 
-#define DATABASE_PATH "/Data/data.db"
+#define DATABASE_PATH "./Data/data.db"
 
+// Static members definition
 QSqlDatabase DBInterface::db = QSqlDatabase::addDatabase("QSQLITE");
 
 void DBInterface::Init()
 {
     db.setDatabaseName(DATABASE_PATH);
+
+    // If the database does not exist, we create it.
+    if(!QFile::exists(DATABASE_PATH))
+    {
+        db.open();
+        QSqlQuery querry;
+            querry.prepare("CREATE TABLE 'Contact' ("
+                           "'cID'	INTEGER NOT NULL,"
+                           "'FirstName'	TEXT NOT NULL,"
+                           "'LastName'	TEXT NOT NULL,"
+                           "'Email'	TEXT NOT NULL,"
+                           "'Phone'	TEXT NOT NULL,"
+                           "'PhotoPath'	TEXT,"
+                           "'CreationDate'	TEXT NOT NULL,"
+                           "UNIQUE('Phone'),"
+                           "UNIQUE('Email'),"
+                           "PRIMARY KEY('cID' AUTOINCREMENT),"
+                           "UNIQUE('PhotoPath')"
+                           ")");
+            querry.exec();
+
+        querry.clear();
+            querry.prepare("CREATE TABLE 'Interaction' ("
+                           "'iID'	INTEGER NOT NULL,"
+                           "'cID'	INTEGER NOT NULL,"
+                           "'Content'	TEXT,"
+                           "'CreationDate'	TEXT NOT NULL,"
+                           "PRIMARY KEY('iID' AUTOINCREMENT),"
+                           "FOREIGN KEY('cID') REFERENCES 'Contact'('cID') ON DELETE CASCADE"
+                           ")");
+            querry.exec();
+
+        querry.clear();
+            querry.prepare("CREATE TABLE 'Todo' ("
+                           "'tID'	INTEGER NOT NULL,"
+                           "'iID'	INTEGER NOT NULL,"
+                           "'Content'	INTEGER,"
+                           "'Date'	INTEGER,"
+                           "FOREIGN KEY('iID') REFERENCES 'Interaction'('iID'),"
+                           "PRIMARY KEY('tID' AUTOINCREMENT)"
+                           ")");
+            querry.exec();
+
+        db.close();
+    }
 }
 
-ContactManager DBInterface::GetData()
+ContactManager DBInterface::LoadData()
 {
     // Couldn't open database : we return an empty ContactManager.
     if(!db.open())
-    {
-        qDebug() << "Couldn't open " DATABASE_PATH ".";
         return ContactManager();
-    }
 
+    // Getting all the Contacts.
     QSqlQuery contactsQuery("SELECT * FROM Contact");
-    contactsQuery.exec();
 
+    if(!TestQuery(contactsQuery))
+        return ContactManager();
+
+    // The ContactManager to feed.
     ContactManager cm;
 
     while(contactsQuery.next())
     {
+        // Creating the Contact from the database.
         Contact c;
             c.setFirstName(contactsQuery.value("FirstName").toString().toStdString());
             c.setLastName(contactsQuery.value("LastName").toString().toStdString());
@@ -36,34 +88,46 @@ ContactManager DBInterface::GetData()
             c.setPhotoPath(contactsQuery.value("PhotoPath").toString().toStdString());
             c.setDate(Date::parseDate(contactsQuery.value("CreationDate").toString().toStdString()).value());
 
-        QSqlQuery interactionsQuery("SELECT * FROM Interaction WHERE Interaction.cID = :cID");
+        // Getting all the Interactions related to the current Contact.
+        QSqlQuery interactionsQuery;
+            interactionsQuery.prepare("SELECT * FROM Interaction WHERE Interaction.cID = :cID");
             interactionsQuery.bindValue(":cID", contactsQuery.value("cID").toUInt());
 
-        interactionsQuery.exec();
+        if(!TestQuery(interactionsQuery))
+            return ContactManager();
 
+        // The InteractionManager to feed.
         InteractionManager im;
 
         while(interactionsQuery.next())
         {
+            // Creating the Interaction from the database.
             Interaction i(interactionsQuery.value("Content").toString().toStdString(),
                           Date::parseDate(interactionsQuery.value("CreationDate").toString().toStdString()).value());
 
-            QSqlQuery todosQuery("SELECT * FROM Todo WHERE Todo.iID = :iID");
+            // Getting all the Todos related to the current Interaction.
+            QSqlQuery todosQuery;
+                todosQuery.prepare("SELECT * FROM Todo WHERE Todo.iID = :iID");
                 todosQuery.bindValue(":iID", interactionsQuery.value("iID").toUInt());
 
-            todosQuery.exec();
+            if(!TestQuery(todosQuery))
+                return ContactManager();
 
+            // The TodoManager to feed.
             TodoManager tm;
 
             while(todosQuery.next())
             {
+                // Feeding the TodoManager from the database content.
                 tm.add({todosQuery.value("Content").toString().toStdString(),
                        Date::parseDate(todosQuery.value("Date").toString().toStdString()).value()});
             }
 
+            i.setTodos(tm);
             im.add(std::move(i));
         }
 
+        c.setInteractionManager(im);
         cm.add(std::move(c));
     }
 
@@ -72,68 +136,139 @@ ContactManager DBInterface::GetData()
     return cm;
 }
 
-void DBInterface::SaveData(const ContactManager& contacts)
+bool DBInterface::SaveData(const ContactManager& contacts)
 {
     if(!db.open())
     {
         qDebug() << "Couldn't open " DATABASE_PATH ". Data save failed.";
-        return;
+        return false;
     }
 
-    // Deleting database contents
-    QSqlQuery("DELETE FROM Contact").exec();
-    QSqlQuery("DELETE FROM Interaction").exec();
-    QSqlQuery("DELETE FROM Todo").exec();
+    // Deleting database contents and resetting auto increment IDs.
+    {
+        if(!TestQuery(QSqlQuery("DELETE FROM Contact")))
+            return false;
+        if(!TestQuery(QSqlQuery("UPDATE sqlite_sequence SET seq = 0 WHERE name = 'Contact'")))
+            return false;
+
+        if(!TestQuery(QSqlQuery("DELETE FROM Interaction")))
+            return false;
+        if(!TestQuery(QSqlQuery("UPDATE sqlite_sequence SET seq = 0 WHERE name = 'Interaction'")))
+            return false;
+
+        if(!TestQuery(QSqlQuery("DELETE FROM Todo")))
+            return false;
+        if(!TestQuery(QSqlQuery("UPDATE sqlite_sequence SET seq = 0 WHERE name = 'Todo'")))
+            return false;
+    }
 
     // Saving content
 
     for(const auto& c : contacts)
     {
-        QSqlQuery contactQuery
-        (
-            "INSERT INTO Contact(FirstName, LastName, Email, Phone, PhotoPath, CreationDate) "
-            "VALUES(:1, :2, :3, :4, :5, :6)"
-        );
+        // Inserting each contact into the database.
+        QSqlQuery contactQuery;
+            contactQuery.prepare
+            (
+                "INSERT INTO Contact(FirstName, LastName, Email, Phone, PhotoPath, CreationDate) "
+                "VALUES(:FirstName, :LastName, :Email, :Phone, :PhotoPath, :CreationDate)"
+            );
 
-        contactQuery.bindValue(":1", QString::fromStdString(c.getFirstName()));
-        contactQuery.bindValue(":2", QString::fromStdString(c.getLastName()));
-        contactQuery.bindValue(":3", QString::fromStdString(c.getEmail()));
-        contactQuery.bindValue(":4", QString::fromStdString(c.getPhone()));
-        contactQuery.bindValue(":5", QString::fromStdString(c.getPhotoPath()));
-        contactQuery.bindValue(":6", QString::fromStdString(static_cast<std::string>(c.getDate())));
+            contactQuery.bindValue(":FirstName", QString::fromStdString(c.getFirstName()));
+            contactQuery.bindValue(":LastName", QString::fromStdString(c.getLastName()));
+            contactQuery.bindValue(":Email", QString::fromStdString(c.getEmail()));
+            contactQuery.bindValue(":Phone", QString::fromStdString(c.getPhone()));
+            contactQuery.bindValue(":PhotoPath", QString::fromStdString(c.getPhotoPath()));
+            contactQuery.bindValue(":CreationDate", QString::fromStdString(static_cast<std::string>(c.getDate())));
 
-        contactQuery.exec();
+        if(!TestQuery(contactQuery))
+            return false;
+
+        // Getting the ID of the Contact we just inserted.
+        int cID;
+
+        if(auto val = GetLastTableID("Contact"); val.has_value()) cID = val.value();
+        else return false;
 
         for(const auto& i : c.getInteractions())
         {
-            QSqlQuery interactionQuery
-            (
-                "INSERT INTO Interaction(cID, Content, CreationDate) "
-                "VALUES(:1, :2, :3)"
-            );
+            // Inserting each Interaction into the database.
+            QSqlQuery interactionQuery;
+                interactionQuery.prepare
+                (
+                    "INSERT INTO Interaction(cID, Content, CreationDate) "
+                    "VALUES(:cID, :Content, :CreationDate)"
+                );
 
-            interactionQuery.bindValue(":1", contactQuery.lastInsertId());
-            interactionQuery.bindValue(":2", QString::fromStdString(i.getContent()));
-            interactionQuery.bindValue(":3", QString::fromStdString(static_cast<std::string>(i.getDate())));
+                interactionQuery.bindValue(":cID", cID);
 
-            interactionQuery.exec();
+                interactionQuery.bindValue(":Content", QString::fromStdString(i.getContent()));
+                interactionQuery.bindValue(":CreationDate", QString::fromStdString(static_cast<std::string>(i.getDate())));
+
+            if(!TestQuery(interactionQuery))
+                return false;
+
+            // Getting the ID of the Interaction we just inserted.
+            int iID;
+
+            if(auto val = GetLastTableID("Interaction"); val.has_value()) iID = val.value();
+            else return false;
 
             for(const auto& t : i.getTodos())
             {
-                QSqlQuery todoQuery
-                (
-                    "INSERT INTO Todo(iID, Content, Date) "
-                    "VALUES(:1, :2, :3)"
-                );
+                // Inserting each Todo into the database.
+                QSqlQuery todoQuery;
+                    todoQuery.prepare
+                    (
+                        "INSERT INTO Todo(iID, Content, Date) "
+                        "VALUES(:iID, :Content, :Date)"
+                    );
 
-                todoQuery.bindValue(":1", interactionQuery.lastInsertId());
-                todoQuery.bindValue(":2", QString::fromStdString(t.getContent()));
-                todoQuery.bindValue(":3", QString::fromStdString(static_cast<std::string>(t.getDate())));
+                    todoQuery.bindValue(":iID", iID);
+                    todoQuery.bindValue(":Content", QString::fromStdString(t.getContent()));
+                    todoQuery.bindValue(":Date", QString::fromStdString(static_cast<std::string>(t.getDate())));
 
-                todoQuery.exec();
+                if(!TestQuery(todoQuery))
+                    return false;
             }
         }
     }
 
     db.close();
+
+    // Saved successfully.
+    return true;
+}
+
+bool DBInterface::TestQuery(QSqlQuery& q)
+{
+    if(!q.exec())
+    {
+        qDebug() << "SQL request " << q.lastQuery() << " failed.";
+        qDebug() << q.lastError();
+        return false;
+    }
+
+    return true;
+}
+
+// For on-the-fly created QSqlQueries.
+bool DBInterface::TestQuery(QSqlQuery&& q)
+{
+    return TestQuery(q);
+}
+
+std::optional<int> DBInterface::GetLastTableID(const std::string& tableName)
+{
+    // Sqlite stores auto increment IDs in "sqlite_sequence" table.
+    QSqlQuery q;
+        q.prepare("SELECT seq FROM sqlite_sequence WHERE name = :tableName");
+        q.bindValue(":tableName", QString::fromStdString(tableName));
+
+    if(!TestQuery(q))
+        return std::optional<int>();
+
+    q.next();
+
+    return q.value("seq").toInt();
 }

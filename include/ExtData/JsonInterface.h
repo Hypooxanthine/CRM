@@ -9,12 +9,12 @@
 #include <QJsonArray>
 #include <QFile>
 
-#include "contact.h"
-#include "interaction.h"
-#include "todo.h"
-#include "contactmanager.h"
-#include "interactionmanager.h"
-#include "todomanager.h"
+#include "DataStructures/contact.h"
+#include "DataStructures/interaction.h"
+#include "DataStructures/todo.h"
+#include "DataStructures/contactmanager.h"
+#include "DataStructures/interactionmanager.h"
+#include "DataStructures/todomanager.h"
 
 class JsonInterface
 {

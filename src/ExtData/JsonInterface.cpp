@@ -1,4 +1,4 @@
-#include "DataStructures/JsonInterface.h"
+#include "ExtData/JsonInterface.h"
 
  void JsonInterface::ExportData(const ContactManager& contactManager, const std::string& path)
 {

@@ -35,5 +35,13 @@ public:
      */
     static void Test_Date();
 
+    /**
+     * @brief Unit tests for JsonInterface class.
+     */
     static void Test_Json();
+
+    /**
+     * @brief Unit tests for DBInterface class.
+     */
+    static void Test_DBInterface();
 };

@@ -38,7 +38,11 @@ bool \mbox{\hyperlink{classDate_a3b103cc8257d3055aedb519fff343503}{operator==}} 
 \begin{DoxyCompactItemize}
 \item 
 static \mbox{\hyperlink{classDate}{Date}} \mbox{\hyperlink{classDate_a49d5657118ed1856d5e03e569214b775}{today}} ()
-\begin{DoxyCompactList}\small\item\em Gets the current date. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Gets the current date. \end{DoxyCompactList}\item 
+static std\+::optional$<$ \mbox{\hyperlink{classDate}{Date}} $>$ \mbox{\hyperlink{classDate_a22fb517ca4ad5ca7cfa7e5df198c6dc4}{parse\+Date}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Will try to parse a date from a string, according to the format \+: dd/mm/yyy. \end{DoxyCompactList}\item 
+static std\+::optional$<$ uint16\+\_\+t $>$ \mbox{\hyperlink{classDate_a4fab889e18e8761086fbf817a4e0073c}{parse\+Number}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em parse\+Number Will try to parse a whole positive number from a string. Max value \+: 2¹⁶ -\/ 1 \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -53,7 +57,7 @@ std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \mbox{\
 \doxysubsection{Detailed Description}
 
 
-Definition at line 6 of file date.\+h.
+Definition at line 7 of file date.\+h.
 
 
 
@@ -99,7 +103,7 @@ The day of the \mbox{\hyperlink{classDate}{Date}}.
 \end{DoxyReturn}
 
 
-Definition at line 30 of file date.\+h.
+Definition at line 33 of file date.\+h.
 
 \mbox{\Hypertarget{classDate_a9f3944d94e7a72ac785fbf2fde5fa996}\label{classDate_a9f3944d94e7a72ac785fbf2fde5fa996}} 
 \index{Date@{Date}!getMonth@{getMonth}}
@@ -116,7 +120,7 @@ The month of the \mbox{\hyperlink{classDate}{Date}}.
 \end{DoxyReturn}
 
 
-Definition at line 36 of file date.\+h.
+Definition at line 39 of file date.\+h.
 
 \mbox{\Hypertarget{classDate_a78b28665cdae69d1a74134e8217253fc}\label{classDate_a78b28665cdae69d1a74134e8217253fc}} 
 \index{Date@{Date}!getYear@{getYear}}
@@ -133,7 +137,7 @@ The year of the \mbox{\hyperlink{classDate}{Date}}.
 \end{DoxyReturn}
 
 
-Definition at line 42 of file date.\+h.
+Definition at line 45 of file date.\+h.
 
 \mbox{\Hypertarget{classDate_a3b103cc8257d3055aedb519fff343503}\label{classDate_a3b103cc8257d3055aedb519fff343503}} 
 \index{Date@{Date}!operator==@{operator==}}
@@ -155,7 +159,51 @@ A boolean. True \+: days, months and years are the same. False otherwise.
 \end{DoxyReturn}
 
 
-Definition at line 39 of file date.\+cpp.
+Definition at line 115 of file date.\+cpp.
+
+\mbox{\Hypertarget{classDate_a22fb517ca4ad5ca7cfa7e5df198c6dc4}\label{classDate_a22fb517ca4ad5ca7cfa7e5df198c6dc4}} 
+\index{Date@{Date}!parseDate@{parseDate}}
+\index{parseDate@{parseDate}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{parseDate()}{parseDate()}}
+{\footnotesize\ttfamily std\+::optional$<$ \mbox{\hyperlink{classDate}{Date}} $>$ Date\+::parse\+Date (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Will try to parse a date from a string, according to the format \+: dd/mm/yyy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The raw date string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An optional \mbox{\hyperlink{classDate}{Date}} \+: empty if parsing failed. 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file date.\+cpp.
+
+\mbox{\Hypertarget{classDate_a4fab889e18e8761086fbf817a4e0073c}\label{classDate_a4fab889e18e8761086fbf817a4e0073c}} 
+\index{Date@{Date}!parseNumber@{parseNumber}}
+\index{parseNumber@{parseNumber}!Date@{Date}}
+\doxysubsubsection{\texorpdfstring{parseNumber()}{parseNumber()}}
+{\footnotesize\ttfamily std\+::optional$<$ uint16\+\_\+t $>$ Date\+::parse\+Number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+parse\+Number Will try to parse a whole positive number from a string. Max value \+: 2¹⁶ -\/ 1 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The raw number string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An optional uint16\+\_\+t \+: empty if parsing failed. 
+\end{DoxyReturn}
+
+
+Definition at line 74 of file date.\+cpp.
 
 \mbox{\Hypertarget{classDate_a5f626a35a911710588b1faa243363c4e}\label{classDate_a5f626a35a911710588b1faa243363c4e}} 
 \index{Date@{Date}!setDay@{setDay}}
@@ -174,7 +222,7 @@ Sets the day of the \mbox{\hyperlink{classDate}{Date}}.
 \end{DoxyParams}
 
 
-Definition at line 48 of file date.\+h.
+Definition at line 53 of file date.\+h.
 
 \mbox{\Hypertarget{classDate_a2f2ddf4951a523a9984161ef41a60473}\label{classDate_a2f2ddf4951a523a9984161ef41a60473}} 
 \index{Date@{Date}!setMonth@{setMonth}}
@@ -193,7 +241,7 @@ Sets the month of the \mbox{\hyperlink{classDate}{Date}}.
 \end{DoxyParams}
 
 
-Definition at line 54 of file date.\+h.
+Definition at line 59 of file date.\+h.
 
 \mbox{\Hypertarget{classDate_a460f21e30a308824ca4f0f4eb936fdd4}\label{classDate_a460f21e30a308824ca4f0f4eb936fdd4}} 
 \index{Date@{Date}!setYear@{setYear}}
@@ -212,7 +260,7 @@ Sets the year of the \mbox{\hyperlink{classDate}{Date}}.
 \end{DoxyParams}
 
 
-Definition at line 60 of file date.\+h.
+Definition at line 65 of file date.\+h.
 
 \mbox{\Hypertarget{classDate_a49d5657118ed1856d5e03e569214b775}\label{classDate_a49d5657118ed1856d5e03e569214b775}} 
 \index{Date@{Date}!today@{today}}

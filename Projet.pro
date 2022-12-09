@@ -23,7 +23,6 @@ INCLUDEPATH += \
     libs
 
 HEADERS += \
-    include/DataStructures/JsonInterface.h \
     include/DataStructures/contact.h \
     include/DataStructures/contactmanager.h \
     include/DataStructures/date.h \
@@ -32,12 +31,12 @@ HEADERS += \
     include/DataStructures/manager.h \
     include/DataStructures/todo.h \
     include/DataStructures/todomanager.h \
+    include/ExtData/JsonInterface.h \
     include/ExtData/dbinterface.h \
     include/UnitTests/unit_tests.h \
     include/mainwindow.h
 
 SOURCES += \
-    src/DataStructures/JsonInterface.cpp \
     src/DataStructures/contact.cpp \
     src/DataStructures/contactmanager.cpp \
     src/DataStructures/date.cpp \
@@ -46,6 +45,7 @@ SOURCES += \
     src/DataStructures/manager.cpp \
     src/DataStructures/todo.cpp \
     src/DataStructures/todomanager.cpp \
+    src/ExtData/JsonInterface.cpp \
     src/ExtData/dbinterface.cpp \
     src/UnitTests/unit_tests.cpp \
     src/main.cpp \
