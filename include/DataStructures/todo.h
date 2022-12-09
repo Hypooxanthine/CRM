@@ -10,7 +10,7 @@ class Todo
 public:
     friend class UnitTest;
     /**
-     * @brief Defautl constructor is deleted.
+     * @brief Default constructor is deleted.
      */
     Todo() = delete;
     Todo(const Todo&) = default;
@@ -74,20 +74,6 @@ private:
      * @param str The raw content data of the Todo.
      */
     void getContentAndDate(const std::string& str);
-
-    /**
-     * @brief Will try to parse a date from a string, according to the format : dd/mm/yyy.
-     * @param str The raw date string.
-     * @return An optional Date : empty if parsing failed.
-     */
-    static std::optional<Date> parseDate(const std::string& str);
-
-    /**
-     * @brief parseNumber Will try to parse a whole positive number from a string. Max value : 2¹⁶ - 1
-     * @param str The raw number string.
-     * @return An optional uint16_t : empty if parsing failed.
-     */
-    static std::optional<uint16_t> parseNumber(const std::string& str);
 
 private:
     std::string content;

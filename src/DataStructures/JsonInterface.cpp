@@ -45,18 +45,15 @@ QJsonArray JsonInterface::contactList_TO_QJsonArray(const ContactManager& contac
 
 QJsonObject JsonInterface::contact_TO_QJsonObject(const Contact& contact)
 {
-    std::stringstream idContact, dateContact;
-    idContact << contact.getId() ;
-    dateContact << contact.getDate();
     QJsonObject contact_jsonObj
     {
-        {"idContat", QString::fromStdString(idContact.str())},
-        {"Name", QString::fromStdString(contact.getName())},
+        {"FirstName", QString::fromStdString(contact.getFirstName())},
+        {"LastName", QString::fromStdString(contact.getLastName())},
         {"email", QString::fromStdString(contact.getEmail())},
         {"phone", QString::fromStdString(contact.getPhone())},
         {"photoPath", QString::fromStdString(contact.getPhotoPath())},
-        {"creationDate",  QString::fromStdString(dateContact.str())},
-        {"interactionList", interactionList_TO_QJsonArray(contact.getInteractionManager())}
+        {"creationDate",  QString::fromStdString(static_cast<std::string>(contact.getDate()))},
+        {"interactionList", interactionList_TO_QJsonArray(contact.getInteractions())}
     };
     return contact_jsonObj;
 }

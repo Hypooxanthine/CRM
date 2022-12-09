@@ -15,6 +15,82 @@ Date Date::today()
     return Date((unsigned)asDateLib.day(), (unsigned)asDateLib.month(), std::abs((int)asDateLib.year()));
 }
 
+std::optional<Date> Date::parseDate(const std::string& str)
+{
+    std::optional<Date> out;
+
+    bool dayFound = false, monthFound = false, yearFound = false;
+    bool error = false;
+
+    uint8_t day = 0, month = 0;
+    uint16_t year = 0;
+
+    std::istringstream ss(str);
+    std::string token;
+
+    while(!error && std::getline(ss, token, '/'))
+    {
+        if(!dayFound)
+        {
+            if(auto number = parseNumber(token); number.has_value())
+            {
+                dayFound = true;
+                day = number.value();
+            }
+            else
+                error = true;
+        }
+        else if(!monthFound)
+        {
+            if(auto number = parseNumber(token); number.has_value())
+            {
+                monthFound = true;
+                month = number.value();
+            }
+            else
+                error = true;
+        }
+        else if(!yearFound)
+        {
+            if(auto number = parseNumber(token); number.has_value())
+            {
+                yearFound = true;
+                year = number.value();
+            }
+            else
+                error = true;
+        }
+        else // Every number has been found but there is another token : the date is not valid
+            error = true;
+
+    }
+
+    if(!error && dayFound && monthFound && yearFound)
+        out = Date(day, month, year);
+
+    return out;
+}
+
+std::optional<uint16_t> Date::parseNumber(const std::string& str)
+{
+    std::optional<uint16_t> out;
+    uint16_t value = 0;
+    uint8_t tenPower = 0;
+    bool error = false;
+
+    for(auto it = str.rbegin(); it < str.rend() && !error; it++) // 10000 is the max value for day, month and year.
+    {
+        if (*it < '0' || *it > '9' || value > 10000) // Only numbers, no '-' : no negative numbers.
+            error = true;
+        else
+            value += (*it - '0') * std::pow(10, tenPower++);
+    }
+
+    if(!error) out = value;
+
+    return out;
+}
+
 Date::operator std::string() const
 {
     std::ostringstream ss;

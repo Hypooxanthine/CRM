@@ -9,43 +9,44 @@ class Contact
 {
 public: //Publics methods
     friend class UnitTest;
-    /**
-     * @brief Default constructor is deleted.
-     */
-    Contact() = delete;
 
     /**
      * @brief Has to be called for a known Contact. For example, when retrieving a Contact from the database, the Contact
      * is known, so are the other parameters.
-     * @param id The id of the Contact.
      * @param name The name of the Contact.
      * @param email The email of the Contact.
      * @param phone The phone of the Contact.
      * @param photoPath The photo's path of the contact.
      * @param date The date the Contact was created.
      */
-    Contact(const size_t& id, const std::string& name,
+    Contact(const std::string& firstName, const std::string& lastName,
             const std::string& email,const std::string& phone,
             const std::string& photoPath, const Date& date);
+
+    /**
+     * @brief Default constructor constructs an empty contact.
+     */
+    Contact() = default;
 
     /**
      * @brief Has to be called to copy a Contact.
      * @param c The Contact to copy.
      */
-    Contact(const Contact& c);
+    Contact(const Contact& c) = default;
 
     // Setters
-    /**
-     * @brief Sets the id of the Contact.
-     * @param The new id.
-     */
-    inline void setId(const size_t& id){ this->id = id; }
 
     /**
-     * @brief Sets the Name of the Contact.
-     * @param The new name.
+     * @brief Sets the first name of the Contact.
+     * @param The new first name.
      */
-    inline void setName(const std::string& name){ this->name = name; }
+    inline void setFirstName(const std::string& firstName){ this->firstName = firstName; }
+
+    /**
+     * @brief Sets the last name of the Contact.
+     * @param The new last name.
+     */
+    inline void setLastName(const std::string& lastName){ this->lastName = lastName; }
 
     /**
      * @brief Sets the email of the Contact.
@@ -81,16 +82,16 @@ public: //Publics methods
     //Getters
 
     /**
-     * @brief Gets the id of the Contact.
-     * @return The id of the Contact.
+     * @brief Gets the first name of the Contact.
+     * @return The first name of the Contact.
      */
-    inline const size_t& getId() const { return id; }
+    inline const std::string& getFirstName() const { return firstName; }
 
     /**
-     * @brief Gets the Name of the Contact.
-     * @return The Name of the Contact.
+     * @brief Gets the last name of the Contact.
+     * @return The last name of the Contact.
      */
-    inline const std::string& getName() const { return name; }
+    inline const std::string& getLastName() const { return lastName; }
 
     /**
      * @brief Gets the email of the Contact.
@@ -117,16 +118,16 @@ public: //Publics methods
     inline const Date& getDate() const { return date; }
 
     /**
-     * @brief Gets a const reference to the Contact's list of interactions.
+     * @brief Gets the Contact's list of interactions.
      * @return A const reference to the Contact's list of interactions.
      */
-    inline const InteractionManager& getInteractionManager() const { return interactionList; }
+    inline const InteractionManager& getInteractions() const { return interactionList; }
 
     /**
-     * @brief Gets a reference to the Contact's list of interactions.
+     * @brief Gets the Contact's list of interactions.
      * @return A reference to the Contact's list of interactions.
      */
-    inline InteractionManager& getInteractionManager() { return interactionList; }
+    inline InteractionManager& getInteractions() { return interactionList; }
 
     friend std::ostream& operator<<(std::ostream& os, const Contact& c);
 
@@ -138,8 +139,8 @@ public: //Publics methods
     bool operator==(const Contact& other) const;
 
 private: // Private memebers
-    size_t id;
-    std::string name;
+    std::string firstName;
+    std::string lastName;
     std::string email;
     std::string phone;
     std::string photoPath;

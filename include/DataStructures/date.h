@@ -2,6 +2,7 @@
 
 #include "Date/date.h"
 
+#include <optional>
 
 class Date
 {
@@ -23,6 +24,8 @@ public:
      */
     Date(const uint8_t& day, const uint8_t& month, const uint16_t& year);
 
+    // Getters
+
     /**
      * @brief Gets the day value.
      * @return The day of the Date.
@@ -40,6 +43,8 @@ public:
      * @return The year of the Date.
      */
     inline const uint16_t& getYear() const { return year; }
+
+    // Setters
 
     /**
      * @brief Sets the day of the Date.
@@ -59,11 +64,27 @@ public:
      */
     inline void setYear(const uint16_t& y) { year = y ;}
 
+    // Static functions
+
     /**
      * @brief Gets the current date.
      * @return An instance of Date pointing to the current date according to the operating system.
      */
     static Date today();
+
+    /**
+     * @brief Will try to parse a date from a string, according to the format : dd/mm/yyy.
+     * @param str The raw date string.
+     * @return An optional Date : empty if parsing failed.
+     */
+    static std::optional<Date> parseDate(const std::string& str);
+
+    /**
+     * @brief parseNumber Will try to parse a whole positive number from a string. Max value : 2¹⁶ - 1
+     * @param str The raw number string.
+     * @return An optional uint16_t : empty if parsing failed.
+     */
+    static std::optional<uint16_t> parseNumber(const std::string& str);
 
     Date& operator=(const Date&) = default;
 

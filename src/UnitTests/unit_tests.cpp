@@ -32,31 +32,6 @@
 
 void UnitTest::Test_Todo()
 {
-    BEGIN_TEST(Todo::parseDate("02/11/2023"));
-    TEST(VAL.has_value(), 1);
-    if(VAL.has_value()) TEST(VAL.value(), Date(2, 11, 2023));
-    END_TEST;
-
-    BEGIN_TEST(Todo::parseDate("02 11 2023"));
-    TEST(VAL.has_value(), 0);
-    if(VAL.has_value()) TEST(VAL.value(), "No value");
-    END_TEST;
-
-    BEGIN_TEST(Todo::parseDate("bad date"));
-    TEST(VAL.has_value(), 0);
-    if(VAL.has_value()) TEST(VAL.value(), "No value");
-    END_TEST;
-
-    BEGIN_TEST(Todo::parseNumber("25"));
-    TEST(VAL.has_value(), 1);
-    if(VAL.has_value()) TEST(VAL.value(), 25);
-    END_TEST;
-
-    BEGIN_TEST(Todo::parseNumber("-25"));
-    TEST(VAL.has_value(), 0);
-    if(VAL.has_value()) TEST(VAL.value(), "No value");
-    END_TEST;
-
     BEGIN_TEST(Todo("Rappeler le client"));
     TEST(VAL.content, "Rappeler le client");
     TEST(VAL.date, Date::today());
@@ -129,22 +104,22 @@ void UnitTest::Test_Interaction()
 void UnitTest::Test_ContactManager()
 {
     BEGIN_TEST(ContactManager());
-        VAL.add(Contact(1, "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
-        VAL.add(Contact(2, "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
-        VAL.add(Contact(3, "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+        VAL.add(Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+        VAL.add(Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+        VAL.add(Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
         TEST(VAL.getSize(), 3);
     END_TEST;
 
     BEGIN_TEST(ContactManager());
-        VAL.add(Contact(1, "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
-        VAL.add(Contact(2, "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
-        VAL.add(Contact(3, "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
-        VAL.remove(Contact(2, "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+        VAL.add(Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+        VAL.add(Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+        VAL.add(Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+        VAL.remove(Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
         TEST(VAL.getSize(), 2);
 
         auto expected = ContactManager();
-        expected.add(Contact(1, "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
-        expected.add(Contact(3, "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+        expected.add(Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+        expected.add(Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
         TEST(VAL, expected);
     END_TEST;
 }
@@ -206,29 +181,54 @@ void UnitTest::Test_Date()
     BEGIN_TEST(Date::today());
         TEST(VAL, "27/10/2022"); // Will fail tomorrow and after.
     END_TEST;
+
+    BEGIN_TEST(Date::parseDate("02/11/2023"));
+    TEST(VAL.has_value(), 1);
+    if(VAL.has_value()) TEST(VAL.value(), Date(2, 11, 2023));
+    END_TEST;
+
+    BEGIN_TEST(Date::parseDate("02 11 2023"));
+    TEST(VAL.has_value(), 0);
+    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    END_TEST;
+
+    BEGIN_TEST(Date::parseDate("bad date"));
+    TEST(VAL.has_value(), 0);
+    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    END_TEST;
+
+    BEGIN_TEST(Date::parseNumber("25"));
+    TEST(VAL.has_value(), 1);
+    if(VAL.has_value()) TEST(VAL.value(), 25);
+    END_TEST;
+
+    BEGIN_TEST(Date::parseNumber("-25"));
+    TEST(VAL.has_value(), 0);
+    if(VAL.has_value()) TEST(VAL.value(), "No value");
+    END_TEST;
 }
 
 void UnitTest::Test_Json()
 {
-InteractionManager im;
-Interaction i1 = (Interaction("Rdv avec le client1.\n@todo Confirmer commande n 121."));
-im.add(i1);
-Interaction i2 = (Interaction("Anniversaire @date 5/12/2022"));
-im.add(i2);
-Interaction i3 = (Interaction("Rdv avec le client3.\n@todo Confirmer commande n 123."));
-im.add(i3);
+    InteractionManager im;
+    Interaction i1 = (Interaction("Rdv avec le client1.\n@todo Confirmer commande n 121."));
+    im.add(i1);
+    Interaction i2 = (Interaction("Anniversaire @date 5/12/2022"));
+    im.add(i2);
+    Interaction i3 = (Interaction("Rdv avec le client3.\n@todo Confirmer commande n 123."));
+    im.add(i3);
 
-ContactManager cm;
-Contact c1 = (Contact(1, "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
-c1.setInteractionManager(im);
-cm.add(c1);
-Contact c2 = (Contact(2, "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
-c2.setInteractionManager(im);
-cm.add(c2);
-Contact c3 = (Contact(3, "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
-cm.add(c3);
+    ContactManager cm;
+    Contact c1 = (Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+    c1.setInteractionManager(im);
+    cm.add(c1);
+    Contact c2 = (Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+    c2.setInteractionManager(im);
+    cm.add(c2);
+    Contact c3 = (Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+    cm.add(c3);
 
-std::cout << "json en creation" << std::endl;
-JsonInterface::ExportData(cm,"C:\\Users\\isyou\\OneDrive\\Bureau\\projet_CDAA\\CRM");
-std::cout << "json fait !!!!" << std::endl;
+    std::cout << "json en creation" << std::endl;
+    JsonInterface::ExportData(cm,"C:\\Users\\isyou\\OneDrive\\Bureau\\projet_CDAA\\CRM");
+    std::cout << "json fait !!!!" << std::endl;
 }

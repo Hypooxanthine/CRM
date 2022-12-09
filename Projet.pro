@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += console
@@ -31,8 +32,8 @@ HEADERS += \
     include/DataStructures/manager.h \
     include/DataStructures/todo.h \
     include/DataStructures/todomanager.h \
+    include/ExtData/dbinterface.h \
     include/UnitTests/unit_tests.h \
-    include/datelib.h \
     include/mainwindow.h
 
 SOURCES += \
@@ -45,6 +46,7 @@ SOURCES += \
     src/DataStructures/manager.cpp \
     src/DataStructures/todo.cpp \
     src/DataStructures/todomanager.cpp \
+    src/ExtData/dbinterface.cpp \
     src/UnitTests/unit_tests.cpp \
     src/main.cpp \
     src/mainwindow.cpp
