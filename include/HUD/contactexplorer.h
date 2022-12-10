@@ -4,17 +4,25 @@
 
 #include <QWidget>
 
-class ContactEntry;
 class QVBoxLayout;
+
+class ContactManager;
+class Contact;
+class ContactEntry;
 
 class ContactExplorer : public QWidget
 {
     Q_OBJECT
 
 public:
-    ContactExplorer(QWidget* parent);
+    ContactExplorer(QWidget* parent, ContactManager* contacts);
 
 private:
+    void addContact(const Contact& c);
+
+private:
+    ContactManager* contacts;
+
     QVBoxLayout* entriesLayout;
     std::vector<ContactEntry*> entries;
 };

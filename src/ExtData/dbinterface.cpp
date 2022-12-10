@@ -6,8 +6,11 @@
 #include <QtSql/QSqlQuery>
 #include <QtSql/QSqlError>
 #include <QFile>
+#include <QDir>
 
-#define DATABASE_PATH "./Data/data.db"
+#define DATABASE_DIRECTORY "./Data/"
+#define DATABASE_NAME "data.db"
+#define DATABASE_PATH DATABASE_DIRECTORY DATABASE_NAME
 
 // Static members definition
 QSqlDatabase DBInterface::db = QSqlDatabase::addDatabase("QSQLITE");
@@ -19,6 +22,10 @@ void DBInterface::Init()
     // If the database does not exist, we create it.
     if(!QFile::exists(DATABASE_PATH))
     {
+        // We create its folder
+        if(!QDir().exists(DATABASE_DIRECTORY))
+            QDir().mkdir(DATABASE_DIRECTORY);
+
         db.open();
         QSqlQuery querry;
             querry.prepare("CREATE TABLE 'Contact' ("
@@ -132,6 +139,8 @@ ContactManager DBInterface::LoadData()
     }
 
     db.close();
+
+    std::cout << cm << std::endl;
 
     return cm;
 }

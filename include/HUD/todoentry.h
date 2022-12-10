@@ -1,5 +1,4 @@
-#ifndef TODOENTRY_H
-#define TODOENTRY_H
+#pragma once
 
 #include <QWidget>
 
@@ -13,4 +12,3 @@ signals:
 
 };
 
-#endif // TODOENTRY_H

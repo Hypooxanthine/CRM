@@ -1,5 +1,4 @@
-#ifndef TODOEXPLORER_H
-#define TODOEXPLORER_H
+#pragma once
 
 #include <QWidget>
 
@@ -12,5 +11,3 @@ public:
 signals:
 
 };
-
-#endif // TODOEXPLORER_H

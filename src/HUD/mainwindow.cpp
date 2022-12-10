@@ -2,11 +2,16 @@
 
 #include <QPushButton>
 
+#include "DataStructures/contactmanager.h"
+#include "ExtData/dbinterface.h"
 #include "HUD/contactexplorer.h"
 #include "HUD/todoexplorer.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), tabs(new QTabWidget(this)), contactsTab(new ContactExplorer(tabs)), todosTab(new TodoExplorer(tabs))
+    : QMainWindow(parent), contacts(DBInterface::LoadData()),
+      tabs(new QTabWidget(this)),
+      contactsTab(new ContactExplorer(tabs, &contacts)),
+      todosTab(new TodoExplorer(tabs))
 {
     // The window is maximized : it fills the screen but is not in fullscreen.
     showMaximized();
@@ -18,5 +23,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    DBInterface::SaveData(contacts);
 }
 

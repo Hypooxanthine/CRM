@@ -1,8 +1,9 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 #include <QTabWidget>
+
+#include "DataStructures/contactmanager.h"
 
 class ContactExplorer;
 class TodoExplorer;
@@ -16,8 +17,9 @@ public:
     ~MainWindow();
 
 private:
+    ContactManager contacts;
+
     QTabWidget* tabs;
     ContactExplorer* contactsTab;
     TodoExplorer* todosTab;
 };
-#endif // MAINWINDOW_H
