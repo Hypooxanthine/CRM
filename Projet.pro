@@ -33,8 +33,12 @@ HEADERS += \
     include/DataStructures/todomanager.h \
     include/ExtData/JsonInterface.h \
     include/ExtData/dbinterface.h \
+    include/HUD/contactentry.h \
+    include/HUD/contactexplorer.h \
+    include/HUD/mainwindow.h \
+    include/HUD/todoentry.h \
+    include/HUD/todoexplorer.h \
     include/UnitTests/unit_tests.h \
-    include/mainwindow.h
 
 SOURCES += \
     src/DataStructures/contact.cpp \
@@ -47,6 +51,10 @@ SOURCES += \
     src/DataStructures/todomanager.cpp \
     src/ExtData/JsonInterface.cpp \
     src/ExtData/dbinterface.cpp \
+    src/HUD/contactentry.cpp \
+    src/HUD/contactexplorer.cpp \
+    src/HUD/mainwindow.cpp \
+    src/HUD/todoentry.cpp \
+    src/HUD/todoexplorer.cpp \
     src/UnitTests/unit_tests.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
