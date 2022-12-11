@@ -140,8 +140,6 @@ ContactManager DBInterface::LoadData()
 
     db.close();
 
-    std::cout << cm << std::endl;
-
     return cm;
 }
 

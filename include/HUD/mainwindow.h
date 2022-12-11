@@ -5,7 +5,7 @@
 
 #include "DataStructures/contactmanager.h"
 
-class ContactExplorer;
+class ContactTab;
 class TodoExplorer;
 
 class MainWindow : public QMainWindow
@@ -20,6 +20,6 @@ private:
     ContactManager contacts;
 
     QTabWidget* tabs;
-    ContactExplorer* contactsTab;
+    ContactTab* contactsTab;
     TodoExplorer* todosTab;
 };

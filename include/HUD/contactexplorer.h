@@ -1,28 +1,41 @@
 #pragma once
 
-#include <vector>
-
 #include <QWidget>
 
 class QVBoxLayout;
+class QGridLayout;
+class QScrollArea;
 
-class ContactManager;
 class Contact;
-class ContactEntry;
+class ContactManager;
+
+enum class SortType
+{
+    FirstName = 0, LastName, Phone, Email, CreationDate
+};
 
 class ContactExplorer : public QWidget
 {
     Q_OBJECT
+public: // Public methods
+    explicit ContactExplorer(QWidget *parent, const ContactManager* contacts);
 
-public:
-    ContactExplorer(QWidget* parent, ContactManager* contacts);
+public slots:
+    void refreshContacts();
 
-private:
-    void addContact(const Contact& c);
+signals:
+    void askedSort(const SortType& sortType);
+    void deletedContact(const Contact& contact);
+    void modifiedContact(const Contact& oldContact, const Contact& newContact);
 
-private:
-    ContactManager* contacts;
+private: // Private methods
+    void clearContacts();
+    void addHeader();
 
-    QVBoxLayout* entriesLayout;
-    std::vector<ContactEntry*> entries;
+private: // Private members
+    const ContactManager* contacts;
+
+    QVBoxLayout* mainLayout;
+    QGridLayout* contactsLayout;
+    QScrollArea* contactsArea;
 };
