@@ -18,15 +18,18 @@ ContactExplorer::ContactExplorer(QWidget *parent, const ContactManager* contacts
     // Main layout
     mainLayout->addWidget(contactsArea);
 
-    // Scroll area
-    contactsArea->setLayout(contactsLayout);
-    contactsArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    contactsArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
-
     // Contacts layout
     contactsLayout->setAlignment(Qt::AlignTop);
     contactsLayout->setMargin(0);
     contactsLayout->setContentsMargins(0, 0, 0, 0);
+    contactsLayout->setSizeConstraint(QLayout::SetMinimumSize);
+
+    // Scroll area
+    QWidget* scrollWidget = new QWidget();
+    scrollWidget->setLayout(contactsLayout);
+    contactsArea->setWidget(scrollWidget);
+    contactsArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    contactsArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
     setLayout(mainLayout);
 
