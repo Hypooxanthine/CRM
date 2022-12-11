@@ -20,8 +20,9 @@ public: //Publics methods
      * @param date The date the Contact was created.
      */
     Contact(const std::string& firstName, const std::string& lastName,
-            const std::string& email,const std::string& phone,
-            const std::string& photoPath, const Date& date);
+            const std::string& company, const std::string& email,
+            const std::string& phone, const std::string& photoPath,
+            const Date& date);
 
     /**
      * @brief Default constructor constructs an empty contact.
@@ -33,6 +34,8 @@ public: //Publics methods
      * @param c The Contact to copy.
      */
     Contact(const Contact& c) = default;
+
+    Contact& operator=(const Contact&) = default;
 
     // Setters
 
@@ -47,6 +50,8 @@ public: //Publics methods
      * @param The new last name.
      */
     inline void setLastName(const std::string& lastName){ this->lastName = lastName; }
+
+    inline void setCompany(const std::string& company) { this->company = company; }
 
     /**
      * @brief Sets the email of the Contact.
@@ -92,6 +97,8 @@ public: //Publics methods
      * @return The last name of the Contact.
      */
     inline const std::string& getLastName() const { return lastName; }
+
+    inline const std::string& getCompany() const { return company; }
 
     /**
      * @brief Gets the email of the Contact.
@@ -141,6 +148,7 @@ public: //Publics methods
 private: // Private memebers
     std::string firstName;
     std::string lastName;
+    std::string company;
     std::string email;
     std::string phone;
     std::string photoPath;

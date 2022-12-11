@@ -2,40 +2,46 @@
 
 #include <QWidget>
 
-class QVBoxLayout;
+#include "DataStructures/contact.h"
+#include "DataStructures/contactmanager.h"
+
+class QHBoxLayout;
 class QGridLayout;
 class QScrollArea;
 
-class Contact;
-class ContactManager;
-
-enum class SortType
-{
-    FirstName = 0, LastName, Phone, Email, CreationDate
-};
+class ContactEdit;
 
 class ContactExplorer : public QWidget
 {
     Q_OBJECT
 public: // Public methods
-    explicit ContactExplorer(QWidget *parent, const ContactManager* contacts);
+    explicit ContactExplorer(QWidget *parent, ContactManager* contacts);
 
 public slots:
     void refreshContacts();
 
-signals:
-    void askedSort(const SortType& sortType);
-    void deletedContact(const Contact& contact);
-    void modifiedContact(const Contact& oldContact, const Contact& newContact);
+private slots:
+    void requestEditContactWindow(const Contact& contact);
+    void editContact(const Contact& newContact);
+    void deleteContact(const Contact& contact);
+    void sortContacts(const ContactManager::SortValue& sort);
 
 private: // Private methods
     void clearContacts();
     void addHeader();
 
 private: // Private members
-    const ContactManager* contacts;
+    ContactManager* contacts;
+    ContactManager restrictedContacts;
 
-    QVBoxLayout* mainLayout;
-    QGridLayout* contactsLayout;
+    ContactEdit* contactEdit = nullptr;
+
+    QHBoxLayout* mainLayout;
+    QGridLayout* explorerLayout;
     QScrollArea* contactsArea;
+
+    Contact modifyingContact;
+
+    ContactManager::SortValue currentSortValue = ContactManager::SortValue::CreationDate;
+    ContactManager::SortType currentSortType = ContactManager::SortType::Ascending;
 };

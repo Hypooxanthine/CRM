@@ -10,10 +10,15 @@ class Manager
 public:
     using iterator = typename std::list<T>::iterator;
     using const_iterator = typename std::list<T>::const_iterator;
+    using reverse_iterator = typename std::list<T>::reverse_iterator;
+    using const_reverse_iterator = typename std::list<T>::const_reverse_iterator;
 public:
     friend class UnitTest;
 
-    Manager() {}
+    Manager() = default;
+    Manager(const Manager&) = default;
+    Manager(Manager&&) = default;
+    Manager& operator=(const Manager&) = default;
 
     /**
      * @brief Adds an element to the Manager.
@@ -30,7 +35,7 @@ public:
      */
     void add(T&& element)
     {
-        data.push_back(std::move(element));
+        data.push_back(element);
     }
 
     /**
@@ -40,6 +45,16 @@ public:
     void remove(const T& element)
     {
         data.remove(element);
+    }
+
+    const_iterator find(const T& element) const
+    {
+        return std::find(data.begin(), data.end(), element);
+    }
+
+    iterator find(const T& element)
+    {
+        return std::find(data.begin(), data.end(), element);
     }
 
     /**
@@ -101,7 +116,7 @@ public:
      * @brief Gets a reverse iterator to the front element.
      * @return A reverse iterator to the front element.
      */
-    iterator rbegin() { return data.rbegin(); }
+    reverse_iterator rbegin() { return data.rbegin(); }
 
     /**
      * @brief Gets an iterator to the back element.
@@ -113,7 +128,7 @@ public:
      * @brief Gets a reverse iterator to the back element.
      * @return A reverse iterator to the back element.
      */
-    iterator rend() { return data.rend(); }
+    reverse_iterator rend() { return data.rend(); }
 
     /**
      * @brief Gets a const iterator to the front element.
@@ -125,7 +140,7 @@ public:
      * @brief Gets a const reverse iterator to the front element.
      * @return A const reverse iterator to the front element.
      */
-    const_iterator rbegin() const { return data.rbegin(); }
+    const_reverse_iterator rbegin() const { return data.rbegin(); }
 
     /**
      * @brief Gets a const iterator to the back element.
@@ -137,7 +152,7 @@ public:
      * @brief Gets a const reverse iterator to the back element.
      * @return A const reverse iterator to the back element.
      */
-    const_iterator rend() const { return data.rend(); }
+    const_reverse_iterator rend() const { return data.rend(); }
 
     /**
      * @brief Compare operator.
@@ -163,7 +178,7 @@ public:
         return os;
     }
 
-private:
+protected:
     std::list<T> data;
 };
 

@@ -116,3 +116,32 @@ bool Date::operator==(const Date& other) const
 {
     return day == other.day && month == other.month && year == other.year;
 }
+
+bool Date::operator<(const Date& other) const
+{
+    if(year < other.year) return true;
+
+    if(year == other.year)
+    {
+        if(month < other.month) return true;
+
+        if(month == other.month && day < other.day) return true;
+    }
+
+    return false;
+}
+
+bool Date::operator>(const Date& other) const
+{
+    return other < *this;
+}
+
+bool Date::operator<=(const Date& other) const
+{
+    return *this == other || *this < other;
+}
+
+bool Date::operator>=(const Date& other) const
+{
+    return *this == other || *this > other;
+}

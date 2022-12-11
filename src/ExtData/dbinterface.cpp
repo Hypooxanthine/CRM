@@ -32,6 +32,7 @@ void DBInterface::Init()
                            "'cID'	INTEGER NOT NULL,"
                            "'FirstName'	TEXT NOT NULL,"
                            "'LastName'	TEXT NOT NULL,"
+                           "'Company'	TEXT NOT NULL,"
                            "'Email'	TEXT NOT NULL,"
                            "'Phone'	TEXT NOT NULL,"
                            "'PhotoPath'	TEXT,"
@@ -90,6 +91,7 @@ ContactManager DBInterface::LoadData()
         Contact c;
             c.setFirstName(contactsQuery.value("FirstName").toString().toStdString());
             c.setLastName(contactsQuery.value("LastName").toString().toStdString());
+            c.setCompany(contactsQuery.value("Company").toString().toStdString());
             c.setEmail(contactsQuery.value("Email").toString().toStdString());
             c.setPhone(contactsQuery.value("Phone").toString().toStdString());
             c.setPhotoPath(contactsQuery.value("PhotoPath").toString().toStdString());
@@ -177,12 +179,13 @@ bool DBInterface::SaveData(const ContactManager& contacts)
         QSqlQuery contactQuery;
             contactQuery.prepare
             (
-                "INSERT INTO Contact(FirstName, LastName, Email, Phone, PhotoPath, CreationDate) "
-                "VALUES(:FirstName, :LastName, :Email, :Phone, :PhotoPath, :CreationDate)"
+                "INSERT INTO Contact(FirstName, LastName, Company, Email, Phone, PhotoPath, CreationDate) "
+                "VALUES(:FirstName, :LastName, :Company, :Email, :Phone, :PhotoPath, :CreationDate)"
             );
 
             contactQuery.bindValue(":FirstName", QString::fromStdString(c.getFirstName()));
             contactQuery.bindValue(":LastName", QString::fromStdString(c.getLastName()));
+            contactQuery.bindValue(":Company", QString::fromStdString(c.getCompany()));
             contactQuery.bindValue(":Email", QString::fromStdString(c.getEmail()));
             contactQuery.bindValue(":Phone", QString::fromStdString(c.getPhone()));
             contactQuery.bindValue(":PhotoPath", QString::fromStdString(c.getPhotoPath()));

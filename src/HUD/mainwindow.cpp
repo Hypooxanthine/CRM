@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     // The window is maximized : it fills the screen but is not in fullscreen.
     showMaximized();
+    setWindowTitle(tr("Contacts Manager"));
 
     setCentralWidget(tabs);
     tabs->addTab(contactsTab, tr("Contacts"));

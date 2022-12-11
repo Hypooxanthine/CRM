@@ -7,29 +7,28 @@
 #include <QPushButton>
 #include <QFrame>
 #include <QLabel>
+#include <QMessageBox>
 
-#include "DataStructures/contact.h"
-#include "DataStructures/contactmanager.h"
+#include "HUD/contactedit.h"
 
-ContactExplorer::ContactExplorer(QWidget *parent, const ContactManager* contacts)
-    : QWidget(parent), contacts(contacts), mainLayout(new QVBoxLayout()),
-      contactsLayout(new QGridLayout()), contactsArea(new QScrollArea(this))
+ContactExplorer::ContactExplorer(QWidget *parent, ContactManager* contacts)
+    : QWidget(parent), contacts(contacts), mainLayout(new QHBoxLayout()),
+      explorerLayout(new QGridLayout()), contactsArea(new QScrollArea(this))
 {
     // Main layout
     mainLayout->addWidget(contactsArea);
 
-    // Contacts layout
-    contactsLayout->setAlignment(Qt::AlignTop);
-    contactsLayout->setMargin(0);
-    contactsLayout->setContentsMargins(0, 0, 0, 0);
-    contactsLayout->setSizeConstraint(QLayout::SetMinimumSize);
+    // Explorer layout
+    explorerLayout->setAlignment(Qt::AlignTop);
+    explorerLayout->setMargin(0);
+    explorerLayout->setContentsMargins(0, 0, 0, 0);
+    explorerLayout->setSizeConstraint(QLayout::SetMinimumSize);
 
     // Scroll area
     QWidget* scrollWidget = new QWidget();
-    scrollWidget->setLayout(contactsLayout);
+    scrollWidget->setLayout(explorerLayout);
     contactsArea->setWidget(scrollWidget);
-    contactsArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    contactsArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    contactsArea->setWidgetResizable(true);
 
     setLayout(mainLayout);
 
@@ -47,23 +46,21 @@ void ContactExplorer::refreshContacts()
     for(const auto& c : *contacts)
     {
         uint8_t j = 0;
-        contactsLayout->addWidget(new QLabel(c.getFirstName().c_str(), contactsArea), i, j++);
-        contactsLayout->addWidget(new QLabel(c.getLastName().c_str(), contactsArea), i, j++);
-        contactsLayout->addWidget(new QLabel(c.getPhone().c_str(), contactsArea), i, j++);
-        contactsLayout->addWidget(new QLabel(c.getEmail().c_str(), contactsArea), i, j++);
-        contactsLayout->addWidget(new QLabel(static_cast<std::string>(c.getDate()).c_str()), i, j++);
+        explorerLayout->addWidget(new QLabel(c.getFirstName().c_str(), contactsArea), i, j++);
+        explorerLayout->addWidget(new QLabel(c.getLastName().c_str(), contactsArea), i, j++);
+        explorerLayout->addWidget(new QLabel(c.getCompany().c_str(), contactsArea), i, j++);
+        explorerLayout->addWidget(new QLabel(c.getPhone().c_str(), contactsArea), i, j++);
+        explorerLayout->addWidget(new QLabel(c.getEmail().c_str(), contactsArea), i, j++);
+        explorerLayout->addWidget(new QLabel(static_cast<std::string>(c.getDate()).c_str()), i, j++);
 
-        QPushButton* bShowInteractions = new QPushButton(tr("Show interactions"), contactsArea);
-        QPushButton* bAddInteraction = new QPushButton(tr("Add interaction"), contactsArea);
-        QPushButton* bEdit = new QPushButton(tr("Edit"), contactsArea);
+        QPushButton* bMore = new QPushButton(tr("..."), contactsArea);
         QPushButton* bDelete = new QPushButton(tr("Delete"), contactsArea);
 
-        contactsLayout->addWidget(bShowInteractions, i, j++);
-        contactsLayout->addWidget(bAddInteraction, i, j++);
-        contactsLayout->addWidget(bEdit, i, j++);
-        contactsLayout->addWidget(bDelete, i, j++);
+        explorerLayout->addWidget(bMore, i, j++);
+        explorerLayout->addWidget(bDelete, i, j++);
 
-        QWidget::connect(bDelete, &QPushButton::clicked, this, [this, &c](){ emit deletedContact(c); });
+        QWidget::connect(bDelete, &QPushButton::clicked, this, [this, &c](){ deleteContact(c); });
+        QWidget::connect(bMore, &QPushButton::clicked, this, [this, &c](){ requestEditContactWindow(c); });
 
         i++;
     }
@@ -73,7 +70,7 @@ void ContactExplorer::clearContacts()
 {
     QLayoutItem* child;
 
-    while((child = contactsLayout->takeAt(0)) != nullptr)
+    while((child = explorerLayout->takeAt(0)) != nullptr)
         delete child->widget();
 }
 
@@ -83,19 +80,76 @@ void ContactExplorer::addHeader()
 
     QPushButton* bFirstName = new QPushButton(tr("First name"), contactsArea);
     QPushButton* bLastName = new QPushButton(tr("Last name"), contactsArea);
+    QPushButton* bCompany = new QPushButton(tr("Company"), contactsArea);
     QPushButton* bPhone = new QPushButton(tr("Phone number"), contactsArea);
     QPushButton* bEmail = new QPushButton(tr("Email"), contactsArea);
     QPushButton* bCreationDate = new QPushButton(tr("Creation date"), contactsArea);
 
-    contactsLayout->addWidget(bFirstName, 0, i++);
-    contactsLayout->addWidget(bLastName, 0, i++);
-    contactsLayout->addWidget(bPhone, 0, i++);
-    contactsLayout->addWidget(bEmail, 0, i++);
-    contactsLayout->addWidget(bCreationDate, 0, i++);
+    explorerLayout->addWidget(bFirstName, 0, i++);
+    explorerLayout->addWidget(bLastName, 0, i++);
+    explorerLayout->addWidget(bCompany, 0, i++);
+    explorerLayout->addWidget(bPhone, 0, i++);
+    explorerLayout->addWidget(bEmail, 0, i++);
+    explorerLayout->addWidget(bCreationDate, 0, i++);
 
-    QWidget::connect(bFirstName, &QPushButton::clicked, this, [this](){ emit askedSort(SortType::FirstName); });
-    QWidget::connect(bLastName, &QPushButton::clicked, this, [this](){ emit askedSort(SortType::LastName); });
-    QWidget::connect(bPhone, &QPushButton::clicked, this, [this](){ emit askedSort(SortType::Phone); });
-    QWidget::connect(bEmail, &QPushButton::clicked, this, [this](){ emit askedSort(SortType::Email); });
-    QWidget::connect(bCreationDate, &QPushButton::clicked, this, [this](){ emit askedSort(SortType::CreationDate); });
+    QWidget::connect(bFirstName, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::FirstName); });
+    QWidget::connect(bLastName, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::LastName); });
+    QWidget::connect(bCompany, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::Company); });
+    QWidget::connect(bPhone, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::Phone); });
+    QWidget::connect(bEmail, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::Email); });
+    QWidget::connect(bCreationDate, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::CreationDate); });
+}
+
+void ContactExplorer::requestEditContactWindow(const Contact& contact)
+{
+    modifyingContact = contact;
+
+    if(contactEdit != nullptr) delete contactEdit;
+
+    contactEdit = new ContactEdit(contact);
+    mainLayout->addWidget(contactEdit);
+
+
+    QWidget::connect(contactEdit, SIGNAL(validate(Contact)), this, SLOT(editContact(const Contact&)));
+}
+
+void ContactExplorer::editContact(const Contact& newContact)
+{
+    // We do not modify a contact if it becomes the same as a one that already exists.
+    if(contacts->find(newContact) != contacts->end())
+    {
+        QMessageBox::warning(nullptr, tr("Warning"), tr("This contact already exists and therefore won't be added to the contacts list."));
+        return;
+    }
+
+    auto oldIt = contacts->find(modifyingContact);
+    *oldIt = newContact;
+
+    refreshContacts();
+}
+
+void ContactExplorer::deleteContact(const Contact& contact)
+{
+    contacts->remove(contact);
+
+    refreshContacts();
+}
+
+void ContactExplorer::sortContacts(const ContactManager::SortValue& sort)
+{
+    if(sort == currentSortValue)
+    {
+        currentSortType = ((currentSortType == ContactManager::SortType::Ascending) ?
+                               ContactManager::SortType::Descending :
+                               ContactManager::SortType::Ascending);
+    }
+    else
+    {
+        currentSortValue = sort;
+        currentSortType = ContactManager::SortType::Ascending;
+    }
+
+    contacts->sort(currentSortValue, currentSortType);
+
+    refreshContacts();
 }

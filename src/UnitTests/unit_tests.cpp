@@ -105,22 +105,22 @@ void UnitTest::Test_Interaction()
 void UnitTest::Test_ContactManager()
 {
     BEGIN_TEST(ContactManager());
-        VAL.add(Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
-        VAL.add(Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
-        VAL.add(Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+        VAL.add(Contact("prenom1", "nom1", "entreprise1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+        VAL.add(Contact("prenom2", "nom2", "entreprise2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+        VAL.add(Contact("prenom3", "nom3", "entreprise3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
         TEST(VAL.getSize(), 3);
     END_TEST;
 
     BEGIN_TEST(ContactManager());
-        VAL.add(Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
-        VAL.add(Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
-        VAL.add(Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
-        VAL.remove(Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+        VAL.add(Contact("prenom1", "nom1", "entreprise1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+        VAL.add(Contact("prenom2", "nom2", "entreprise2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+        VAL.add(Contact("prenom3", "nom3", "entreprise3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+        VAL.remove(Contact("prenom2", "nom2", "entreprise2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
         TEST(VAL.getSize(), 2);
 
         auto expected = ContactManager();
-        expected.add(Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
-        expected.add(Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+        expected.add(Contact("prenom1", "nom1", "entreprise1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+        expected.add(Contact("prenom3", "nom3", "entreprise3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
         TEST(VAL, expected);
     END_TEST;
 }
@@ -217,13 +217,13 @@ void UnitTest::Test_Json()
     im.add(i3);
 
     ContactManager cm;
-    Contact c1 = (Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+    Contact c1 = (Contact("prenom1", "nom1", "entreprise1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
     c1.setInteractionManager(im);
     cm.add(c1);
-    Contact c2 = (Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+    Contact c2 = (Contact("prenom2", "nom2", "entreprise2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
     c2.setInteractionManager(im);
     cm.add(c2);
-    Contact c3 = (Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+    Contact c3 = (Contact("prenom3", "nom3", "entreprise3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
     cm.add(c3);
 
     std::cout << "json en creation" << std::endl;
@@ -235,21 +235,21 @@ void UnitTest::Test_DBInterface()
 {
     BEGIN_TEST(ContactManager())
         ContactManager toSave;
-            toSave.add(Contact("prenom1", "nom1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
+            toSave.add(Contact("prenom1", "nom1", "entreprise1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today()));
                 toSave.getBack().getInteractions().add(Interaction("Content1", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
                 toSave.getBack().getInteractions().add(Interaction("Content2", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
-            toSave.add(Contact("prenom2", "nom2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
+            toSave.add(Contact("prenom2", "nom2", "entreprise2", "email2", "06 06 06 06 02", "photos/photo2.png", Date::today()));
                 toSave.getBack().getInteractions().add(Interaction("Content1", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
                 toSave.getBack().getInteractions().add(Interaction("Content2", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
-            toSave.add(Contact("prenom3", "nom3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
+            toSave.add(Contact("prenom3", "nom3", "entreprise3", "email3", "06 06 06 06 03", "photos/photo3.png", Date::today()));
                 toSave.getBack().getInteractions().add(Interaction("Content1", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
                     toSave.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));

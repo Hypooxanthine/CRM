@@ -4,13 +4,13 @@
 
 #include <QWidget>
 
-class QHBoxLayout;
+class QVBoxLayout;
 class QTableWidget;
+class QPushButton;
 
 class ContactManager;
 class Contact;
 
-class ContactToolbar;
 class ContactExplorer;
 
 class ContactTab : public QWidget
@@ -22,10 +22,15 @@ public: // Public methods
 
 private: // Private methods
 
+private slots:
+    void requestNewContactWindow();
+    void addContact(const Contact& c);
+
 private: // Private members
     ContactManager* contacts;
 
-    QHBoxLayout* mainLayout;
-    ContactToolbar* toolbar;
+    QVBoxLayout* mainLayout;
+
+    QPushButton* bNewContact;
     ContactExplorer* explorer;
 };

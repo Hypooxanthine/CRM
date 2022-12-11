@@ -103,6 +103,11 @@ public:
      */
     bool operator==(const Date& other) const;
 
+    bool operator<(const Date& other) const;
+    bool operator>(const Date& other) const;
+    bool operator<=(const Date& other) const;
+    bool operator>=(const Date& other) const;
+
 private:
     uint8_t day, month;
     uint16_t year;
