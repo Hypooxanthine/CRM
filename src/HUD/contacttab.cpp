@@ -92,4 +92,6 @@ void ContactTab::editContact(const Contact& oldContact, const Contact& newContac
 {
     auto oldIt = contacts->find(oldContact);
     if(oldIt != contacts->end()) *oldIt = newContact;
+
+    extractContacts();
 }

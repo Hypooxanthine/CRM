@@ -131,13 +131,11 @@ void ContactExplorer::requestEditContactWindow(Contact& contact)
 void ContactExplorer::editContact(const Contact& newContact)
 {
     emit editedContact(modifyingContact, newContact);
-    requestExtraction();
 }
 
 void ContactExplorer::deleteContact(const Contact& contact)
 {
     emit deletedContact(contact);
-    requestExtraction();
 }
 
 void ContactExplorer::sortContacts(const ContactManager::SortValue& sort)

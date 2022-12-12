@@ -1,4 +1,4 @@
-#include "HUD/interactionexplorer.h"
+﻿#include "HUD/interactionexplorer.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -24,6 +24,8 @@ InteractionExplorer::InteractionExplorer(const InteractionManager& interactions,
     mainLayout->addLayout(interactionsLayout);
 
     QWidget::connect(addButton, SIGNAL(clicked()), this, SLOT(requestInteractionEdit()));
+
+    refreshInteractionsHUD();
 }
 
 void InteractionExplorer::setInteractions(const InteractionManager &interactions)
@@ -42,10 +44,17 @@ void InteractionExplorer::refreshInteractionsHUD()
 
 void InteractionExplorer::clearInteractionsHUD()
 {
-    QLayoutItem* child;
+    QLayoutItem* childLayout;
 
-    while((child = interactionsLayout->takeAt(0)) != nullptr)
-        delete child->widget();
+    while((childLayout = interactionsLayout->takeAt(0)) != nullptr)
+    {
+        QLayoutItem* childWidget;
+
+        while((childWidget = childLayout->layout()->takeAt(0)) != nullptr)
+            delete childWidget->widget();
+
+        delete childLayout->layout();
+    }
 }
 
 void InteractionExplorer::addInteractionHUD(const Interaction& interaction)
@@ -70,14 +79,12 @@ void InteractionExplorer::addInteraction(const Interaction& interaction)
 {
     interactions.add(interaction);
     emit updated(interactions);
-    refreshInteractionsHUD();
 }
 
 void InteractionExplorer::deleteInteraction(const Interaction& interaction)
 {
     interactions.remove(interaction);
     emit updated(interactions);
-    refreshInteractionsHUD();
 }
 
 void InteractionExplorer::requestInteractionEdit()

@@ -120,17 +120,14 @@ void ContactEdit::setContact(Contact &contact)
 
 void ContactEdit::onValidate()
 {
-    Contact out;
+    contact.setFirstName(firstNameEdit->text().toStdString());
+    contact.setLastName(lastNameEdit->text().toStdString());
+    contact.setCompany(companyEdit->text().toStdString());
+    contact.setEmail(emailEdit->text().toStdString());
+    contact.setPhone(phoneEdit->text().toStdString());
+    contact.setPhotoPath(photoEdit->text().toStdString());
 
-    out.setFirstName(firstNameEdit->text().toStdString());
-    out.setLastName(lastNameEdit->text().toStdString());
-    out.setCompany(companyEdit->text().toStdString());
-    out.setEmail(emailEdit->text().toStdString());
-    out.setPhone(phoneEdit->text().toStdString());
-    out.setPhotoPath(photoEdit->text().toStdString());
-    out.setDate(contact.getDate());
-
-    emit validate(out);
+    emit validate(contact);
 
     this->close();
 }
@@ -156,5 +153,5 @@ void ContactEdit::updatePhotoImg()
 void ContactEdit::updateInteractions(const InteractionManager& interactions)
 {
     contact.setInteractionManager(interactions);
-    emit validate(contact);
+    interactionsExplorer->setInteractions(contact.getInteractions());
 }

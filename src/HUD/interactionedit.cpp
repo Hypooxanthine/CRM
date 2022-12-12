@@ -20,7 +20,6 @@ InteractionEdit::InteractionEdit(QWidget *parent)
         buttonsLayout->addWidget(cancelButton);
         buttonsLayout->addWidget(validateButton);
 
-
     QWidget::connect(cancelButton, SIGNAL(clicked()), this, SLOT(close()));
     QWidget::connect(validateButton, SIGNAL(clicked()), this, SLOT(onValidate()));
 }
