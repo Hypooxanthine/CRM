@@ -30,6 +30,12 @@ public: // Publics methods
      */
     Interaction(const std::string& content);
 
+    Interaction(const Interaction&) = default;
+
+    Interaction(Interaction&&) = default;
+
+
+
     // Setters
     /**
      * @brief Sets the content of the interaction. No \@todo should appear in it.

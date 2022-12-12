@@ -9,6 +9,7 @@
 #include <QJsonArray>
 #include <QFile>
 
+
 #include "DataStructures/contact.h"
 #include "DataStructures/interaction.h"
 #include "DataStructures/todo.h"
@@ -23,11 +24,17 @@ public: // Publics methods
     /**
      * @brief ExportData Has to be called for exporting data
      * @param contactManager references a contact list
-     * @param path references the path where the json file will be saved
      */
-    static void ExportData(const ContactManager& contactManager, const std::string& path);
+    static void ExportData(const ContactManager& contactManager);
+
+    /**
+     * @brief ImportData Hast to be called for importing data from json file
+     * @return A ContactManager with all the Contacts, and all their depending Interactions and Todos
+     */
+    static ContactManager ImportData();
 
 private: // Private methods
+    //useful private methods for exporting data from json file
     /**
      * @brief contact_TO_QJsonObject Has to be called to make a QJsonObject from a contact object
      * @param contact references a contact
@@ -69,4 +76,50 @@ private: // Private methods
      * @return QJsonArray of contact's QJsonObject
      */
     static QJsonArray contactList_TO_QJsonArray(const ContactManager& contactManager);
+
+    //useful private methods for importing data from json file
+    /**
+     * @brief contactQJsonObject_TO_contact
+     * @param
+     * @return
+     */
+    static Contact contactQJsonObject_TO_contact(const QJsonObject&);
+
+    /**
+     * @brief interactionQJsonObject_TO_interaction
+     * @param
+     * @return
+     */
+    static Interaction interactionQJsonObject_TO_interaction(const QJsonObject&);
+
+    /**
+     * @brief todoQJsonObject_TO_todo
+     * @param
+     * @return
+     */
+    static Todo todoQJsonObject_TO_todo(const QJsonObject&);
+
+    /**
+     * @brief todoListeQJsonArray_TO_todoList
+     * @param
+     * @return
+     */
+    static TodoManager todoListQJsonArray_TO_todoList(const QJsonArray&);
+
+    /**
+     * @brief interactionListeQJsonArray_TO_interactionList
+     * @param
+     * @return
+     */
+    static InteractionManager interactionListQJsonArray_TO_interactionList(const QJsonArray&);
+
+    /**
+     * @brief contactListeQJsonArray_TO_contactList
+     * @param
+     * @return
+     */
+    static ContactManager contactListQJsonArray_TO_contactList(const QJsonArray&);
+
+
+
 };

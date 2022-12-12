@@ -13,7 +13,9 @@ public: //Publics methods
     /**
      * @brief Has to be called for a known Contact. For example, when retrieving a Contact from the database, the Contact
      * is known, so are the other parameters.
-     * @param name The name of the Contact.
+     * @param firstName The firstName of the Contact.
+     * @param lastName The lastName of the Contact.
+     * @param company The company of the Contact
      * @param email The email of the Contact.
      * @param phone The phone of the Contact.
      * @param photoPath The photo's path of the contact.
@@ -51,6 +53,10 @@ public: //Publics methods
      */
     inline void setLastName(const std::string& lastName){ this->lastName = lastName; }
 
+    /**
+     * @brief Sets the company of the Contact
+     * @param The new company
+     */
     inline void setCompany(const std::string& company) { this->company = company; }
 
     /**
@@ -98,6 +104,10 @@ public: //Publics methods
      */
     inline const std::string& getLastName() const { return lastName; }
 
+    /**
+     * @brief Gets the company of the Contact
+     * @return The company of the Contact
+     */
     inline const std::string& getCompany() const { return company; }
 
     /**

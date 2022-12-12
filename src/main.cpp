@@ -18,7 +18,7 @@ int main(int argc, char** argv)
     // UnitTest::Test_ContactManager();
     // UnitTest::Test_InteractionManager();
     // UnitTest::Test_TodoManager();
-    // UnitTest::Test_Json();
+     UnitTest::Test_Json();
     // UnitTest::Test_DBInterface();
 
     MainWindow win;
