@@ -34,14 +34,13 @@ ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
       cancelButton(new QPushButton(tr("Cancel"), this)), validateButton(new QPushButton(tr("OK"), this)),
 
       // Interactions
-      interactionsExplorer(new InteractionExplorer(this))
+      interactionsExplorer(nullptr)
 {
     // Window
     setWindowTitle(windowTitle);
 
     // Layouts
     mainLayout->addLayout(form);
-    mainLayout->addWidget(interactionsExplorer);
     mainLayout->addLayout(buttonsLayout);
     mainLayout->setAlignment(Qt::AlignTop);
     mainLayout->setMargin(0);
@@ -91,20 +90,25 @@ ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
     QWidget::connect(photoEdit, SIGNAL(returnPressed()), this, SLOT(onValidate()));
 }
 
-ContactEdit::ContactEdit(const Contact& contact, const QString& windowTitle, QWidget* parent)
+ContactEdit::ContactEdit(Contact& contact, const QString& windowTitle, QWidget* parent)
     : ContactEdit(windowTitle, parent)
 {
     setContact(contact);
 }
 
-void ContactEdit::setContact(const Contact &contact)
+void ContactEdit::setContact(Contact &contact)
 {
+    this->contact = contact;
+
     firstNameEdit->setText(QString::fromStdString(contact.getFirstName()));
     lastNameEdit->setText(QString::fromStdString(contact.getLastName()));
     companyEdit->setText(QString::fromStdString(contact.getCompany()));
     emailEdit->setText(QString::fromStdString(contact.getEmail()));
     phoneEdit->setText(QString::fromStdString(contact.getPhone()));
     photoEdit->setText(QString::fromStdString(contact.getPhotoPath()));
+
+    interactionsExplorer = new InteractionExplorer(&contact.getInteractions());
+    mainLayout->insertWidget(1, interactionsExplorer);
 }
 
 void ContactEdit::onValidate()

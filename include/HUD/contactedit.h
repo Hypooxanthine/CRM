@@ -19,9 +19,9 @@ class ContactEdit : public QWidget
     Q_OBJECT
 public: // Public methods
     explicit ContactEdit(const QString& windowTitle, QWidget* parent = nullptr);
-    explicit ContactEdit(const Contact& contact, const QString& windowTitle = tr("Contact Edit"), QWidget* parent = nullptr);
+    explicit ContactEdit(Contact& contact, const QString& windowTitle = tr("Contact Edit"), QWidget* parent = nullptr);
 
-    void setContact(const Contact& contact);
+    void setContact(Contact& contact);
 
 signals:
     void validate(Contact contact);
@@ -32,6 +32,8 @@ private slots:
     void updatePhotoImg();
 
 private: // Private members
+    Contact contact;
+
     // Scrolling
     QVBoxLayout* scrollLayout;
     QScrollArea* scrollArea;

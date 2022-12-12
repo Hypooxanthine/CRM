@@ -35,6 +35,22 @@ ContactExplorer::ContactExplorer(QWidget *parent, ContactManager* contacts)
     refreshContacts();
 }
 
+void ContactExplorer::setRestrictedContacts(const ContactManager& contacts)
+{
+    restrictedContacts = contacts;
+
+    restrictedContacts.sort(currentSortValue, currentSortType);
+    refreshContacts();
+}
+
+void ContactExplorer::setRestrictedContacts(ContactManager&& contacts)
+{
+    restrictedContacts = contacts;
+
+    restrictedContacts.sort(currentSortValue, currentSortType);
+    refreshContacts();
+}
+
 void ContactExplorer::refreshContacts()
 {
     clearContacts();
@@ -43,7 +59,7 @@ void ContactExplorer::refreshContacts()
     // 1 because there is already the header in first row.
     size_t i = 1;
 
-    for(const auto& c : *contacts)
+    for(auto& c : restrictedContacts)
     {
         uint8_t j = 0;
         explorerLayout->addWidget(new QLabel(c.getFirstName().c_str(), contactsArea), i, j++);
@@ -100,7 +116,7 @@ void ContactExplorer::addHeader()
     QWidget::connect(bCreationDate, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::CreationDate); });
 }
 
-void ContactExplorer::requestEditContactWindow(const Contact& contact)
+void ContactExplorer::requestEditContactWindow(Contact& contact)
 {
     modifyingContact = contact;
 
@@ -125,14 +141,14 @@ void ContactExplorer::editContact(const Contact& newContact)
     auto oldIt = contacts->find(modifyingContact);
     *oldIt = newContact;
 
-    refreshContacts();
+    requestExtraction();
 }
 
 void ContactExplorer::deleteContact(const Contact& contact)
 {
     contacts->remove(contact);
 
-    refreshContacts();
+    requestExtraction();
 }
 
 void ContactExplorer::sortContacts(const ContactManager::SortValue& sort)
@@ -149,7 +165,7 @@ void ContactExplorer::sortContacts(const ContactManager::SortValue& sort)
         currentSortType = ContactManager::SortType::Ascending;
     }
 
-    contacts->sort(currentSortValue, currentSortType);
+    restrictedContacts.sort(currentSortValue, currentSortType);
 
     refreshContacts();
 }

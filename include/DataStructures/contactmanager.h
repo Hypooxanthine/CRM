@@ -24,7 +24,7 @@ public:
 
     void sort(const SortValue& sortValue, const SortType& sortType);
 
-    ContactManager  extractHeadNumber(const size_t& nb);
+    ContactManager extractHeadNumber(const size_t& nb);
     ContactManager extractByFirstName(const std::string& firstName);
     ContactManager extractByLastName(const std::string lastName);
     ContactManager extractByCompany(const std::string& company);

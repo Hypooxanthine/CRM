@@ -17,11 +17,17 @@ class ContactExplorer : public QWidget
 public: // Public methods
     explicit ContactExplorer(QWidget *parent, ContactManager* contacts);
 
+    void setRestrictedContacts(const ContactManager& contacts);
+    void setRestrictedContacts(ContactManager&& contacts);
+
+signals:
+    void requestExtraction();
+
 public slots:
     void refreshContacts();
 
 private slots:
-    void requestEditContactWindow(const Contact& contact);
+    void requestEditContactWindow(Contact& contact);
     void editContact(const Contact& newContact);
     void deleteContact(const Contact& contact);
     void sortContacts(const ContactManager::SortValue& sort);
@@ -42,6 +48,6 @@ private: // Private members
 
     Contact modifyingContact;
 
-    ContactManager::SortValue currentSortValue = ContactManager::SortValue::CreationDate;
+    ContactManager::SortValue currentSortValue = ContactManager::SortValue::FirstName;
     ContactManager::SortType currentSortType = ContactManager::SortType::Ascending;
 };
