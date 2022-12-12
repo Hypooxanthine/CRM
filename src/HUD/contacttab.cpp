@@ -67,18 +67,37 @@ void ContactTab::extractContacts()
     if(!searcher->getCompany().isEmpty())
         extracted = extracted.extractByCompany(searcher->getCompany().toStdString());
 
-    Date from, to;
-    QDate qFrom = searcher->getFromDate();
-    QDate qTo = searcher->getToDate();
+    // Creation date
+    {
+        Date from, to;
+        QDate qFrom = searcher->getFromDate();
+        QDate qTo = searcher->getToDate();
 
-    from.setYear(qFrom.year());
-    from.setMonth(qFrom.month());
-    from.setDay(qFrom.day());
-    to.setYear(qTo.year());
-    to.setMonth(qTo.month());
-    to.setDay(qTo.day());
+        from.setYear(qFrom.year());
+        from.setMonth(qFrom.month());
+        from.setDay(qFrom.day());
+        to.setYear(qTo.year());
+        to.setMonth(qTo.month());
+        to.setDay(qTo.day());
 
-    extracted = extracted.extractByCreationDate(from, to);
+        extracted = extracted.extractByCreationDate(from, to);
+    }
+
+    // Last edit date
+    {
+        Date from, to;
+        QDate qFrom = searcher->getFromLastEditDate();
+        QDate qTo = searcher->getToLastEditDate();
+
+        from.setYear(qFrom.year());
+        from.setMonth(qFrom.month());
+        from.setDay(qFrom.day());
+        to.setYear(qTo.year());
+        to.setMonth(qTo.month());
+        to.setDay(qTo.day());
+
+        extracted = extracted.extractByLastEditDate(from, to);
+    }
 
     extracted = extracted.extractHeadNumber(searcher->getContactsNumber());
 
@@ -93,7 +112,10 @@ void ContactTab::deleteContact(const Contact& contact)
 void ContactTab::editContact(const Contact& oldContact, const Contact& newContact)
 {
     auto oldIt = contacts->find(oldContact);
-    if(oldIt != contacts->end()) *oldIt = newContact;
-
-    extractContacts();
+    if(oldIt != contacts->end())
+    {
+        *oldIt = newContact;
+        oldIt->setLastEditDate(Date::today());
+        extractContacts();
+    }
 }

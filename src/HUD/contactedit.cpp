@@ -78,6 +78,7 @@ ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
 
     // No contact specified : we are creating a contact, not editing it : date is today.
     contact.setDate(Date::today());
+    contact.setLastEditDate(Date::today());
 
     // Connexions
     QWidget::connect(photoEdit, SIGNAL(textChanged(const QString&)), this, SLOT(updatePhotoImg()));
@@ -146,7 +147,11 @@ void ContactEdit::updatePhotoImg()
     if(img->isNull())
         photoImgLabel->clear();
     else
-        photoImgLabel->setPixmap(QPixmap::fromImage(*img));
+    {
+        const int w = 200, h = 200;
+
+        photoImgLabel->setPixmap(QPixmap::fromImage(img->scaled(w, h, Qt::KeepAspectRatio)));
+    }
 
 }
 

@@ -22,7 +22,7 @@ public: //Publics methods
     Contact(const std::string& firstName, const std::string& lastName,
             const std::string& company, const std::string& email,
             const std::string& phone, const std::string& photoPath,
-            const Date& date);
+            const Date& date, const Date& lastEdit);
 
     /**
      * @brief Default constructor constructs an empty contact.
@@ -77,6 +77,8 @@ public: //Publics methods
      */
     inline void setDate(const Date& date){ this->date = date; }
 
+    inline void setLastEditDate(const Date& date) { this->lastEdit = date; }
+
     /**
      * @brief Sets the Contact's list of interactions.
      * @param The new Contact's list of interactions.
@@ -124,6 +126,8 @@ public: //Publics methods
      */
     inline const Date& getDate() const { return date; }
 
+    inline const Date& getLastEditDate() const { return lastEdit; }
+
     /**
      * @brief Gets the Contact's list of interactions.
      * @return A const reference to the Contact's list of interactions.
@@ -152,7 +156,7 @@ private: // Private memebers
     std::string email;
     std::string phone;
     std::string photoPath;
-    Date date;
+    Date date, lastEdit;
     InteractionManager interactionList;
 };
 

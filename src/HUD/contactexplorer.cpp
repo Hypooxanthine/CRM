@@ -68,6 +68,7 @@ void ContactExplorer::refreshContacts()
         explorerLayout->addWidget(new QLabel(c.getPhone().c_str(), contactsArea), i, j++);
         explorerLayout->addWidget(new QLabel(c.getEmail().c_str(), contactsArea), i, j++);
         explorerLayout->addWidget(new QLabel(static_cast<std::string>(c.getDate()).c_str()), i, j++);
+        explorerLayout->addWidget(new QLabel(static_cast<std::string>(c.getLastEditDate()).c_str()), i, j++);
 
         QPushButton* bMore = new QPushButton(tr("..."), contactsArea);
         QPushButton* bDelete = new QPushButton(tr("Delete"), contactsArea);
@@ -100,6 +101,7 @@ void ContactExplorer::addHeader()
     QPushButton* bPhone = new QPushButton(tr("Phone number"), contactsArea);
     QPushButton* bEmail = new QPushButton(tr("Email"), contactsArea);
     QPushButton* bCreationDate = new QPushButton(tr("Creation date"), contactsArea);
+    QPushButton* bLastEditDate = new QPushButton(tr("Last edit date"), contactsArea);
 
     explorerLayout->addWidget(bFirstName, 0, i++);
     explorerLayout->addWidget(bLastName, 0, i++);
@@ -107,6 +109,7 @@ void ContactExplorer::addHeader()
     explorerLayout->addWidget(bPhone, 0, i++);
     explorerLayout->addWidget(bEmail, 0, i++);
     explorerLayout->addWidget(bCreationDate, 0, i++);
+    explorerLayout->addWidget(bLastEditDate, 0, i++);
 
     QWidget::connect(bFirstName, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::FirstName); });
     QWidget::connect(bLastName, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::LastName); });
@@ -114,6 +117,7 @@ void ContactExplorer::addHeader()
     QWidget::connect(bPhone, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::Phone); });
     QWidget::connect(bEmail, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::Email); });
     QWidget::connect(bCreationDate, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::CreationDate); });
+    QWidget::connect(bLastEditDate, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::LastEditDate); });
 }
 
 void ContactExplorer::requestEditContactWindow(Contact& contact)

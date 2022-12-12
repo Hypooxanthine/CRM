@@ -8,7 +8,7 @@ class ContactManager : public Manager<Contact>
 public:
     enum class SortValue
     {
-        FirstName = 0, LastName, Company, Phone, Email, CreationDate,
+        FirstName = 0, LastName, Company, Phone, Email, CreationDate, LastEditDate,
     };
 
     enum class SortType
@@ -29,5 +29,12 @@ public:
     ContactManager extractByLastName(const std::string lastName);
     ContactManager extractByCompany(const std::string& company);
     ContactManager extractByCreationDate(const Date& first, const Date& second);
+    ContactManager extractByLastEditDate(const Date& first, const Date& second);
+
+    inline const std::optional<Date>& getLastDeletionDate() const { return lastDeletionDate; }
+    inline void setLastDeletionDate(const Date& d) { lastDeletionDate = d; }
+
+private:
+    std::optional<Date> lastDeletionDate;
 };
 

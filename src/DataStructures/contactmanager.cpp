@@ -10,6 +10,12 @@ void ContactManager::sort(const SortValue& sortValue, const SortType& sortType)
         else
             data.sort([](const Contact& a, const Contact& b){ return a.getDate() > b.getDate(); });
         break;
+    case SortValue::LastEditDate:
+        if(sortType == SortType::Ascending)
+            data.sort([](const Contact& a, const Contact& b){ return a.getLastEditDate() < b.getLastEditDate(); });
+        else
+            data.sort([](const Contact& a, const Contact& b){ return a.getLastEditDate() > b.getLastEditDate(); });
+        break;
     case SortValue::Email:
         if(sortType == SortType::Ascending)
             data.sort([](const Contact& a, const Contact& b){ return a.getEmail() < b.getEmail(); });
@@ -101,6 +107,19 @@ ContactManager ContactManager::extractByCreationDate(const Date& first, const Da
     for(const auto& c : data)
     {
         if(c.getDate() >= first && c.getDate() <= second)
+            out.add(c);
+    }
+
+    return out;
+}
+
+ContactManager ContactManager::extractByLastEditDate(const Date& first, const Date& second)
+{
+    ContactManager out;
+
+    for(const auto& c : data)
+    {
+        if(c.getLastEditDate() >= first && c.getLastEditDate() <= second)
             out.add(c);
     }
 

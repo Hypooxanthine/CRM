@@ -17,6 +17,10 @@ ContactSearch::ContactSearch(QWidget *parent)
       creationDatesLayout(new QVBoxLayout()),
       fromDateLayout(new QHBoxLayout()),
       toDateLayout(new QHBoxLayout()),
+      lastEditLayout(new QHBoxLayout()),
+      lastEditDatesLayout(new QVBoxLayout()),
+      fromLastEditDateLayout(new QHBoxLayout()),
+      toLastEditDateLayout(new QHBoxLayout()),
       nameLayout(new QVBoxLayout()),
       firstNameLayout(new QHBoxLayout()),
       lastNameLayout(new QHBoxLayout()),
@@ -27,6 +31,9 @@ ContactSearch::ContactSearch(QWidget *parent)
       creationLabel(new QLabel(tr("Creation date"), this)),
       fromDateLabel(new QLabel(tr("from"), this)),
       toDateLabel(new QLabel(tr("to"), this)),
+      lastEditLabel(new QLabel(tr("Last edit date"), this)),
+      fromLastEditDateLabel(new QLabel(tr("from"), this)),
+      toLastEditDateLabel(new QLabel(tr("to"), this)),
       firstNameLabel(new QLabel(tr("First name"), this)),
       lastNameLabel(new QLabel(tr("Last name"), this)),
       companyLabel(new QLabel(tr("Company name"), this)),
@@ -42,6 +49,8 @@ ContactSearch::ContactSearch(QWidget *parent)
       // Date edits
       fromDateEdit(new QDateEdit(QDate::currentDate().addDays(-6), this)),
       toDateEdit(new QDateEdit(QDate::currentDate(), this)),
+      fromLastEditDateEdit(new QDateEdit(QDate::currentDate().addDays(-6), this)),
+      toLastEditDateEdit(new QDateEdit(QDate::currentDate(), this)),
 
       // Buttons
       searchButton(new QPushButton(tr("Search"), this))
@@ -70,6 +79,15 @@ ContactSearch::ContactSearch(QWidget *parent)
             creationDatesLayout->addLayout(toDateLayout);
                 toDateLayout->addWidget(toDateLabel);
                 toDateLayout->addWidget(toDateEdit);
+    mainLayout->addLayout(lastEditLayout);
+        lastEditLayout->addWidget(lastEditLabel);
+        lastEditLayout->addLayout(lastEditDatesLayout);
+            lastEditDatesLayout->addLayout(fromLastEditDateLayout);
+                fromLastEditDateLayout->addWidget(fromLastEditDateLabel);
+                fromLastEditDateLayout->addWidget(fromLastEditDateEdit);
+            lastEditDatesLayout->addLayout(toLastEditDateLayout);
+                toLastEditDateLayout->addWidget(toLastEditDateLabel);
+                toLastEditDateLayout->addWidget(toLastEditDateEdit);
     mainLayout->addWidget(searchButton);
 
     // Widgets initialization
@@ -108,4 +126,13 @@ QDate ContactSearch::getFromDate() const
 QDate ContactSearch::getToDate() const
 {
     return toDateEdit->date();
+}
+
+QDate ContactSearch::getFromLastEditDate() const
+{
+    return fromLastEditDateEdit->date();
+}
+QDate ContactSearch::getToLastEditDate() const
+{
+    return toLastEditDateEdit->date();
 }

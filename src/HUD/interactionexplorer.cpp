@@ -91,7 +91,7 @@ void InteractionExplorer::deleteInteraction(const Interaction& interaction)
 
 void InteractionExplorer::requestInteractionEdit()
 {
-    InteractionEdit* iEdit = new InteractionEdit(this);
+    InteractionEdit* iEdit = new InteractionEdit();
 
     QWidget::connect(iEdit, SIGNAL(validate(Interaction)), this, SLOT(addInteraction(const Interaction&)));
 

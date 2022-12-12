@@ -22,6 +22,8 @@ public:
     int getContactsNumber() const;
     QDate getFromDate() const;
     QDate getToDate() const;
+    QDate getFromLastEditDate() const;
+    QDate getToLastEditDate() const;
 
 signals:
     void searched();
@@ -34,6 +36,10 @@ private: // Private members
     QVBoxLayout* creationDatesLayout;
     QHBoxLayout* fromDateLayout;
     QHBoxLayout* toDateLayout;
+    QHBoxLayout* lastEditLayout;
+    QVBoxLayout* lastEditDatesLayout;
+    QHBoxLayout* fromLastEditDateLayout;
+    QHBoxLayout* toLastEditDateLayout;
     QVBoxLayout* nameLayout;
     QHBoxLayout* firstNameLayout;
     QHBoxLayout* lastNameLayout;
@@ -44,6 +50,9 @@ private: // Private members
     QLabel* creationLabel;
     QLabel* fromDateLabel;
     QLabel* toDateLabel;
+    QLabel* lastEditLabel;
+    QLabel* fromLastEditDateLabel;
+    QLabel* toLastEditDateLabel;
     QLabel* firstNameLabel;
     QLabel* lastNameLabel;
     QLabel* companyLabel;
@@ -59,6 +68,8 @@ private: // Private members
     // Date edits
     QDateEdit* fromDateEdit;
     QDateEdit* toDateEdit;
+    QDateEdit* fromLastEditDateEdit;
+    QDateEdit* toLastEditDateEdit;
 
     // Buttons
     QPushButton* searchButton;
