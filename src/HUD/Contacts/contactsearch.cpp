@@ -1,4 +1,4 @@
-#include "HUD/contactsearch.h"
+#include "HUD/Contacts/contactsearch.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>

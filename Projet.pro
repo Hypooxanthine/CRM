@@ -33,15 +33,15 @@ HEADERS += \
     include/DataStructures/todomanager.h \
     include/ExtData/JsonInterface.h \
     include/ExtData/dbinterface.h \
-    include/HUD/contactedit.h \
-    include/HUD/contactexplorer.h \
-    include/HUD/contactsearch.h \
-    include/HUD/contacttab.h \
-    include/HUD/interactionedit.h \
-    include/HUD/interactionexplorer.h \
+    include/HUD/Contacts/contactedit.h \
+    include/HUD/Contacts/contactexplorer.h \
+    include/HUD/Contacts/contactsearch.h \
+    include/HUD/Contacts/contacttab.h \
+    include/HUD/Interactions/interactionedit.h \
+    include/HUD/Interactions/interactionexplorer.h \
+    include/HUD/Todos/todoexplorer.h \
+    include/HUD/Todos/todotab.h \
     include/HUD/mainwindow.h \
-    include/HUD/todoentry.h \
-    include/HUD/todoexplorer.h \
     include/UnitTests/unit_tests.h \
 
 SOURCES += \
@@ -55,15 +55,15 @@ SOURCES += \
     src/DataStructures/todomanager.cpp \
     src/ExtData/JsonInterface.cpp \
     src/ExtData/dbinterface.cpp \
-    src/HUD/contactedit.cpp \
-    src/HUD/contactexplorer.cpp \
-    src/HUD/contactsearch.cpp \
-    src/HUD/contacttab.cpp \
-    src/HUD/interactionedit.cpp \
-    src/HUD/interactionexplorer.cpp \
+    src/HUD/Contacts/contactedit.cpp \
+    src/HUD/Contacts/contactexplorer.cpp \
+    src/HUD/Contacts/contactsearch.cpp \
+    src/HUD/Contacts/contacttab.cpp \
+    src/HUD/Interactions/interactionedit.cpp \
+    src/HUD/Interactions/interactionexplorer.cpp \
+    src/HUD/Todos/todoexplorer.cpp \
+    src/HUD/Todos/todotab.cpp \
     src/HUD/mainwindow.cpp \
-    src/HUD/todoentry.cpp \
-    src/HUD/todoexplorer.cpp \
     src/UnitTests/unit_tests.cpp \
     src/main.cpp \
 

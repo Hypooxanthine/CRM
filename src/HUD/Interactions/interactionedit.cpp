@@ -1,4 +1,4 @@
-#include "HUD/interactionedit.h"
+#include "HUD/Interactions/interactionedit.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>

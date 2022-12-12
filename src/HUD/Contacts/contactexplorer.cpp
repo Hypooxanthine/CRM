@@ -1,4 +1,4 @@
-#include "HUD/contactexplorer.h"
+#include "HUD/Contacts/contactexplorer.h"
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -9,7 +9,7 @@
 #include <QLabel>
 #include <QMessageBox>
 
-#include "HUD/contactedit.h"
+#include "HUD/Contacts/contactedit.h"
 
 ContactExplorer::ContactExplorer(QWidget *parent, ContactManager* contacts)
     : QWidget(parent), contacts(contacts), mainLayout(new QHBoxLayout()),
