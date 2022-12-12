@@ -1,13 +1,13 @@
-#include "HUD/contacttab.h"
+#include "HUD/Contacts/contacttab.h"
 
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QMessageBox>
 #include <QDate>
 
-#include "HUD/contactsearch.h"
-#include "HUD/contactexplorer.h"
-#include "HUD/contactedit.h"
+#include "HUD/Contacts/contactsearch.h"
+#include "HUD/Contacts/contactexplorer.h"
+#include "HUD/Contacts/contactedit.h"
 
 #include "DataStructures/contactmanager.h"
 #include "DataStructures/contact.h"

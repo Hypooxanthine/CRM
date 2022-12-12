@@ -4,8 +4,8 @@
 
 #include "DataStructures/contactmanager.h"
 #include "ExtData/dbinterface.h"
-#include "HUD/contacttab.h"
-#include "HUD/todoexplorer.h"
+#include "HUD/Contacts/contacttab.h"
+#include "HUD/Todos/todoexplorer.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), contacts(DBInterface::LoadData()),

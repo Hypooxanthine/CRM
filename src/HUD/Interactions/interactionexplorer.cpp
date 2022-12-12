@@ -1,4 +1,4 @@
-﻿#include "HUD/interactionexplorer.h"
+﻿#include "HUD/Interactions/interactionexplorer.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -8,7 +8,7 @@
 #include "DataStructures/interaction.h"
 #include "DataStructures/interactionmanager.h"
 
-#include "HUD/interactionedit.h"
+#include "HUD/Interactions/interactionedit.h"
 
 InteractionExplorer::InteractionExplorer(const InteractionManager& interactions, QWidget *parent)
     : QWidget(parent), interactions(interactions),

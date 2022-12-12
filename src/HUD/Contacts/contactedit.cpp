@@ -1,4 +1,4 @@
-#include "HUD/contactedit.h"
+#include "HUD/Contacts/contactedit.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -11,7 +11,7 @@
 #include <QDir>
 #include <QPixmap>
 
-#include "HUD/interactionexplorer.h"
+#include "HUD/Interactions/interactionexplorer.h"
 
 ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
     : QWidget(parent),
