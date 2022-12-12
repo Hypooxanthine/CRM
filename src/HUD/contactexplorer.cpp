@@ -35,6 +35,22 @@ ContactExplorer::ContactExplorer(QWidget *parent, ContactManager* contacts)
     refreshContacts();
 }
 
+void ContactExplorer::setRestrictedContacts(const ContactManager& contacts)
+{
+    restrictedContacts = contacts;
+
+    restrictedContacts.sort(currentSortValue, currentSortType);
+    refreshContacts();
+}
+
+void ContactExplorer::setRestrictedContacts(ContactManager&& contacts)
+{
+    restrictedContacts = contacts;
+
+    restrictedContacts.sort(currentSortValue, currentSortType);
+    refreshContacts();
+}
+
 void ContactExplorer::refreshContacts()
 {
     clearContacts();
@@ -43,7 +59,7 @@ void ContactExplorer::refreshContacts()
     // 1 because there is already the header in first row.
     size_t i = 1;
 
-    for(const auto& c : *contacts)
+    for(auto& c : restrictedContacts)
     {
         uint8_t j = 0;
         explorerLayout->addWidget(new QLabel(c.getFirstName().c_str(), contactsArea), i, j++);
@@ -52,6 +68,7 @@ void ContactExplorer::refreshContacts()
         explorerLayout->addWidget(new QLabel(c.getPhone().c_str(), contactsArea), i, j++);
         explorerLayout->addWidget(new QLabel(c.getEmail().c_str(), contactsArea), i, j++);
         explorerLayout->addWidget(new QLabel(static_cast<std::string>(c.getDate()).c_str()), i, j++);
+        explorerLayout->addWidget(new QLabel(static_cast<std::string>(c.getLastEditDate()).c_str()), i, j++);
 
         QPushButton* bMore = new QPushButton(tr("..."), contactsArea);
         QPushButton* bDelete = new QPushButton(tr("Delete"), contactsArea);
@@ -84,6 +101,7 @@ void ContactExplorer::addHeader()
     QPushButton* bPhone = new QPushButton(tr("Phone number"), contactsArea);
     QPushButton* bEmail = new QPushButton(tr("Email"), contactsArea);
     QPushButton* bCreationDate = new QPushButton(tr("Creation date"), contactsArea);
+    QPushButton* bLastEditDate = new QPushButton(tr("Last edit date"), contactsArea);
 
     explorerLayout->addWidget(bFirstName, 0, i++);
     explorerLayout->addWidget(bLastName, 0, i++);
@@ -91,6 +109,7 @@ void ContactExplorer::addHeader()
     explorerLayout->addWidget(bPhone, 0, i++);
     explorerLayout->addWidget(bEmail, 0, i++);
     explorerLayout->addWidget(bCreationDate, 0, i++);
+    explorerLayout->addWidget(bLastEditDate, 0, i++);
 
     QWidget::connect(bFirstName, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::FirstName); });
     QWidget::connect(bLastName, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::LastName); });
@@ -98,9 +117,10 @@ void ContactExplorer::addHeader()
     QWidget::connect(bPhone, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::Phone); });
     QWidget::connect(bEmail, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::Email); });
     QWidget::connect(bCreationDate, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::CreationDate); });
+    QWidget::connect(bLastEditDate, &QPushButton::clicked, this, [this](){ sortContacts(ContactManager::SortValue::LastEditDate); });
 }
 
-void ContactExplorer::requestEditContactWindow(const Contact& contact)
+void ContactExplorer::requestEditContactWindow(Contact& contact)
 {
     modifyingContact = contact;
 
@@ -109,30 +129,17 @@ void ContactExplorer::requestEditContactWindow(const Contact& contact)
     contactEdit = new ContactEdit(contact);
     mainLayout->addWidget(contactEdit);
 
-
     QWidget::connect(contactEdit, SIGNAL(validate(Contact)), this, SLOT(editContact(const Contact&)));
 }
 
 void ContactExplorer::editContact(const Contact& newContact)
 {
-    // We do not modify a contact if it becomes the same as a one that already exists.
-    if(contacts->find(newContact) != contacts->end())
-    {
-        QMessageBox::warning(nullptr, tr("Warning"), tr("This contact already exists and therefore won't be added to the contacts list."));
-        return;
-    }
-
-    auto oldIt = contacts->find(modifyingContact);
-    *oldIt = newContact;
-
-    refreshContacts();
+    emit editedContact(modifyingContact, newContact);
 }
 
 void ContactExplorer::deleteContact(const Contact& contact)
 {
-    contacts->remove(contact);
-
-    refreshContacts();
+    emit deletedContact(contact);
 }
 
 void ContactExplorer::sortContacts(const ContactManager::SortValue& sort)
@@ -149,7 +156,7 @@ void ContactExplorer::sortContacts(const ContactManager::SortValue& sort)
         currentSortType = ContactManager::SortType::Ascending;
     }
 
-    contacts->sort(currentSortValue, currentSortType);
+    restrictedContacts.sort(currentSortValue, currentSortType);
 
     refreshContacts();
 }

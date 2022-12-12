@@ -37,6 +37,7 @@ HEADERS += \
     include/HUD/contactexplorer.h \
     include/HUD/contactsearch.h \
     include/HUD/contacttab.h \
+    include/HUD/interactionedit.h \
     include/HUD/interactionexplorer.h \
     include/HUD/mainwindow.h \
     include/HUD/todoentry.h \
@@ -58,6 +59,7 @@ SOURCES += \
     src/HUD/contactexplorer.cpp \
     src/HUD/contactsearch.cpp \
     src/HUD/contacttab.cpp \
+    src/HUD/interactionedit.cpp \
     src/HUD/interactionexplorer.cpp \
     src/HUD/mainwindow.cpp \
     src/HUD/todoentry.cpp \

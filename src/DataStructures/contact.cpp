@@ -4,7 +4,7 @@
 Contact::Contact(const std::string& firstName, const std::string& lastName,
                  const std::string& company, const std::string& email,
                  const std::string& phone, const std::string& photoPath,
-                 const Date& date)
+                 const Date& date, const Date& lastEdit)
 {
     setFirstName(firstName);
     setLastName(lastName);
@@ -13,6 +13,7 @@ Contact::Contact(const std::string& firstName, const std::string& lastName,
     setPhone(phone);
     setPhotoPath(photoPath);
     setDate(date);
+    setLastEditDate(lastEdit);
 }
 
 std::ostream& operator<<(std::ostream& os, const Contact& c){
@@ -20,7 +21,8 @@ std::ostream& operator<<(std::ostream& os, const Contact& c){
           "Company: " << c.getCompany() << std::endl <<
           "email: " << c.getEmail() << std::endl <<
           "phone: " << c.getPhone() << std::endl <<
-          "creationDate: " << c.getDate() << std::endl;
+          "creationDate: " << c.getDate() << std::endl <<
+          "last edit: " << c.getLastEditDate() << std::endl;
 
     os << "Interactions: " << std::endl;
 
@@ -37,5 +39,6 @@ bool Contact::operator==(const Contact& other) const
             && phone == other.phone
             && photoPath == other.photoPath
             && date == other.date
+            && lastEdit == other.lastEdit
             && interactionList == other.interactionList;
 }

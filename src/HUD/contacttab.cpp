@@ -3,7 +3,9 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QMessageBox>
+#include <QDate>
 
+#include "HUD/contactsearch.h"
 #include "HUD/contactexplorer.h"
 #include "HUD/contactedit.h"
 
@@ -13,15 +15,23 @@
 ContactTab::ContactTab(QWidget* parent, ContactManager* contacts)
     : QWidget(parent), contacts(contacts), mainLayout(new QVBoxLayout()),
       bNewContact(new QPushButton(tr("Add new contact"), this)),
+      searcher(new ContactSearch(this)),
       explorer(new ContactExplorer(this, contacts))
 {
     // Main layout
     mainLayout->addWidget(bNewContact);
+    mainLayout->addWidget(searcher);
     mainLayout->addWidget(explorer);
 
     setLayout(mainLayout);
 
     QWidget::connect(bNewContact, SIGNAL(clicked()), this, SLOT(requestNewContactWindow()));
+    QWidget::connect(searcher, SIGNAL(searched()), this, SLOT(extractContacts()));
+    QWidget::connect(explorer, SIGNAL(requestExtraction()), this, SLOT(extractContacts()));
+    QWidget::connect(explorer, SIGNAL(deletedContact(const Contact&)), this, SLOT(deleteContact(const Contact&)));
+    QWidget::connect(explorer, SIGNAL(editedContact(const Contact&, const Contact&)), this, SLOT(editContact(const Contact&, const Contact&)));
+
+    extractContacts();
 }
 
 void ContactTab::requestNewContactWindow()
@@ -43,5 +53,69 @@ void ContactTab::addContact(const Contact& contact)
     }
 
     contacts->add(contact);
-    explorer->refreshContacts();
+    extractContacts();
+}
+
+void ContactTab::extractContacts()
+{
+    ContactManager extracted = *contacts;
+
+    if(!searcher->getFirstName().isEmpty())
+        extracted = extracted.extractByFirstName(searcher->getFirstName().toStdString());
+    if(!searcher->getLastName().isEmpty())
+        extracted = extracted.extractByLastName(searcher->getLastName().toStdString());
+    if(!searcher->getCompany().isEmpty())
+        extracted = extracted.extractByCompany(searcher->getCompany().toStdString());
+
+    // Creation date
+    {
+        Date from, to;
+        QDate qFrom = searcher->getFromDate();
+        QDate qTo = searcher->getToDate();
+
+        from.setYear(qFrom.year());
+        from.setMonth(qFrom.month());
+        from.setDay(qFrom.day());
+        to.setYear(qTo.year());
+        to.setMonth(qTo.month());
+        to.setDay(qTo.day());
+
+        extracted = extracted.extractByCreationDate(from, to);
+    }
+
+    // Last edit date
+    {
+        Date from, to;
+        QDate qFrom = searcher->getFromLastEditDate();
+        QDate qTo = searcher->getToLastEditDate();
+
+        from.setYear(qFrom.year());
+        from.setMonth(qFrom.month());
+        from.setDay(qFrom.day());
+        to.setYear(qTo.year());
+        to.setMonth(qTo.month());
+        to.setDay(qTo.day());
+
+        extracted = extracted.extractByLastEditDate(from, to);
+    }
+
+    extracted = extracted.extractHeadNumber(searcher->getContactsNumber());
+
+    explorer->setRestrictedContacts(std::move(extracted));
+}
+
+void ContactTab::deleteContact(const Contact& contact)
+{
+    contacts->remove(contact);
+}
+
+void ContactTab::editContact(const Contact& oldContact, const Contact& newContact)
+{
+    auto oldIt = contacts->find(oldContact);
+    if(oldIt != contacts->end())
+    {
+        *oldIt = newContact;
+        oldIt->setLastEditDate(Date::today());
+        extractContacts();
+    }
 }

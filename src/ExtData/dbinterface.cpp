@@ -37,10 +37,11 @@ void DBInterface::Init()
                            "'Phone'	TEXT NOT NULL,"
                            "'PhotoPath'	TEXT,"
                            "'CreationDate'	TEXT NOT NULL,"
+                           "'LastEdit'	TEXT NOT NULL"
                            "UNIQUE('Phone'),"
                            "UNIQUE('Email'),"
                            "PRIMARY KEY('cID' AUTOINCREMENT),"
-                           "UNIQUE('PhotoPath')"
+                           "UNIQUE('PhotoPath'),"
                            ")");
             querry.exec();
 
@@ -96,6 +97,7 @@ ContactManager DBInterface::LoadData()
             c.setPhone(contactsQuery.value("Phone").toString().toStdString());
             c.setPhotoPath(contactsQuery.value("PhotoPath").toString().toStdString());
             c.setDate(Date::parseDate(contactsQuery.value("CreationDate").toString().toStdString()).value());
+            c.setLastEditDate(Date::parseDate(contactsQuery.value("LastEdit").toString().toStdString()).value());
 
         // Getting all the Interactions related to the current Contact.
         QSqlQuery interactionsQuery;
@@ -179,8 +181,8 @@ bool DBInterface::SaveData(const ContactManager& contacts)
         QSqlQuery contactQuery;
             contactQuery.prepare
             (
-                "INSERT INTO Contact(FirstName, LastName, Company, Email, Phone, PhotoPath, CreationDate) "
-                "VALUES(:FirstName, :LastName, :Company, :Email, :Phone, :PhotoPath, :CreationDate)"
+                "INSERT INTO Contact(FirstName, LastName, Company, Email, Phone, PhotoPath, CreationDate, LastEdit) "
+                "VALUES(:FirstName, :LastName, :Company, :Email, :Phone, :PhotoPath, :CreationDate, :LastEdit)"
             );
 
             contactQuery.bindValue(":FirstName", QString::fromStdString(c.getFirstName()));
@@ -190,6 +192,7 @@ bool DBInterface::SaveData(const ContactManager& contacts)
             contactQuery.bindValue(":Phone", QString::fromStdString(c.getPhone()));
             contactQuery.bindValue(":PhotoPath", QString::fromStdString(c.getPhotoPath()));
             contactQuery.bindValue(":CreationDate", QString::fromStdString(static_cast<std::string>(c.getDate())));
+            contactQuery.bindValue(":LastEdit", QString::fromStdString(static_cast<std::string>(c.getLastEditDate())));
 
         if(!TestQuery(contactQuery))
             return false;

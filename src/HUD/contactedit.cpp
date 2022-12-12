@@ -34,14 +34,13 @@ ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
       cancelButton(new QPushButton(tr("Cancel"), this)), validateButton(new QPushButton(tr("OK"), this)),
 
       // Interactions
-      interactionsExplorer(new InteractionExplorer(this))
+      interactionsExplorer(nullptr)
 {
     // Window
     setWindowTitle(windowTitle);
 
     // Layouts
     mainLayout->addLayout(form);
-    mainLayout->addWidget(interactionsExplorer);
     mainLayout->addLayout(buttonsLayout);
     mainLayout->setAlignment(Qt::AlignTop);
     mainLayout->setMargin(0);
@@ -77,6 +76,10 @@ ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
     scrollArea->setWidget(scrollWidget);
     scrollArea->setWidgetResizable(true);
 
+    // No contact specified : we are creating a contact, not editing it : date is today.
+    contact.setDate(Date::today());
+    contact.setLastEditDate(Date::today());
+
     // Connexions
     QWidget::connect(photoEdit, SIGNAL(textChanged(const QString&)), this, SLOT(updatePhotoImg()));
     QWidget::connect(photoFileButton, SIGNAL(clicked()), this, SLOT(getPhotoFromFile()));
@@ -91,35 +94,41 @@ ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
     QWidget::connect(photoEdit, SIGNAL(returnPressed()), this, SLOT(onValidate()));
 }
 
-ContactEdit::ContactEdit(const Contact& contact, const QString& windowTitle, QWidget* parent)
+ContactEdit::ContactEdit(Contact& contact, const QString& windowTitle, QWidget* parent)
     : ContactEdit(windowTitle, parent)
 {
     setContact(contact);
 }
 
-void ContactEdit::setContact(const Contact &contact)
+void ContactEdit::setContact(Contact &contact)
 {
+    this->contact = contact;
+
     firstNameEdit->setText(QString::fromStdString(contact.getFirstName()));
     lastNameEdit->setText(QString::fromStdString(contact.getLastName()));
     companyEdit->setText(QString::fromStdString(contact.getCompany()));
     emailEdit->setText(QString::fromStdString(contact.getEmail()));
     phoneEdit->setText(QString::fromStdString(contact.getPhone()));
     photoEdit->setText(QString::fromStdString(contact.getPhotoPath()));
+
+    interactionsExplorer = new InteractionExplorer(contact.getInteractions());
+    mainLayout->insertWidget(1, interactionsExplorer);
+
+    interactionsExplorer->setInteractions(contact.getInteractions());
+
+    QWidget::connect(interactionsExplorer, SIGNAL(updated(const InteractionManager&)), this, SLOT(updateInteractions(const InteractionManager&)));
 }
 
 void ContactEdit::onValidate()
 {
-    Contact out;
+    contact.setFirstName(firstNameEdit->text().toStdString());
+    contact.setLastName(lastNameEdit->text().toStdString());
+    contact.setCompany(companyEdit->text().toStdString());
+    contact.setEmail(emailEdit->text().toStdString());
+    contact.setPhone(phoneEdit->text().toStdString());
+    contact.setPhotoPath(photoEdit->text().toStdString());
 
-    out.setFirstName(firstNameEdit->text().toStdString());
-    out.setLastName(lastNameEdit->text().toStdString());
-    out.setCompany(companyEdit->text().toStdString());
-    out.setEmail(emailEdit->text().toStdString());
-    out.setPhone(phoneEdit->text().toStdString());
-    out.setPhotoPath(photoEdit->text().toStdString());
-    out.setDate(Date::today());
-
-    emit validate(out);
+    emit validate(contact);
 
     this->close();
 }
@@ -138,6 +147,16 @@ void ContactEdit::updatePhotoImg()
     if(img->isNull())
         photoImgLabel->clear();
     else
-        photoImgLabel->setPixmap(QPixmap::fromImage(*img));
+    {
+        const int w = 200, h = 200;
 
+        photoImgLabel->setPixmap(QPixmap::fromImage(img->scaled(w, h, Qt::KeepAspectRatio)));
+    }
+
+}
+
+void ContactEdit::updateInteractions(const InteractionManager& interactions)
+{
+    contact.setInteractionManager(interactions);
+    interactionsExplorer->setInteractions(contact.getInteractions());
 }

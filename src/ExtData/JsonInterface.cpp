@@ -59,6 +59,7 @@ QJsonObject JsonInterface::contact_TO_QJsonObject(const Contact& contact)
         {"phone", QString::fromStdString(contact.getPhone())},
         {"photoPath", QString::fromStdString(contact.getPhotoPath())},
         {"creationDate",  QString::fromStdString(static_cast<std::string>(contact.getDate()))},
+        {"lastEdit",  QString::fromStdString(static_cast<std::string>(contact.getLastEditDate()))},
         {"interactionList", interactionList_TO_QJsonArray(contact.getInteractions())}
     };
     return contact_jsonObj;
@@ -175,11 +176,13 @@ Contact JsonInterface::contactQJsonObject_TO_contact(const QJsonObject& object)
     std::string phone = object.value("phone").toString().toStdString();
     std::string photoPath = object.value("photoPath").toString().toStdString();
     std::string creationDate = object.value("creationDate").toString().toStdString();
+    std::string lastEdit = object.value("lastEdit").toString().toStdString();
 
     Contact contact = Contact(  firstName, lastName,
                                 company, email,
                                 phone, photoPath,
-                                Date::parseDate(creationDate).value());
+                                Date::parseDate(creationDate).value(),
+                                Date::parseDate(lastEdit).value() );
 
     QJsonArray interactionList = object.value("interactionList").toArray();
     InteractionManager interactionManager = interactionListQJsonArray_TO_interactionList(interactionList);

@@ -11,6 +11,7 @@ class QPushButton;
 class ContactManager;
 class Contact;
 
+class ContactSearch;
 class ContactExplorer;
 
 class ContactTab : public QWidget
@@ -25,6 +26,10 @@ private: // Private methods
 private slots:
     void requestNewContactWindow();
     void addContact(const Contact& c);
+    void extractContacts();
+
+    void deleteContact(const Contact& contact);
+    void editContact(const Contact& oldContact, const Contact& newContact);
 
 private: // Private members
     ContactManager* contacts;
@@ -32,5 +37,6 @@ private: // Private members
     QVBoxLayout* mainLayout;
 
     QPushButton* bNewContact;
+    ContactSearch* searcher;
     ContactExplorer* explorer;
 };
