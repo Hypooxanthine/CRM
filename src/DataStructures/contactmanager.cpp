@@ -52,7 +52,7 @@ ContactManager ContactManager::extractHeadNumber(const size_t& nb)
     for(auto it = data.begin() ; it != data.end() && out.getSize() < nb ; it++)
         out.add(*it);
 
-    return std::move(out);
+    return out;
 }
 
 ContactManager ContactManager::extractByFirstName(const std::string& firstName)

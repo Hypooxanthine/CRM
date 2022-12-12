@@ -20,8 +20,12 @@ public: // Public methods
     void setRestrictedContacts(const ContactManager& contacts);
     void setRestrictedContacts(ContactManager&& contacts);
 
+    inline const ContactManager& getRestrictedContacts() const { return restrictedContacts; }
+
 signals:
     void requestExtraction();
+    void editedContact(const Contact& oldContact, const Contact& newContact);
+    void deletedContact(const Contact& contact);
 
 public slots:
     void refreshContacts();
@@ -39,14 +43,13 @@ private: // Private methods
 private: // Private members
     ContactManager* contacts;
     ContactManager restrictedContacts;
+    Contact modifyingContact;
 
     ContactEdit* contactEdit = nullptr;
 
     QHBoxLayout* mainLayout;
     QGridLayout* explorerLayout;
     QScrollArea* contactsArea;
-
-    Contact modifyingContact;
 
     ContactManager::SortValue currentSortValue = ContactManager::SortValue::FirstName;
     ContactManager::SortType currentSortType = ContactManager::SortType::Ascending;

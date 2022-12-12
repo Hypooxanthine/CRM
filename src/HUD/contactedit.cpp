@@ -76,6 +76,9 @@ ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
     scrollArea->setWidget(scrollWidget);
     scrollArea->setWidgetResizable(true);
 
+    // No contact specified : we are creating a contact, not editing it : date is today.
+    contact.setDate(Date::today());
+
     // Connexions
     QWidget::connect(photoEdit, SIGNAL(textChanged(const QString&)), this, SLOT(updatePhotoImg()));
     QWidget::connect(photoFileButton, SIGNAL(clicked()), this, SLOT(getPhotoFromFile()));
@@ -107,8 +110,12 @@ void ContactEdit::setContact(Contact &contact)
     phoneEdit->setText(QString::fromStdString(contact.getPhone()));
     photoEdit->setText(QString::fromStdString(contact.getPhotoPath()));
 
-    interactionsExplorer = new InteractionExplorer(&contact.getInteractions());
+    interactionsExplorer = new InteractionExplorer(contact.getInteractions());
     mainLayout->insertWidget(1, interactionsExplorer);
+
+    interactionsExplorer->setInteractions(contact.getInteractions());
+
+    QWidget::connect(interactionsExplorer, SIGNAL(updated(const InteractionManager&)), this, SLOT(updateInteractions(const InteractionManager&)));
 }
 
 void ContactEdit::onValidate()
@@ -121,7 +128,7 @@ void ContactEdit::onValidate()
     out.setEmail(emailEdit->text().toStdString());
     out.setPhone(phoneEdit->text().toStdString());
     out.setPhotoPath(photoEdit->text().toStdString());
-    out.setDate(Date::today());
+    out.setDate(contact.getDate());
 
     emit validate(out);
 
@@ -144,4 +151,10 @@ void ContactEdit::updatePhotoImg()
     else
         photoImgLabel->setPixmap(QPixmap::fromImage(*img));
 
+}
+
+void ContactEdit::updateInteractions(const InteractionManager& interactions)
+{
+    contact.setInteractionManager(interactions);
+    emit validate(contact);
 }

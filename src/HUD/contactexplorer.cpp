@@ -125,29 +125,18 @@ void ContactExplorer::requestEditContactWindow(Contact& contact)
     contactEdit = new ContactEdit(contact);
     mainLayout->addWidget(contactEdit);
 
-
     QWidget::connect(contactEdit, SIGNAL(validate(Contact)), this, SLOT(editContact(const Contact&)));
 }
 
 void ContactExplorer::editContact(const Contact& newContact)
 {
-    // We do not modify a contact if it becomes the same as a one that already exists.
-    if(contacts->find(newContact) != contacts->end())
-    {
-        QMessageBox::warning(nullptr, tr("Warning"), tr("This contact already exists and therefore won't be added to the contacts list."));
-        return;
-    }
-
-    auto oldIt = contacts->find(modifyingContact);
-    *oldIt = newContact;
-
+    emit editedContact(modifyingContact, newContact);
     requestExtraction();
 }
 
 void ContactExplorer::deleteContact(const Contact& contact)
 {
-    contacts->remove(contact);
-
+    emit deletedContact(contact);
     requestExtraction();
 }
 

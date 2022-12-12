@@ -30,4 +30,6 @@ void InteractionEdit::onValidate()
     Interaction out(textEdit->toPlainText().toStdString());
 
     emit validate(out);
+
+    close();
 }

@@ -30,6 +30,7 @@ private slots:
     void onValidate();
     void getPhotoFromFile();
     void updatePhotoImg();
+    void updateInteractions(const InteractionManager& interactions);
 
 private: // Private members
     Contact contact;

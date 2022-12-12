@@ -28,6 +28,9 @@ private slots:
     void addContact(const Contact& c);
     void extractContacts();
 
+    void deleteContact(const Contact& contact);
+    void editContact(const Contact& oldContact, const Contact& newContact);
+
 private: // Private members
     ContactManager* contacts;
 

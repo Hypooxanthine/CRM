@@ -28,6 +28,8 @@ ContactTab::ContactTab(QWidget* parent, ContactManager* contacts)
     QWidget::connect(bNewContact, SIGNAL(clicked()), this, SLOT(requestNewContactWindow()));
     QWidget::connect(searcher, SIGNAL(searched()), this, SLOT(extractContacts()));
     QWidget::connect(explorer, SIGNAL(requestExtraction()), this, SLOT(extractContacts()));
+    QWidget::connect(explorer, SIGNAL(deletedContact(const Contact&)), this, SLOT(deleteContact(const Contact&)));
+    QWidget::connect(explorer, SIGNAL(editedContact(const Contact&, const Contact&)), this, SLOT(editContact(const Contact&, const Contact&)));
 
     extractContacts();
 }
@@ -79,4 +81,15 @@ void ContactTab::extractContacts()
     extracted = extracted.extractByCreationDate(from, to);
 
     explorer->setRestrictedContacts(std::move(extracted));
+}
+
+void ContactTab::deleteContact(const Contact& contact)
+{
+    contacts->remove(contact);
+}
+
+void ContactTab::editContact(const Contact& oldContact, const Contact& newContact)
+{
+    auto oldIt = contacts->find(oldContact);
+    if(oldIt != contacts->end()) *oldIt = newContact;
 }

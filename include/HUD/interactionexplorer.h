@@ -2,21 +2,25 @@
 
 #include <QWidget>
 
+#include "DataStructures/interactionmanager.h"
+
 class QVBoxLayout;
 class QHBoxLayout;
 class QLabel;
 class QPushButton;
 
-class InteractionManager;
 class Interaction;
 
 class InteractionExplorer : public QWidget
 {
     Q_OBJECT
 public:
-    explicit InteractionExplorer(InteractionManager* interactions, QWidget *parent = nullptr);
+    explicit InteractionExplorer(const InteractionManager& interactions, QWidget *parent = nullptr);
+
+    void setInteractions(const InteractionManager& interactions);
 
 signals:
+    void updated(const InteractionManager& interactions);
 
 private: // Private methods
     void clearInteractionsHUD();
@@ -29,7 +33,7 @@ private slots:
     void requestInteractionEdit();
 
 private: // Private members
-    InteractionManager* interactions;
+    InteractionManager interactions;
 
     // Layouts
     QVBoxLayout* mainLayout;
