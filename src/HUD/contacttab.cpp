@@ -58,7 +58,7 @@ void ContactTab::addContact(const Contact& contact)
 
 void ContactTab::extractContacts()
 {
-    ContactManager extracted = contacts->extractHeadNumber(searcher->getContactsNumber());
+    ContactManager extracted = *contacts;
 
     if(!searcher->getFirstName().isEmpty())
         extracted = extracted.extractByFirstName(searcher->getFirstName().toStdString());
@@ -79,6 +79,8 @@ void ContactTab::extractContacts()
     to.setDay(qTo.day());
 
     extracted = extracted.extractByCreationDate(from, to);
+
+    extracted = extracted.extractHeadNumber(searcher->getContactsNumber());
 
     explorer->setRestrictedContacts(std::move(extracted));
 }

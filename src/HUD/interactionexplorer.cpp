@@ -63,9 +63,11 @@ void InteractionExplorer::addInteractionHUD(const Interaction& interaction)
     QLabel* text = new QLabel(QString::fromStdString(interaction.getContent()));
     QPushButton* deleteButton = new QPushButton(tr("Delete"));
 
-    text->setStyleSheet("border: 1px solid black");
+    text->setStyleSheet("border: 1px solid black; padding: 5px");
+    text->setWordWrap(true);
+    text->setAlignment(Qt::AlignJustify);
 
-    layout->setAlignment(Qt::AlignLeft);
+    deleteButton->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Preferred);
 
     layout->addWidget(text);
     layout->addWidget(deleteButton);
