@@ -26,10 +26,7 @@ private:
 
     QToolBar* toolBar;
 
-
-
 private slots:
     void exportJsonAction();
-
     void importJsonAction();
 };

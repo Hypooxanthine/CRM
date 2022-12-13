@@ -2,7 +2,10 @@
 
 #include <QWidget>
 
+class QVBoxLayout;
+
 class ContactManager;
+class TodoExplorer;
 
 class TodoTab : public QWidget
 {
@@ -10,9 +13,17 @@ class TodoTab : public QWidget
 public:
     explicit TodoTab(ContactManager* contacts, QWidget *parent = nullptr);
 
-    void refreshContacts();
-
 signals:
+
+public slots:
+    void updateContacts();
+
+private: // Private members
+    ContactManager* contacts;
+
+    QVBoxLayout* mainLayout;
+
+    TodoExplorer* explorer;
 
 };
 

@@ -1,8 +1,10 @@
 #include "HUD/mainwindow.h"
 
+#include <QApplication>
 #include <QPushButton>
 #include <QToolButton>
 #include <QFileDialog>
+#include <QApplication>
 
 #include "DataStructures/contactmanager.h"
 #include "ExtData/dbinterface.h"
@@ -35,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent)
     toolBar->addAction(importAction);
     QObject::connect(importAction, SIGNAL(triggered()), this, SLOT(importJsonAction()));
 
+    QWidget::connect(contactsTab, SIGNAL(updated()), todosTab, SLOT(updateContacts()));
+
 }
 
 MainWindow::~MainWindow()
@@ -54,7 +58,8 @@ void MainWindow::importJsonAction()
 {
     auto path = QFileDialog::getOpenFileName(this, tr("Import from json"), QDir::currentPath());
     if(path.isEmpty()) return;
+
     this->contacts = JsonInterface::ImportData(path);
     this->contactsTab = new ContactTab(tabs, &contacts);
-    this->todosTab->refreshContacts();
+    this->todosTab = new TodoTab(&contacts, tabs);
 }

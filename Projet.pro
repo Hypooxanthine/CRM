@@ -39,6 +39,7 @@ HEADERS += \
     include/HUD/Contacts/contacttab.h \
     include/HUD/Interactions/interactionedit.h \
     include/HUD/Interactions/interactionexplorer.h \
+    include/HUD/Todos/todoentry.h \
     include/HUD/Todos/todoexplorer.h \
     include/HUD/Todos/todotab.h \
     include/HUD/mainwindow.h \
@@ -61,10 +62,17 @@ SOURCES += \
     src/HUD/Contacts/contacttab.cpp \
     src/HUD/Interactions/interactionedit.cpp \
     src/HUD/Interactions/interactionexplorer.cpp \
+    src/HUD/Todos/todoentry.cpp \
     src/HUD/Todos/todoexplorer.cpp \
     src/HUD/Todos/todotab.cpp \
     src/HUD/mainwindow.cpp \
     src/UnitTests/unit_tests.cpp \
     src/main.cpp \
 
-FORMS +=
+TRANSLATIONS += \
+    translations/french.ts
+
+DISTFILES +=
+
+RESOURCES += \
+    translations/translations.qrc

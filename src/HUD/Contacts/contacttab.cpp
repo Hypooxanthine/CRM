@@ -102,11 +102,15 @@ void ContactTab::extractContacts()
     extracted = extracted.extractHeadNumber(searcher->getContactsNumber());
 
     explorer->setRestrictedContacts(std::move(extracted));
+
+    emit updated();
 }
 
 void ContactTab::deleteContact(const Contact& contact)
 {
     contacts->remove(contact);
+
+    extractContacts();
 }
 
 void ContactTab::editContact(const Contact& oldContact, const Contact& newContact)

@@ -21,6 +21,9 @@ class ContactTab : public QWidget
 public: // Public methods
     ContactTab(QWidget* parent, ContactManager* contacts);
 
+signals:
+    void updated();
+
 private: // Private methods
 
 private slots:
