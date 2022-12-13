@@ -4,10 +4,52 @@
 #define JSONFILE_NAME "data.json"
 #define JSONFILE_PATH JSONFILE_DIRECTORY JSONFILE_NAME
 
-
- void JsonInterface::ExportData(const ContactManager& contactManager)
+//*/////////////////////////////////////////////////////////////
+//Useful public methods to import data from json file
+//*/////////////////////////////////////////////////////////////
+ContactManager JsonInterface::ImportData()
 {
-    QFile file (JSONFILE_PATH);
+    return ImportData(JSONFILE_PATH);
+}
+
+ContactManager JsonInterface::ImportData(QString path)
+{
+    ContactManager contactManager;
+    QFile file (path);
+    //couldn't open json file return an empy ContactManager.
+    if(! file.open( QIODevice::ReadOnly))
+        return contactManager;
+    QByteArray bytes = file.readAll();
+    file.close();
+
+    QJsonParseError jsonError;
+    QJsonDocument JSONdoc = QJsonDocument::fromJson( bytes, &jsonError );
+
+    if( jsonError.error != QJsonParseError::NoError )
+            {
+                std::cout << "fromJson failed: " << jsonError.errorString().toStdString() << std::endl;
+                return contactManager;
+            }
+            if( JSONdoc.isObject())
+            {
+                QJsonObject data = JSONdoc.object();
+                QJsonArray contactList = data.value("Data").toArray();
+                contactManager = contactListQJsonArray_TO_contactList(contactList);
+            }
+    return contactManager;
+}
+
+//*/////////////////////////////////////////////////////////////
+//Useful public methods to export data from json file
+//*/////////////////////////////////////////////////////////////
+void JsonInterface::ExportData(const ContactManager& contactManager)
+{
+     ExportData(contactManager, JSONFILE_PATH);
+}
+
+void JsonInterface::ExportData(const ContactManager& contactManager, QString path)
+{
+    QFile file (path);
     QJsonObject data{
         {"Data",contactList_TO_QJsonArray(contactManager)}
     };
@@ -28,6 +70,9 @@
         }
 }
 
+//*///////////////////////////////////////////////////////////////////
+//Useful private methods to export data from json file
+//*///////////////////////////////////////////////////////////////////
 QJsonArray JsonInterface::contactList_TO_QJsonArray(const ContactManager& contactManager)
 {
     QJsonArray contactList_QJsonArray;
@@ -43,7 +88,6 @@ QJsonArray JsonInterface::contactList_TO_QJsonArray(const ContactManager& contac
     }
     else
     {
-        contactList_QJsonArray.push_back(" no contact ! ");
         return contactList_QJsonArray;
     }
 }
@@ -80,7 +124,6 @@ QJsonArray JsonInterface::interactionList_TO_QJsonArray(const InteractionManager
     }
     else
     {
-        interactionList_QJsonArray.push_back(" no interaction ! ");
         return interactionList_QJsonArray;
     }
 }
@@ -113,7 +156,6 @@ QJsonArray JsonInterface::todoList_TO_QJsonArray(const TodoManager& todoManager)
     }
     else
     {
-        todoList_QJsonArray.push_back(" no todo ! ");
         return todoList_QJsonArray;
     }
 }
@@ -128,33 +170,9 @@ QJsonObject JsonInterface::todo_TO_QJsonObject(const Todo& todo)
     return todo_jsonObj;
 }
 
-ContactManager JsonInterface::ImportData()
-{
-    ContactManager contactManager;
-    QFile file (JSONFILE_PATH);
-    //couldn't open json file return an empy ContactManager.
-    if(! file.open( QIODevice::ReadOnly))
-        return contactManager;
-    QByteArray bytes = file.readAll();
-    file.close();
-
-    QJsonParseError jsonError;
-    QJsonDocument JSONdoc = QJsonDocument::fromJson( bytes, &jsonError );
-
-    if( jsonError.error != QJsonParseError::NoError )
-            {
-                std::cout << "fromJson failed: " << jsonError.errorString().toStdString() << std::endl;
-                return contactManager;
-            }
-            if( JSONdoc.isObject())
-            {
-                QJsonObject data = JSONdoc.object();
-                QJsonArray contactList = data.value("Data").toArray();
-                contactManager = contactListQJsonArray_TO_contactList(contactList);
-            }
-    return contactManager;
-}
-
+//*///////////////////////////////////////////////////////////////////
+//Useful private methods to import data from json file
+//*///////////////////////////////////////////////////////////////////
 ContactManager JsonInterface::contactListQJsonArray_TO_contactList(const QJsonArray& contactList)
 {
     ContactManager contactManager;

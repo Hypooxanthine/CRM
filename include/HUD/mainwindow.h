@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include <QTabWidget>
+#include <QToolBar>
 
 #include "DataStructures/contactmanager.h"
 
@@ -22,4 +23,13 @@ private:
     QTabWidget* tabs;
     ContactTab* contactsTab;
     TodoExplorer* todosTab;
+
+    QToolBar* toolBar;
+
+
+
+private slots:
+    void exportJsonAction();
+
+    void importJsonAction();
 };
