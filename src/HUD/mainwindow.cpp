@@ -5,13 +5,13 @@
 #include "DataStructures/contactmanager.h"
 #include "ExtData/dbinterface.h"
 #include "HUD/Contacts/contacttab.h"
-#include "HUD/Todos/todoexplorer.h"
+#include "HUD/Todos/todotab.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), contacts(DBInterface::LoadData()),
       tabs(new QTabWidget(this)),
       contactsTab(new ContactTab(tabs, &contacts)),
-      todosTab(new TodoExplorer(tabs))
+      todosTab(new TodoTab(&contacts, tabs))
 {
     // The window is maximized : it fills the screen but is not in fullscreen.
     showMaximized();

@@ -1,6 +1,8 @@
 #include "HUD/Todos/todotab.h"
 
-TodoTab::TodoTab(QWidget *parent)
+#include "DataStructures/contactmanager.h"
+
+TodoTab::TodoTab(ContactManager* contacts, QWidget *parent)
     : QWidget(parent)
 {
 

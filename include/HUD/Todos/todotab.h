@@ -2,11 +2,13 @@
 
 #include <QWidget>
 
+class ContactManager;
+
 class TodoTab : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TodoTab(QWidget *parent = nullptr);
+    explicit TodoTab(ContactManager* contacts, QWidget *parent = nullptr);
 
 signals:
 
