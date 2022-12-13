@@ -241,25 +241,23 @@
     <message>
         <location filename="../src/HUD/mainwindow.cpp" line="36"/>
         <source>&amp;Import from json</source>
-        <translation>&amp;Improt depuis un json</translation>
+        <translation>&amp;Import depuis un json</translation>
     </message>
     <message>
-        <location filename="../src/HUD/mainwindow.cpp" line="40"/>
         <source>English</source>
-        <translation>Anglais</translation>
+        <translation type="vanished">Anglais</translation>
     </message>
     <message>
-        <location filename="../src/HUD/mainwindow.cpp" line="44"/>
         <source>French</source>
-        <translation>Français</translation>
+        <translation type="vanished">Français</translation>
     </message>
     <message>
-        <location filename="../src/HUD/mainwindow.cpp" line="59"/>
+        <location filename="../src/HUD/mainwindow.cpp" line="51"/>
         <source>Export to json</source>
         <translation>Exportation en json</translation>
     </message>
     <message>
-        <location filename="../src/HUD/mainwindow.cpp" line="67"/>
+        <location filename="../src/HUD/mainwindow.cpp" line="59"/>
         <source>Import from json</source>
         <translation>Importation depuis un json</translation>
     </message>
