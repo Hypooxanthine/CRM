@@ -213,8 +213,6 @@ void UnitTest::Test_Json()
         ContactManager toExport;
             toExport.add(Contact("prenom1", "nom1", "entreprise1", "email1", "06 06 06 06 01", "photos/photo1.png", Date::today(), Date::today()));
                 toExport.getBack().getInteractions().add(Interaction("Content1", Date::today()));
-                    toExport.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
-                    toExport.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));
                 toExport.getBack().getInteractions().add(Interaction("Content2", Date::today()));
                     toExport.getBack().getInteractions().getBack().getTodos().add(Todo("Content1", Date::today()));
                     toExport.getBack().getInteractions().getBack().getTodos().add(Todo("Content2", Date::today()));

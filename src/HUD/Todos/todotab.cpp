@@ -7,3 +7,9 @@ TodoTab::TodoTab(ContactManager* contacts, QWidget *parent)
 {
 
 }
+
+
+void TodoTab::refreshContacts()
+{
+
+}

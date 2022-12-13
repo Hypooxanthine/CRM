@@ -1,9 +1,12 @@
 #include "HUD/mainwindow.h"
 
 #include <QPushButton>
+#include <QToolButton>
+#include <QFileDialog>
 
 #include "DataStructures/contactmanager.h"
 #include "ExtData/dbinterface.h"
+#include "ExtData/JsonInterface.h"
 #include "HUD/Contacts/contacttab.h"
 #include "HUD/Todos/todotab.h"
 
@@ -20,6 +23,18 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(tabs);
     tabs->addTab(contactsTab, tr("Contacts"));
     tabs->addTab(todosTab, tr("Upcoming tasks"));
+
+    toolBar = new QToolBar(this);
+    addToolBar(Qt::TopToolBarArea, toolBar);
+
+    QAction* exportAction = new QAction(tr("&Export to json"), this);
+    toolBar->addAction(exportAction);
+    QObject::connect(exportAction, SIGNAL(triggered()), this, SLOT(exportJsonAction()));
+
+    QAction* importAction = new QAction(tr("&Import from json"), this);
+    toolBar->addAction(importAction);
+    QObject::connect(importAction, SIGNAL(triggered()), this, SLOT(importJsonAction()));
+
 }
 
 MainWindow::~MainWindow()
@@ -27,3 +42,19 @@ MainWindow::~MainWindow()
     DBInterface::SaveData(contacts);
 }
 
+void MainWindow::exportJsonAction()
+{
+    auto path = QFileDialog::getSaveFileName(this, tr("Export to json"), QDir::currentPath());
+    if(path.isEmpty()) return;
+
+    JsonInterface::ExportData(this->contacts, path);
+}
+
+void MainWindow::importJsonAction()
+{
+    auto path = QFileDialog::getOpenFileName(this, tr("Import from json"), QDir::currentPath());
+    if(path.isEmpty()) return;
+    this->contacts = JsonInterface::ImportData(path);
+    this->contactsTab = new ContactTab(tabs, &contacts);
+    this->todosTab->refreshContacts();
+}

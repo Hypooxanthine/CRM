@@ -10,6 +10,8 @@ class TodoTab : public QWidget
 public:
     explicit TodoTab(ContactManager* contacts, QWidget *parent = nullptr);
 
+    void refreshContacts();
+
 signals:
 
 };
