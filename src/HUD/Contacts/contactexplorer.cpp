@@ -20,7 +20,7 @@ ContactExplorer::ContactExplorer(QWidget *parent, ContactManager* contacts)
 
     // Explorer layout
     explorerLayout->setAlignment(Qt::AlignTop);
-    explorerLayout->setMargin(0);
+    //explorerLayout->setMargin(0);
     explorerLayout->setContentsMargins(0, 0, 0, 0);
     explorerLayout->setSizeConstraint(QLayout::SetMinimumSize);
 

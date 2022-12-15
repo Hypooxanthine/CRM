@@ -60,6 +60,6 @@ void MainWindow::importJsonAction()
     if(path.isEmpty()) return;
 
     this->contacts = JsonInterface::ImportData(path);
-    this->contactsTab = new ContactTab(tabs, &contacts);
-    this->todosTab = new TodoTab(&contacts, tabs);
+    this->contactsTab->extractContacts();
+    this->todosTab->updateContacts();
 }

@@ -17,7 +17,7 @@ TodoExplorer::TodoExplorer(ContactManager* contacts, QWidget *parent)
 {
     setLayout(mainLayout);
     explorerLayout->setAlignment(Qt::AlignTop);
-    explorerLayout->setMargin(0);
+    //explorerLayout->setMargin(0);
     explorerLayout->setContentsMargins(0, 0, 0, 0);
     explorerLayout->setSizeConstraint(QLayout::SetMinimumSize);
 

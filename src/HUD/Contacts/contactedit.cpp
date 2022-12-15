@@ -43,7 +43,7 @@ ContactEdit::ContactEdit(const QString& windowTitle, QWidget *parent)
     mainLayout->addLayout(form);
     mainLayout->addLayout(buttonsLayout);
     mainLayout->setAlignment(Qt::AlignTop);
-    mainLayout->setMargin(0);
+    //mainLayout->setMargin(0);
     mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->setSizeConstraint(QLayout::SetMinimumSize);
 

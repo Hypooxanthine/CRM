@@ -26,10 +26,12 @@ signals:
 
 private: // Private methods
 
+public slots:
+    void extractContacts();
+
 private slots:
     void requestNewContactWindow();
     void addContact(const Contact& c);
-    void extractContacts();
 
     void deleteContact(const Contact& contact);
     void editContact(const Contact& oldContact, const Contact& newContact);
